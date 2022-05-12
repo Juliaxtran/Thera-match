@@ -15,4 +15,5 @@ CREATE TABLE therapists (
   years_of_practice SMALLINT DEFAULT 0,
   title VARCHAR(255) NOT NULL,
   session_type VARCHAR(255) NOT NULL
+  about text
 );
