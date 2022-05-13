@@ -1,0 +1,2 @@
+INSERT INTO users (first_name, last_name, email, phone_number, password, gender, image, date_of_birth, location, cost_per_session, years_of_practice, title,  session_type, about)
+VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *;
