@@ -17,3 +17,4 @@ pool.connect().then(() => {
 })
 
 module.exports = pool;
+
