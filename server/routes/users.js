@@ -1,7 +1,7 @@
 
 
 const router = require('express').Router();
-const bcrypt = require('brypt');
+const bcrypt = require('bcryptjs');
 
 
 module.exports = (db, dbQueries) => {
@@ -28,10 +28,10 @@ module.exports = (db, dbQueries) => {
         console.log(error);
       });
 
-      router.post('/', (req, res) => {
-        const user = req.body;
-        user.password = bcrypt.hashSync(user.password, 12);
-      })
+    router.post('/', (req, res) => {
+      const user = req.body;
+      user.password = bcrypt.hashSync(user.password, 12);
+    })
 
 
 
