@@ -12,14 +12,13 @@ module.exports = (db, dbQueries) => {
       return res.status(401).send('Wrong email or password');
     }
 
-    console.log("EMAIL PASSWORD ", req.body);
+
 
     dbQueries.getUserByEmail(email, password, db)
       .then(user => {
-        if (user) {
-          console.log("Hello")
+        if (user && bcrypt.compare(password, user.password)) {
           req.session.userID = user.id;
-          console.log("Sucess")
+          return res.status(200).send('Login Succesful');
         } else {
           return res.status(401).send('No user found');
         }
@@ -27,18 +26,29 @@ module.exports = (db, dbQueries) => {
       .catch(error => {
         console.log(error);
       });
+    });
 
       router.post('/signup', (req, res) => {
-        const user = req.body;
-        user.password = bcrypt.hashSync(user.password, 12);
-        const command = ''
+
+        let { first_name, last_name, email, password} = req.body
+        password = bcrypt.hashSync(password, 12);
+        const command = ' INSERT INTO users (first_name, last_name, email, password) VALUES($1, $2, $3, $4) RETURNING *;'
+        const values = [first_name, last_name, email, password]
+        db.query(command, values).then(data => {
+
+
+          if(data["rows"].length > 0) {
+            req.session.userId = data["rows"][0].id
+            console.log("id",  data["rows"][0].id )
+            return res.status(200).send("it worked")
+          }
+
+        })
+        .catch((err) => console.log(err));
 
       })
 
 
-
-
-  });
 
   return router;
 }
