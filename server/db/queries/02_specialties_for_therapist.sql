@@ -1,4 +1,4 @@
--- get all specialties for therapist with therapist id
+-- get all specialties for therapist with therapist id - user show page
 
 SELECT type from
 specialties

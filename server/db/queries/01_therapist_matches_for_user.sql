@@ -1,4 +1,4 @@
--- get therapist matches for user
+-- get therapist matches for user - users messages page
 
 
 SELECT therapist_id from matches
