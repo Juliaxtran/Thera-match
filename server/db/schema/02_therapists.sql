@@ -7,13 +7,13 @@ CREATE TABLE therapists (
   email VARCHAR(255) NOT NULL,
   phone_number VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  gender VARCHAR(255) NOT NULL,
+  gender VARCHAR(255),
   image VARCHAR(255),
-  date_of_birth DATE NOT NULL,
-  location VARCHAR(255) NOT NULL,
-  cost_per_session INTEGER DEFAULT 0 NOT NULL,
+  date_of_birth DATE ,
+  location VARCHAR(255),
+  cost_per_session INTEGER DEFAULT 0 ,
   years_of_practice SMALLINT DEFAULT 0,
-  title VARCHAR(255) NOT NULL,
-  session_type VARCHAR(255) NOT NULL,
+  title VARCHAR(255) ,
+  session_type VARCHAR(255) 
   about text
 );

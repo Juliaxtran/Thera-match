@@ -1,7 +1,7 @@
 
 
 const router = require('express').Router();
-
+const bcrypt = require('brypt');
 
 
 module.exports = (db, dbQueries) => {
@@ -19,6 +19,7 @@ module.exports = (db, dbQueries) => {
         if (user) {
           console.log("Hello")
           req.session.userID = user.id;
+          console.log("Sucess")
         } else {
           return res.status(401).send('No user found');
         }
@@ -26,6 +27,13 @@ module.exports = (db, dbQueries) => {
       .catch(error => {
         console.log(error);
       });
+
+      router.post('/', (req, res) => {
+        const user = req.body;
+        user.password = bcrypt.hashSync(user.password, 12);
+      })
+
+
 
 
   });
