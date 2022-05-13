@@ -14,6 +14,6 @@ CREATE TABLE therapists (
   cost_per_session INTEGER DEFAULT 0 ,
   years_of_practice SMALLINT DEFAULT 0,
   title VARCHAR(255) ,
-  session_type VARCHAR(255) 
+  session_type VARCHAR(255),
   about text
 );
