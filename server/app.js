@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users');
 const dbQueries = require('./routes/helpers.js');
 const messagesRouter = require('./routes/messages');
 const therapistsRouter = require('./routes/therapists');
-const dbQueries = require('./routes/helpers.js')
+
 
 const app = express();
 
