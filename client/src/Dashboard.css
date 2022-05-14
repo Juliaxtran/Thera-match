@@ -43,6 +43,7 @@ h2 {
 
 .swipe {
   position: absolute;
+  display: flex;
 }
 
 .cardContainer {
@@ -109,6 +110,7 @@ h2 {
 .buttons button:hover {
   transform: scale(1.05);
 }
+
 
 @keyframes popup {
   0% {

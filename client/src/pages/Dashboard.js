@@ -1,7 +1,10 @@
-import React, { useState, useMemo, useRef } from 'react'
+import React, { useState, useMemo, useRef } from 'react';
 // import TinderCard from '../react-tinder-card/index'
-import TinderCard from 'react-tinder-card'
-import '../Dashboard.css'
+import TinderCard from 'react-tinder-card';
+import '../Dashboard.css';
+import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
+import Card from '@mui/material/Card';
 
 const db = [
   {
@@ -91,20 +94,32 @@ function Advanced() {
       <h1>React Tinder Card</h1>
       <div className='cardContainer'>
         {db.map((character, index) => (
-          <TinderCard
-            ref={childRefs[index]}
-            className='swipe'
-            key={character.name}
-            onSwipe={(dir) => swiped(dir, character.name, index)}
-            onCardLeftScreen={() => outOfFrame(character.name, index)}
-          >
-            <div
-              style={{ backgroundImage: 'url(' + character.url + ')' }}
-              className='card'
+          <div>
+            <TinderCard
+              ref={childRefs[index]}
+              className='swipe'
+              key={character.name}
+              onSwipe={(dir) => swiped(dir, character.name, index)}
+              onCardLeftScreen={() => outOfFrame(character.name, index)}
             >
-              <h3>{character.name}</h3>
-            </div>
-          </TinderCard>
+              <div
+                style={{ backgroundImage: 'url(' + character.url + ')' }}
+                className='card'
+              >
+                <h3>{character.name}</h3>
+
+              </div>
+
+              <Card sx={{ maxWidth: 345 }}>
+                <CardContent>
+                  <Typography variant="body2" color="text.secondary">
+                    Lizards are a widespread group of squamate reptiles, with over 6,000
+                    species, ranging across all continents except Antarctica
+                  </Typography>
+                </CardContent>
+              </Card>
+            </TinderCard>
+          </div>
         ))}
       </div>
       <div className='buttons'>
