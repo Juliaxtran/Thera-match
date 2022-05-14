@@ -42,11 +42,27 @@ module.exports = (db, dbQueries) => {
             console.log("id",  data["rows"][0].id )
             return res.status(200).send("it worked")
           }
-
+            return res.status(404).send("Error signing up")
         })
         .catch((err) => console.log(err));
 
       })
+
+
+
+
+        router.post('/profile', (req, res) => {
+          const user_id = req.sessions["userId"];
+          const { user } = req.body;
+          const command = 'UPDATE users SET date_of_birth = $1 ,gender = $2,about = $3, phone_number = $4'
+          values = [user_id, user.date_of_birth, user.gender, user.about, user.phone_number]
+
+          db.query(command).then(data => {
+            return res.status(200).send("Profile page created")
+          })
+        });
+
+
 
 
 
