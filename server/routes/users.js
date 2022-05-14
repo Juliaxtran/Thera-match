@@ -23,7 +23,7 @@ module.exports = (db, dbQueries) => {
 
             }
             req.session.userID = user.id;
-            res.status(200).send("Sucess");
+            res.status(200).send("Success!");
 
           })
         }
