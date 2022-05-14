@@ -1,5 +1,3 @@
-
-
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 
@@ -13,7 +11,7 @@ module.exports = (db, dbQueries) => {
     }
 
 
-    dbQueries.getUserByEmail(email, db)
+    dbQueries.getTherapistByEmail(email, db)
       .then(user => {
         if (user) {
           console.log('RD user', user.password);
@@ -37,7 +35,7 @@ module.exports = (db, dbQueries) => {
 
     let { first_name, last_name, email, password } = req.body
     password = bcrypt.hashSync(password, 12);
-    const command = ' INSERT INTO users (first_name, last_name, email, password) VALUES($1, $2, $3, $4) RETURNING *;'
+    const command = ' INSERT INTO therapists (first_name, last_name, email, password) VALUES($1, $2, $3, $4) RETURNING *;'
     const values = [first_name, last_name, email, password]
     db.query(command, values).then(data => {
 
@@ -56,19 +54,12 @@ module.exports = (db, dbQueries) => {
 
 
 
-<<<<<<< HEAD
-        router.post('/profile', (req, res) => {
-          const user_id = req.sessions["userId"];
-          const {date_of_birth, gender, about, phone_number} = req.body
-          const command = `UPDATE users SET date_of_birth = $1,gender = $2,about = $3, phone_number = $4 WHERE id = $5 returning *;`
-          values = [date_of_birth, gender, about, phone_number, user_id]
-=======
   router.post('/profile', (req, res) => {
-    const user_id = req.sessions["userId"];
-    const { date_of_birth, gender, about, phone_number } = req.body
-    const command = `UPDATE users SET date_of_birth = $1,gender = $2,about = $3, phone_number = $4 WHERE id = $5 returning *`
-    values = [date_of_birth, gender, about, phone_number, user_id]
->>>>>>> master
+    // const user_id = req.sessions["userId"];
+    const user_id = 11;
+    const { phone_number, gender, date_of_birth, location, cost_per_session, years_of_practice, title, session_type, about } = req.body
+    const command = `UPDATE therapists SET phone_number = $1,gender = $2,date_of_birth = $3, location = $4, cost_per_session = $5, years_of_practice = $6, title = $7, session_type = $8, about = $9  WHERE id = $10 returning *`
+    values = [phone_number, gender, date_of_birth, location, cost_per_session, years_of_practice, title, session_type, about, user_id];
 
     db.query(command, values).then(data => {
 
@@ -87,5 +78,3 @@ module.exports = (db, dbQueries) => {
 
   return router;
 }
-
-
