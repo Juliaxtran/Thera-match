@@ -31,6 +31,18 @@ module.exports = (db, dbQueries) => {
       .catch(error => {
         console.log(error);
       });
+<<<<<<< HEAD
+=======
+
+    router.post('/', (req, res) => {
+      const user = req.body;
+      user.password = bcrypt.hashSync(user.password, 12);
+    })
+
+
+
+
+>>>>>>> master
   });
 
   router.post('/signup', (req, res) => {
