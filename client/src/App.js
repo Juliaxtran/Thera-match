@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
-import axios from 'axios';
-import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 
 function App() {
 
-  useEffect(() => {
-    axios.get('http://localhost:9000/users').then(res => {
-      console.log(res)
-    })
-  }, [])
-
-
   return (
-    <div className="App">
-    
+    <BrowserRouter>
+    <Routes>
+      <Route path={"/"} element = {<Home />}/>
+      <Route path={"/dashboard"} element = {<Dashboard />} />
+      <Route path={"/profile"} element = {<Profile />} />
 
-    </div>
+  </Routes>
+  </BrowserRouter>
   );
 }
 
