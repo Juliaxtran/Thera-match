@@ -53,12 +53,18 @@ module.exports = (db, dbQueries) => {
 
         router.post('/profile', (req, res) => {
           const user_id = req.sessions["userId"];
-          const { user } = req.body;
-          const command = 'UPDATE users SET date_of_birth = $1 ,gender = $2,about = $3, phone_number = $4'
-          values = [user_id, user.date_of_birth, user.gender, user.about, user.phone_number]
+          const {date_of_birth, gender, about, phone_number} = req.body
+          const command = `UPDATE users SET date_of_birth = $1,gender = $2,about = $3, phone_number = $4 WHERE id = $5 returning *`
+          values = [date_of_birth, gender, about, phone_number, user_id]
 
-          db.query(command).then(data => {
-            return res.status(200).send("Profile page created")
+          db.query(command, values).then(data => {
+
+            if (data["rows"].length > 0) {
+              return res.status(200).send("Profile page created")
+            }
+            return res.status(404).send("Error creating profile page")
+
+
           })
         });
 
