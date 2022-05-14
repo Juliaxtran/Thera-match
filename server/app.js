@@ -8,6 +8,7 @@ const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const therapistsRouter = require('./routes/therapists');
 const dbQueries = require('./routes/helpers.js')
 
 const app = express();
@@ -30,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter(db, dbQueries));
-
+app.use('/therapists', therapistsRouter(db, dbQueries));
 
 
 module.exports = app;
