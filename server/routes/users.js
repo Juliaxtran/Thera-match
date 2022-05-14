@@ -56,19 +56,11 @@ module.exports = (db, dbQueries) => {
 
 
 
-<<<<<<< HEAD
         router.post('/profile', (req, res) => {
           const user_id = req.sessions["userId"];
           const {date_of_birth, gender, about, phone_number} = req.body
           const command = `UPDATE users SET date_of_birth = $1,gender = $2,about = $3, phone_number = $4 WHERE id = $5 returning *;`
           values = [date_of_birth, gender, about, phone_number, user_id]
-=======
-  router.post('/profile', (req, res) => {
-    const user_id = req.sessions["userId"];
-    const { date_of_birth, gender, about, phone_number } = req.body
-    const command = `UPDATE users SET date_of_birth = $1,gender = $2,about = $3, phone_number = $4 WHERE id = $5 returning *`
-    values = [date_of_birth, gender, about, phone_number, user_id]
->>>>>>> master
 
     db.query(command, values).then(data => {
 

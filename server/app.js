@@ -8,13 +8,10 @@ const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-<<<<<<< HEAD
 const dbQueries = require('./routes/helpers.js');
 const messagesRouter = require('./routes/messages');
-=======
 const therapistsRouter = require('./routes/therapists');
 const dbQueries = require('./routes/helpers.js')
->>>>>>> master
 
 const app = express();
 
