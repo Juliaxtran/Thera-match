@@ -3,6 +3,26 @@ const bcrypt = require('bcryptjs');
 
 
 module.exports = (db, dbQueries) => {
+
+
+  router.get('/', (req, res) => {
+    const command = "SELECT therapists.*, STRING_AGG(specialties.type,',') as type from therapists join therapist_specialties ON therapist_id = therapists.id join specialties ON specialties.id = therapist_specialties.specialty_id GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.password,therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about";
+    db.query(command).then(data => {
+
+      if (data["rows"].length > 0) {
+        res.json(data.rows);
+        return res.status(200).send("it worked")
+      }
+
+      res.status(400).send("Trouble loading data")
+
+
+    })
+  });
+
+
+
+
   // all routes will go here
   router.post('/login', (req, res) => {
     const { email, password } = req.body;
