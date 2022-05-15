@@ -1,73 +1,83 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from 'react-tinder-card';
 import '../Dashboard.css';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
+import axios from 'axios';
 
-const db = [
-  {
-    name: 'Richard Hendricks',
-    url: '/images/users/1.jpeg',
-    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
-    location: '156 Sheppard Avenue West Toronto, ON M2N',
-    session_type: 'Online & In-person',
-    title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50,
-    type: 'Addiction'
-  },
-  {
-    name: 'Erlich Bachman',
-    url: '/images/users/2.jpeg',
-    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
-    location: '156 Sheppard Avenue West Toronto, ON M2N',
-    session_type: 'Online & In-person',
-    title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50,
-    type: 'Addiction'
-  },
-  {
-    name: 'Monica Hall',
-    url: '/images/users/3.jpeg',
-    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
-    location: '156 Sheppard Avenue West Toronto, ON M2N',
-    session_type: 'Online & In-person',
-    title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50,
-    type: 'Addiction'
-  },
-  {
-    name: 'Jared Dunn',
-    url: '/images/users/4.jpeg',
-    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
-    location: '156 Sheppard Avenue West Toronto, ON M2N',
-    session_type: 'Online & In-person',
-    title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50,
-    type: 'Addiction'
-  },
-  {
-    name: 'Dinesh Chugtai',
-    url: '/images/users/5.jpeg',
-    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
-    location: '156 Sheppard Avenue West Toronto, ON M2N',
-    session_type: 'Online & In-person',
-    title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50,
-    type: 'Addiction'
-  }
-]
+// const db = [
+//   {
+//     name: 'Richard Hendricks',
+//     url: '/images/users/1.jpeg',
+//     about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+//     location: '156 Sheppard Avenue West Toronto, ON M2N',
+//     session_type: 'Online & In-person',
+//     title: 'Registered Social Worker, MSW, RSW, LCSW',
+//     cost_per_session: 50,
+//     type: 'Addiction'
+//   },
+//   {
+//     name: 'Erlich Bachman',
+//     url: '/images/users/2.jpeg',
+//     about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+//     location: '156 Sheppard Avenue West Toronto, ON M2N',
+//     session_type: 'Online & In-person',
+//     title: 'Registered Social Worker, MSW, RSW, LCSW',
+//     cost_per_session: 50,
+//     type: 'Addiction'
+//   },
+//   {
+//     name: 'Monica Hall',
+//     url: '/images/users/3.jpeg',
+//     about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+//     location: '156 Sheppard Avenue West Toronto, ON M2N',
+//     session_type: 'Online & In-person',
+//     title: 'Registered Social Worker, MSW, RSW, LCSW',
+//     cost_per_session: 50,
+//     type: 'Addiction'
+//   },
+//   {
+//     name: 'Jared Dunn',
+//     url: '/images/users/4.jpeg',
+//     about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+//     location: '156 Sheppard Avenue West Toronto, ON M2N',
+//     session_type: 'Online & In-person',
+//     title: 'Registered Social Worker, MSW, RSW, LCSW',
+//     cost_per_session: 50,
+//     type: 'Addiction'
+//   },
+//   {
+//     name: 'Dinesh Chugtai',
+//     url: '/images/users/5.jpeg',
+//     about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+//     location: '156 Sheppard Avenue West Toronto, ON M2N',
+//     session_type: 'Online & In-person',
+//     title: 'Registered Social Worker, MSW, RSW, LCSW',
+//     cost_per_session: 50,
+//     type: 'Addiction'
+//   }
+// ]
 
 function Advanced() {
-  const [currentIndex, setCurrentIndex] = useState(db.length - 1)
-  const [lastDirection, setLastDirection] = useState()
+
+  const [lastDirection, setLastDirection] = useState();
+  const [therapists, setTherapists] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(therapists.length - 1);
   // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex)
 
+  useEffect(() => {
+    axios.get('http://localhost:9000/therapists').then(res => {
+      setTherapists(res.data)
+    })
+  }, [])
+
+
   const childRefs = useMemo(
     () =>
-      Array(db.length)
+      Array(therapists.length)
         .fill(0)
         .map((i) => React.createRef()),
     []
@@ -78,7 +88,7 @@ function Advanced() {
     currentIndexRef.current = val
   }
 
-  const canGoBack = currentIndex < db.length - 1
+  const canGoBack = currentIndex < therapists.length - 1
 
   const canSwipe = currentIndex >= 0
 
@@ -98,7 +108,7 @@ function Advanced() {
   }
 
   const swipe = async (dir) => {
-    if (canSwipe && currentIndex < db.length) {
+    if (canSwipe && currentIndex < therapists.length) {
       await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
     }
   }
@@ -123,20 +133,20 @@ function Advanced() {
       />
       <h1>Match with a Therapist</h1>
       <div className='cardContainer'>
-        {db.map((character, index) => (
+        {therapists.map((character, index) => (
           <div>
             <TinderCard
               ref={childRefs[index]}
               className='swipe'
-              key={character.name}
+              key={character.id}
               onSwipe={(dir) => swiped(dir, character.name, index)}
               onCardLeftScreen={() => outOfFrame(character.name, index)}
             >
               <div
-                style={{ backgroundImage: 'url(' + character.url + ')' }}
+                style={{ backgroundImage: 'url(' + character.image + ')' }}
                 className='card'
               >
-                <h3>{character.name}</h3>
+                <h3>{character.first_name} {character.last_name}</h3>
 
               </div>
 

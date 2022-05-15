@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
+const { response } = require('express');
 
 
 module.exports = (db, dbQueries) => {
@@ -11,10 +12,11 @@ module.exports = (db, dbQueries) => {
 
       if (data["rows"].length > 0) {
         res.json(data.rows);
-        return res.status(200).send("it worked")
+        //TO FIX
+        // return res.status(200).send("it worked")
       }
-
-      res.status(400).send("Trouble loading data")
+      //TO FIX
+      // res.status(400).send("Trouble loading data")
 
 
     })

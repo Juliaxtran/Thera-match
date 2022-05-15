@@ -44,7 +44,7 @@ h2 {
 .swipe {
   position: absolute;
   display: flex;
-  right: 35em;
+  right: 30em;
 }
 
 .cardContainer {
