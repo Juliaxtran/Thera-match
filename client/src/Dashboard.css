@@ -44,26 +44,33 @@ h2 {
 .swipe {
   position: absolute;
   display: flex;
-  right: 30em;
+  /* right: 30em; */
+  top: 0;
+  left: -80%;
+
 }
 
 .cardContainer {
   width: 90vw;
   max-width: 260px;
   height: 300px;
+  position: relative;
+  margin: auto;
+
 
 }
 
 .card {
   position: relative;
   background-color: #fff;
-  width: 80vw;
-  max-width: 260px;
-  /* height: 300px; */
+  width: 260px;
+  max-height: 400px;
   box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.30);
   border-radius: 2px;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
 }
 
 .cardContent {
@@ -90,7 +97,7 @@ h2 {
 }
 
 .buttons {
-  margin: 20px;
+  margin: -180px;
   display: flex;
 }
 
@@ -103,14 +110,14 @@ h2 {
   font-size: 18px;
   background-color: #9198e5;
   transition: 200ms;
-  margin: 14em 2em;
+  margin: 20em 2em;
   font-weight: bolder;
   width: 160px;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.10);
 }
 
 .buttons button:hover {
-  transform: scale(1.05);
+  transform: scale(1);
 }
 
 

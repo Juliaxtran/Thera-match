@@ -62,15 +62,20 @@ import axios from 'axios';
 
 function Advanced() {
 
+
+
   const [lastDirection, setLastDirection] = useState();
   const [therapists, setTherapists] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(therapists.length - 1);
+
   // used for outOfFrame closure
-  const currentIndexRef = useRef(currentIndex)
+  const currentIndexRef = useRef(currentIndex);
 
   useEffect(() => {
     axios.get('http://localhost:9000/therapists').then(res => {
-      setTherapists(res.data)
+      const therapists = res.data;
+      setCurrentIndex(therapists.length - 1)
+      setTherapists(therapists)
     })
   }, [])
 
@@ -90,7 +95,7 @@ function Advanced() {
 
   const canGoBack = currentIndex < therapists.length - 1
 
-  const canSwipe = currentIndex >= 0
+  const canSwipe = currentIndex >= 0;
 
   // set last direction and decrease current index
   const swiped = (direction, nameToDelete, index) => {
@@ -137,25 +142,28 @@ function Advanced() {
       <h1>Match with a Therapist</h1>
       <div className='cardContainer'>
         {therapists.map((character, index) => (
-          <div>
+          <div className='TinderCard'>
             <TinderCard
               ref={childRefs[index]}
               className='swipe'
-              key={character.name}
-              onSwipe={(dir) => swiped(dir, character.name, index)}
-              onCardLeftScreen={() => outOfFrame(character.name, index)}
+              key={character.first_name}
+              onSwipe={(dir) => swiped(dir, character.first_name, index)}
+              onCardLeftScreen={() => outOfFrame(character.first_name, index)}
             >
-              <div
-                style={{ backgroundImage: 'url(' + character.image + ')' }}
-                className='card'
-              >
-                <h3>{character.first_name} {character.last_name}</h3>
 
-              </div>
+              <Card>
 
-              <Card sx={{ maxWidth: 345 }}>
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
+                <CardContent sx={{ display: 'flex', padding: 0, '&:last-child': { pb: 0 } }}>
+                  <div
+                    style={{ backgroundImage: 'url(' + character.image + ')' }}
+                    className='card'
+                  >
+                    <h3>{character.first_name} {character.last_name}</h3>
+
+                  </div>
+
+                  <Typography variant="body2" color="text.secondary" sx={{ width: 300, paddingLeft: 5, paddingRight: 5 }} fontSize='10px'>
+
                     <h3>About: {character.about}</h3>
                     <h3>Location: {character.location}</h3>
                     <h3>Session: {character.session_type}</h3>
@@ -167,14 +175,15 @@ function Advanced() {
               </Card>
             </TinderCard>
           </div>
-        ))}
-      </div>
+        ))
+        }
+      </div >
       <div className='buttons'>
         <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>No thanks!</button>
         {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button> */}
         <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>I wanna book you!</button>
       </div>
-      {
+      {/* {
         lastDirection ? (
           <h2 key={lastDirection} className='infoText'>
             You swiped {lastDirection}
@@ -184,7 +193,7 @@ function Advanced() {
             Swipe a card or press a button to get Restore Card button visible!
           </h2>
         )
-      }
+      } */}
     </div >
   )
 }
