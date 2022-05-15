@@ -74,13 +74,13 @@ function Advanced() {
     })
   }, [])
 
-
+  // Pat's Note: I added therapists as second dependecies not sure if it works
   const childRefs = useMemo(
     () =>
       Array(therapists.length)
         .fill(0)
         .map((i) => React.createRef()),
-    []
+    [therapists]
   )
 
   const updateCurrentIndex = (val) => {
@@ -98,7 +98,10 @@ function Advanced() {
     updateCurrentIndex(index - 1)
   }
 
+
   const outOfFrame = (name, idx) => {
+
+    /// Pat's Note: name is undefined
     console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
     // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
@@ -138,7 +141,7 @@ function Advanced() {
             <TinderCard
               ref={childRefs[index]}
               className='swipe'
-              key={character.id}
+              key={character.name}
               onSwipe={(dir) => swiped(dir, character.name, index)}
               onCardLeftScreen={() => outOfFrame(character.name, index)}
             >
