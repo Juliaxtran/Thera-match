@@ -1,6 +1,6 @@
 
 
-const HomeNav = ({ success, setShowModal, showModal, setIsSignUp}) => {
+const HomeNav = ({ success, setShowModal, showModal, setIsSignUp }) => {
 
   const handleClick = () => {
     setShowModal(true)
@@ -10,16 +10,19 @@ const HomeNav = ({ success, setShowModal, showModal, setIsSignUp}) => {
 
   return (
     <nav>
-  <div className = "home-nav">
-    <img className = "logo" src = {`/images/other/logo.png`} alt="logo" />
-    <h1 className = "title"> Thera-Match</h1>
-    {!success && <button className='nav-button'
-     onClick={handleClick}
-     disabled={showModal}
-     >Login </button>}
-  </div>
-  </nav>
+      <div className="home-nav">
+        <div className="logo-container">
+          <img className="logo" src={`/images/other/logo.png`} alt="logo" />
+          
+          <h1 className="title"> Thera-Match</h1>
+        </div>
+        {!success && <button className='primary-button'
+          onClick={handleClick}
+          disabled={showModal}
+        >Login </button>}
+      </div>
+    </nav>
   )
-  }
+}
 
-  export default HomeNav
+export default HomeNav

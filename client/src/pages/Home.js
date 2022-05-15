@@ -5,32 +5,34 @@ import { useState } from 'react'
 
 const Home = (props) => {
   const [showModal, setShowModal] = useState(false);
-  const[isSignUp, setIsSignUp] = useState(true)
+  const [isSignUp, setIsSignUp] = useState(true)
 
   const success = false;
 
   const handleClick = () => {
     setShowModal(true);
     setIsSignUp(true)
-   }
-
-  return (
-  <div>
-    <HomeNav
-        setShowModal={setShowModal}
-        showModal={showModal}
-        setIsSignUp={setIsSignUp}/>
-    <h1>Home Page</h1>
-    <button class='primary-button' onClick={handleClick}>
-      {success ? 'Sign Out' : 'Create Account'}
-      </button>
-    {showModal && (
-  <AuthModal
-  setShowModal={setShowModal}
-   isSignUp={isSignUp} />
-)}
-  </div>
-  )
   }
 
-  export default Home
+  return (
+    <div>
+      <HomeNav
+        setShowModal={setShowModal}
+        showModal={showModal}
+        setIsSignUp={setIsSignUp} />
+      <div class="home" authToken={success}>
+        <h1>Match with a therapist</h1>
+        <button class='primary-button' onClick={handleClick}>
+          {success ? 'Sign Out' : 'Create Account'}
+        </button>
+        {showModal && (
+          <AuthModal
+            setShowModal={setShowModal}
+            isSignUp={isSignUp} />
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default Home
