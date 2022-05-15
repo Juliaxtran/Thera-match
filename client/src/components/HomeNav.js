@@ -9,7 +9,7 @@ const HomeNav = ({ success, setShowModal, showModal, setIsSignUp }) => {
 
 
   return (
-    <nav>
+
       <div className="home-nav">
         <div className="logo-container">
           <img className="logo" src={`/images/other/logo.png`} alt="logo" />
@@ -21,7 +21,7 @@ const HomeNav = ({ success, setShowModal, showModal, setIsSignUp }) => {
           disabled={showModal}
         >Login </button>}
       </div>
-    </nav>
+    
   )
 }
 

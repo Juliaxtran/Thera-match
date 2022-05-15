@@ -15,15 +15,16 @@ const Home = (props) => {
   }
 
   return (
-    <div>
+    <div className="overlay">
       <HomeNav
         setShowModal={setShowModal}
         showModal={showModal}
         setIsSignUp={setIsSignUp} />
-      <div class="home" authToken={success}>
-        <h1>Matching with a therapist can be hard ...</h1>
+
+      <div className="auth-container" authToken={success}>
+        <h1 >Matching with a therapist can be hard ...</h1>
         <h3>We make it easy. Swipe to match with a health professional today</h3>
-        <button class='primary-button' onClick={handleClick}>
+        <button className='primary-button' onClick={handleClick}>
           {success ? 'Sign Out' : 'Create Account'}
         </button>
         {showModal && (
@@ -31,7 +32,7 @@ const Home = (props) => {
             setShowModal={setShowModal}
             isSignUp={isSignUp} />
         )}
-      </div>
+    </div>
     </div>
   )
 }
