@@ -1,5 +1,4 @@
 
-
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 
@@ -19,12 +18,21 @@ module.exports = (db, dbQueries) => {
           console.log('RD user', user.password);
           bcrypt.compare(req.body.password, user.password, function (err, response) {
             if (err) {
-              res.status(401).send('No user found');
+              return res.status(401).send({
+                sucess: false, message: 'No user found'
+              });
+            } if (response) {
+              userObj = {
+                "id" : user.id,
+                "first_name" : user.first_name,
+                "last_name" : user.last_name
+              }
+              req.session.user = userObj;
 
+              res.status(200).send({success: true, message:'Login succesful', user: req.session.user});
+            } else {
+              return res.json({ success: false, message: 'passwords do not match' });
             }
-            req.session.userID = user.id;
-            res.status(200).send("Success!");
-
           })
         }
       })
@@ -42,10 +50,19 @@ module.exports = (db, dbQueries) => {
     db.query(command, values).then(data => {
 
 
+
       if (data["rows"].length > 0) {
-        req.session.userId = data["rows"][0].id
-        console.log("id", data["rows"][0].id)
-        return res.status(200).send("it worked")
+        let userObj = {
+          "id" : data["rows"][0].id,
+          "first_name" : data["rows"][0].first_name,
+          "last_name" : data["rows"][0].last_name
+        }
+        req.session.user = userObj
+        return res.status(200).send({
+          "success": true,
+          "message": "Sign up successful",
+          "user": req.session.user
+        })
       }
 
     })
@@ -56,18 +73,20 @@ module.exports = (db, dbQueries) => {
 
 
 
-        router.post('/profile', (req, res) => {
-          const user_id = req.sessions["userId"];
-          const {date_of_birth, gender, about, phone_number} = req.body
-          const command = `UPDATE users SET date_of_birth = $1,gender = $2,about = $3, phone_number = $4 WHERE id = $5 returning *;`
-          values = [date_of_birth, gender, about, phone_number, user_id]
+  router.post('/profile', (req, res) => {
+    const user_id = req.session.user["id"];
+    const { date_of_birth, gender, about, phone_number } = req.body
+    const command = `UPDATE users SET date_of_birth = $1,gender = $2,about = $3, phone_number = $4 WHERE id = $5 returning *;`
+    values = [date_of_birth, gender, about, phone_number, user_id]
 
     db.query(command, values).then(data => {
 
       if (data["rows"].length > 0) {
-        return res.status(200).send("Profile page created")
+        return res.status(200).send({"success": true,
+        "message": "Profile Page succesfully created",
+        "user": req.session.user} )
       }
-      return res.status(404).send("Error creating profile page")
+      return res.status(404).send({"message": "Error creating login page"})
 
 
     })
@@ -79,5 +98,3 @@ module.exports = (db, dbQueries) => {
 
   return router;
 }
-
-
