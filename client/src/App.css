@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600&display=swap');
+
+
+html, body {
+  margin : 0;
+  padding: 0;
+}
+
+
+
+
+/* ----- Home Nav Bar ------ */
+
+.home-nav {
+display: flex;
+align-items: center;
+background-color: #0899BA;
+width: 100%;
+
+}
+
+.title {
+  font-size: 2.5em;
+  font-family: 'Readex Pro', sans-serif;
+  color: white;
+}
+
+.logo {
+  width: 6em;
+}
