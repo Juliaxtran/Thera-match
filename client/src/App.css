@@ -15,14 +15,23 @@ html, body {
   color: #fff;
   text-transform: uppercase;
   font-size: 15px;
-  background: linear-gradient(45deg, #fe3072, #ff5940);
+  background: linear-gradient(45deg, lightblue, rgb(104, 104, 214));
   padding: 12px 30px;
   border-radius: 30px;
 
 }
 
+.login-button {
+  text-transform: uppercase;
+  font-size: 15px;
+  opacity: 0;
+  background-color: lightblue;
+  padding: 12px 30px;
+  border-radius: 30px;
+}
+
 .primary-button:hover{
-  background: linear-gradient(260deg, #fe3072, #ff5940);
+  background: linear-gradient(260deg,rgb(104, 104, 214), lightblue);
 }
 
 .secondary-button {
@@ -31,15 +40,17 @@ html, body {
   font-weight: 500;
   font-size: 15px;
   text-transform: uppercase;
-  padding: 12px 30px;
+  padding: 15px 30px;
   border-radius: 30px;
   border: solid 2px rgb(121, 119, 119);
-  margin: 6px;
+  margin: 2em;
+  height: 15%;
+
 }
 
 .secondary-button:hover{
   color: rgb(48, 48, 48);
-  border: solid 2px rgb(48, 48, 48);
+  border: solid 2px lightblue;
 }
 
 
@@ -51,9 +62,11 @@ html, body {
 .home-nav {
 display: flex;
 flex-direction: row;
+align-items: center;
 justify-content: space-between;
-background-color: #0899BA;
+background: linear-gradient(45deg, lightblue, rgb(104, 104, 214));
 width: 100%;
+border-bottom: solid 2px black;
 
 }
 
@@ -100,6 +113,7 @@ width: 100%;
   height: 600px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
+  border: solid 2px black;
   padding: 40px;
 }
 
@@ -117,3 +131,4 @@ width: 100%;
   margin: 8px;
   font-size: 17px;
 }
+

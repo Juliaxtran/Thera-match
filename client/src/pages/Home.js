@@ -21,7 +21,8 @@ const Home = (props) => {
         showModal={showModal}
         setIsSignUp={setIsSignUp} />
       <div class="home" authToken={success}>
-        <h1>Match with a therapist</h1>
+        <h1>Matching with a therapist can be hard ...</h1>
+        <h3>We make it easy. Swipe to match with a health professional today</h3>
         <button class='primary-button' onClick={handleClick}>
           {success ? 'Sign Out' : 'Create Account'}
         </button>

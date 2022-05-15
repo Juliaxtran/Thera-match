@@ -34,7 +34,6 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   return (
     <div className="auth-modal">
       <div className="close-icon" onClick={handleClick}>x</div>
-      AuthModal
       <h2>{isSignUp ? 'Create Account' : 'Login In'}</h2>
       <p>By clicking LogIn, you agree to our terms. Learn how we process your data in our Privacy Policy </p>
 
@@ -64,6 +63,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
         <input className="secondary-button" type="submit" />
         <p>{error}</p>
         <hr />
+        <p>We are happy that you are.</p>
 
 
       </form>
