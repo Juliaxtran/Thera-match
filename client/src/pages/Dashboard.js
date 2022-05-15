@@ -14,7 +14,8 @@ const db = [
     location: '156 Sheppard Avenue West Toronto, ON M2N',
     session_type: 'Online & In-person',
     title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50
+    cost_per_session: 50,
+    type: 'Addiction'
   },
   {
     name: 'Erlich Bachman',
@@ -23,7 +24,8 @@ const db = [
     location: '156 Sheppard Avenue West Toronto, ON M2N',
     session_type: 'Online & In-person',
     title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50
+    cost_per_session: 50,
+    type: 'Addiction'
   },
   {
     name: 'Monica Hall',
@@ -32,7 +34,8 @@ const db = [
     location: '156 Sheppard Avenue West Toronto, ON M2N',
     session_type: 'Online & In-person',
     title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50
+    cost_per_session: 50,
+    type: 'Addiction'
   },
   {
     name: 'Jared Dunn',
@@ -41,7 +44,8 @@ const db = [
     location: '156 Sheppard Avenue West Toronto, ON M2N',
     session_type: 'Online & In-person',
     title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50
+    cost_per_session: 50,
+    type: 'Addiction'
   },
   {
     name: 'Dinesh Chugtai',
@@ -50,7 +54,8 @@ const db = [
     location: '156 Sheppard Avenue West Toronto, ON M2N',
     session_type: 'Online & In-person',
     title: 'Registered Social Worker, MSW, RSW, LCSW',
-    cost_per_session: 50
+    cost_per_session: 50,
+    type: 'Addiction'
   }
 ]
 
@@ -143,6 +148,7 @@ function Advanced() {
                     <h3>Session: {character.session_type}</h3>
                     <h3>Title: {character.title}</h3>
                     <h3>Cost per session: {character.cost_per_session}</h3>
+                    <h3>Specialties: {character.type}</h3>
                   </Typography>
                 </CardContent>
               </Card>
