@@ -9,23 +9,48 @@ import Card from '@mui/material/Card';
 const db = [
   {
     name: 'Richard Hendricks',
-    url: '/images/users/1.jpeg'
+    url: '/images/users/1.jpeg',
+    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+    location: '156 Sheppard Avenue West Toronto, ON M2N',
+    session_type: 'Online & In-person',
+    title: 'Registered Social Worker, MSW, RSW, LCSW',
+    cost_per_session: 50
   },
   {
     name: 'Erlich Bachman',
-    url: '/images/users/2.jpeg'
+    url: '/images/users/2.jpeg',
+    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+    location: '156 Sheppard Avenue West Toronto, ON M2N',
+    session_type: 'Online & In-person',
+    title: 'Registered Social Worker, MSW, RSW, LCSW',
+    cost_per_session: 50
   },
   {
     name: 'Monica Hall',
-    url: '/images/users/3.jpeg'
+    url: '/images/users/3.jpeg',
+    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+    location: '156 Sheppard Avenue West Toronto, ON M2N',
+    session_type: 'Online & In-person',
+    title: 'Registered Social Worker, MSW, RSW, LCSW',
+    cost_per_session: 50
   },
   {
     name: 'Jared Dunn',
-    url: '/images/users/4.jpeg'
+    url: '/images/users/4.jpeg',
+    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+    location: '156 Sheppard Avenue West Toronto, ON M2N',
+    session_type: 'Online & In-person',
+    title: 'Registered Social Worker, MSW, RSW, LCSW',
+    cost_per_session: 50
   },
   {
     name: 'Dinesh Chugtai',
-    url: '/images/users/5.jpeg'
+    url: '/images/users/5.jpeg',
+    about: 'Psychotherapy is my second career and my calling. My approach is collaborative, compassionate, and committed. I utilize ideas and techniques from a wide range of counselling models, which allows for flexibility and enables us to adapt to your personal needs as progress is made and those needs change.',
+    location: '156 Sheppard Avenue West Toronto, ON M2N',
+    session_type: 'Online & In-person',
+    title: 'Registered Social Worker, MSW, RSW, LCSW',
+    cost_per_session: 50
   }
 ]
 
@@ -82,7 +107,7 @@ function Advanced() {
   }
 
   return (
-    <div>
+    <div >
       <link
         href='https://fonts.googleapis.com/css?family=Damion&display=swap'
         rel='stylesheet'
@@ -91,7 +116,7 @@ function Advanced() {
         href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
         rel='stylesheet'
       />
-      <h1>React Tinder Card</h1>
+      <h1>Match with a Therapist</h1>
       <div className='cardContainer'>
         {db.map((character, index) => (
           <div>
@@ -113,8 +138,11 @@ function Advanced() {
               <Card sx={{ maxWidth: 345 }}>
                 <CardContent>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    <h3>About: {character.about}</h3>
+                    <h3>Location: {character.location}</h3>
+                    <h3>Session: {character.session_type}</h3>
+                    <h3>Title: {character.title}</h3>
+                    <h3>Cost per session: {character.cost_per_session}</h3>
                   </Typography>
                 </CardContent>
               </Card>
@@ -123,21 +151,23 @@ function Advanced() {
         ))}
       </div>
       <div className='buttons'>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button>
-        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>Swipe right!</button>
+        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>No thanks!</button>
+        {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button> */}
+        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>I wanna book you!</button>
       </div>
-      {lastDirection ? (
-        <h2 key={lastDirection} className='infoText'>
-          You swiped {lastDirection}
-        </h2>
-      ) : (
-        <h2 className='infoText'>
-          Swipe a card or press a button to get Restore Card button visible!
-        </h2>
-      )}
-    </div>
+      {
+        lastDirection ? (
+          <h2 key={lastDirection} className='infoText'>
+            You swiped {lastDirection}
+          </h2>
+        ) : (
+          <h2 className='infoText'>
+            Swipe a card or press a button to get Restore Card button visible!
+          </h2>
+        )
+      }
+    </div >
   )
 }
 
-export default Advanced
+export default Advanced;
