@@ -27,7 +27,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
       if (isSignUp && success) navigate('/profile')
       if (!isSignUp && success) navigate('/dashboard')
     } catch (error) {
-      console.log(error)
+      setError("Email / Password invalid")
     }
   }
 
