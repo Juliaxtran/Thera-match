@@ -2,7 +2,6 @@ import { useState } from "react"
 import '../Profile.css';
 import axios from "axios";
 import HomeNav from "../components/HomeNav";
-// import Redirect from 'react-router'
 import { useNavigate } from "react-router-dom";
 
 
