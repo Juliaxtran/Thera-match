@@ -6,7 +6,8 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     // const user_id = req.sessions["userId"];
     const user_id = 1
-    const {therapist_id} = req.body
+    const therapist_id = 4
+    // const {therapist_id} = req.body
     const command = "SELECT message from messages where user_id = $1 AND therapist_id = $2";
     values = [user_id, therapist_id]
     db.query(command, values).then(data => {
