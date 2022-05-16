@@ -130,60 +130,65 @@ function Advanced() {
   }
 
   return (
-    <div >
-      <link
-        href='https://fonts.googleapis.com/css?family=Damion&display=swap'
-        rel='stylesheet'
-      />
-      <link
-        href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
-        rel='stylesheet'
-      />
-      <h1>Match with a Therapist</h1>
-      <div className='cardContainer'>
-        {therapists.map((character, index) => (
-          <div className='TinderCard'>
-            <TinderCard
-              ref={childRefs[index]}
-              className='swipe'
-              key={character.first_name}
-              onSwipe={(dir) => swiped(dir, character.first_name, index)}
-              onCardLeftScreen={() => outOfFrame(character.first_name, index)}
-            >
+    <div className='main-dashboard'>
+      <link href='https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500&display=swap'
+        rel='stylesheet' />
+      <div className='dashboard'>
+        {/* <link
+          href='https://fonts.googleapis.com/css?family=Damion&display=swap'
+          rel='stylesheet'
+        />
+        <link
+          href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
+          rel='stylesheet'
+        /> */}
+        <link href='https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500&display=swap'
+          rel='stylesheet' />
+        <h1>Match with a Therapist</h1>
+        <div className='cardContainer'>
+          {therapists.map((character, index) => (
+            <div className='TinderCard' key={character.id}>
+              <TinderCard
+                ref={childRefs[index]}
+                className='swipe'
+                key={character.id}
+                onSwipe={(dir) => swiped(dir, character.first_name, index)}
+                onCardLeftScreen={() => outOfFrame(character.first_name, index)}
+              >
 
-              <Card>
+                <Card>
 
-                <CardContent sx={{ display: 'flex', padding: 0, '&:last-child': { pb: 0 } }}>
-                  <div
-                    style={{ backgroundImage: 'url(' + character.image + ')' }}
-                    className='card'
-                  >
-                    <h3>{character.first_name} {character.last_name}</h3>
+                  <CardContent sx={{ display: 'flex', padding: 0, '&:last-child': { pb: 0 } }}>
+                    <div
+                      style={{ backgroundImage: 'url(' + character.image + ')' }}
+                      className='card'
+                    >
+                      <h3>{character.first_name} {character.last_name}</h3>
 
-                  </div>
+                    </div>
 
-                  <Typography variant="body2" color="text.secondary" sx={{ width: 300, paddingLeft: 5, paddingRight: 5 }} fontSize='10px'>
+                    <Typography component={'span'} variant="body2" color="text.secondary" sx={{ width: 300, paddingLeft: 5, paddingRight: 5 }} fontSize='10px'>
 
-                    <h3>About: {character.about}</h3>
-                    <h3>Location: {character.location}</h3>
-                    <h3>Session: {character.session_type}</h3>
-                    <h3>Title: {character.title}</h3>
-                    <h3>Cost per session: {character.cost_per_session}</h3>
-                    <h3>Specialties: {character.type}</h3>
-                  </Typography>
-                </CardContent>
-              </Card>
-            </TinderCard>
-          </div>
-        ))
-        }
-      </div >
-      <div className='buttons'>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>No thanks!</button>
-        {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button> */}
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>I wanna book you!</button>
-      </div>
-      {/* {
+                      <h3>About: {character.about}</h3>
+                      <h3>Location: {character.location}</h3>
+                      <h3>Session: {character.session_type}</h3>
+                      <h3>Title: {character.title}</h3>
+                      <h3>Cost per session: {character.cost_per_session}</h3>
+                      <h3>Specialties: {character.type}</h3>
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </TinderCard>
+            </div>
+          ))
+          }
+        </div >
+        <div className='buttons'>
+          <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>No thanks!</button>
+          {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button> */}
+          <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>I wanna book you!</button>
+        </div>
+        {/* {
         lastDirection ? (
           <h2 key={lastDirection} className='infoText'>
             You swiped {lastDirection}
@@ -194,7 +199,8 @@ function Advanced() {
           </h2>
         )
       } */}
-    </div >
+      </div >
+    </div>
   )
 }
 
