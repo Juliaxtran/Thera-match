@@ -16,12 +16,16 @@ const HomeNav = ({ success, setShowModal, showModal, setIsSignUp }) => {
 
           <h1 className="title"> Thera-Match</h1>
         </div>
+        {success && <button className='secondary-button'
+        >Logout </button>}
+
+
         {!success && <button className='secondary-button'
           onClick={handleClick}
           disabled={showModal}
-        >Login </button>}
+        > Login </button>}
       </div>
-    
+
   )
 }
 

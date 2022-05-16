@@ -1,0 +1,105 @@
+.home-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(45deg, lightblue, rgb(104, 104, 214));
+  width: 100%;
+
+
+  }
+
+  .logo-container{
+    display: flex;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 2.5em;
+    font-family: 'Readex Pro', sans-serif;
+    color: white;
+  }
+
+  .logo {
+    width: 6em;
+  }
+
+
+
+
+.profile form {
+  display: flex;
+  justify-content: center;
+}
+
+.profile form label {
+  margin: 10px 0px;
+
+}
+
+.profile form section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 35%;
+  text-align: start;
+}
+
+.profile form input {
+  padding: 15px 30px;
+  margin: 10px 0px;
+  font-size: 15px;
+  border: solid 2px rgb(219, 219, 219);
+  border-radius: 10px;
+
+}
+
+.profile form .multiple-input-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.profile form input::-webkit-outer-spin-button,
+.profile form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.profile form .multiple-input-container input{
+margin-right: 10px;
+
+}
+
+.profile form .multiple-input-container label {
+  padding: 10px;
+  border: solid 2px rgb(144, 144, 144);
+  border-radius: 10px;
+  transition: alll 0.3s;
+  margin: 5px;
+}
+
+.profile form  input[type="radio"] {
+  display:none;
+}
+
+.profile form  input[type="radio"]:checked + label {
+  border: solid 2px rgb(221, 39, 22)
+}
+
+.profile form  input[type="submit"]:hover {
+background-color: rgb(235, 235, 235);
+}
+
+.profile form  input[type="submit"]:active {
+  background-color: rgb(226, 115, 115);
+  }
+
+.profile form input[type="number"] {
+  width: 10%;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+}

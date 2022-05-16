@@ -22,7 +22,7 @@ const Home = (props) => {
         showModal={showModal}
         setIsSignUp={setIsSignUp} />
 
-      <div className="auth-container" authToken={success}>
+      <div className="auth-container">
         <h1 >Finding a therapist can be hard ...</h1>
         <h3>We make it easy. Swipe to match with a health professional today.</h3>
         <button className='primary-button' onClick={handleClick}>
