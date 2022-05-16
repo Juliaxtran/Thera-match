@@ -65,12 +65,17 @@ module.exports = (db, dbQueries) => {
 
 
   router.post('/profile', (req, res) => {
-    const user_id = req.session.id;
+    let user_id = req.session["id"];
+    console.log(req.session, "session")
+    console.log(user_id, "IDDDDDDDDDDDD")
     const {first_name, last_name, date_of_birth, gender, about, image } = req.body
+    console.log(req.body , "BODY ")
     const command = `UPDATE users SET first_name = $1, last_name = $2, date_of_birth = $3,gender = $4,about = $5, image = $6 WHERE id = $7 returning *;`
     values = [first_name, last_name, date_of_birth, gender, about, image, user_id]
 
     db.query(command, values).then(data => {
+      console.log(data, "data")
+
 
       if (data["rows"].length > 0) {
         return res.status(200).send({"success": true,
