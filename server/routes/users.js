@@ -65,17 +65,16 @@ module.exports = (db, dbQueries) => {
 
 
   router.post('/profile', (req, res) => {
-    const user_id = req.session.user["id"];
-    const { date_of_birth, gender, about, phone_number } = req.body
-    const command = `UPDATE users SET date_of_birth = $1,gender = $2,about = $3, phone_number = $4 WHERE id = $5 returning *;`
-    values = [date_of_birth, gender, about, phone_number, user_id]
+    let user_id = req.session["id"];
+    const {first_name, last_name, date_of_birth, gender, about, image} = req.body.formData;
+    const command = `UPDATE users SET first_name = $1, last_name = $2, date_of_birth = $3,gender = $4,about = $5, image = $6 WHERE id = $7 returning *;`
+    values = [first_name, last_name, date_of_birth, gender, about, image, user_id]
 
     db.query(command, values).then(data => {
-
       if (data["rows"].length > 0) {
         return res.status(200).send({"success": true,
         "message": "Profile Page succesfully created",
-        "user": req.session.user} )
+        "userId": req.session.id} )
       }
       return res.status(404).send({"message": "Error creating login page"})
 
@@ -83,6 +82,10 @@ module.exports = (db, dbQueries) => {
     })
   });
 
+    router.post('/logout', (req, res) => {
+    req.session.id = null;
+    return res.status(200).send({"message" : "Logout successful"});
+  });
 
 
 
