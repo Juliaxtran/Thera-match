@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Messages from './pages/Messages';
+import TherapistsHome from './pages/TherapistsHome';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path={"/dashboard"} element = {<Dashboard />} />
       <Route path={"/profile"} element = {<Profile />} />
       <Route path={"/messages"} element = {<Messages />} />
+      <Route path={"/therapist"} element = {<TherapistsHome />} />
 
   </Routes>
   </BrowserRouter>
