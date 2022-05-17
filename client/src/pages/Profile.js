@@ -110,14 +110,14 @@ const navigate = useNavigate()
             />
             <label htmlFor='woman-gender-identity' >Woman </label>
             <input
-              id='pefer-gender-identity'
+              id='prefer-gender-identity'
               type='radio'
               name='gender'
-              value="Perfer not to say"
+              value="Prefer not to say"
               onChange={handleChange}
-              checked={formData.gender === 'Pefer not to say'}
+              checked={formData.gender === 'Prefer not to say'}
             />
-            <label htmlFor='pefer-gender-identity' >Pefer not to say</label>
+            <label htmlFor='prefer-gender-identity' >Prefer not to say</label>
           </div>
 
 
