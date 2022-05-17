@@ -21,7 +21,7 @@ const FilterTable = () => {
             <IconButton>
               <FilterAltIcon />
             </IconButton>
-            <span> Filter By...</span>
+            <span> Filter By Specialties...</span>
           </div>
           <FilterTableItem />
         </CardContent>

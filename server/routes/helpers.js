@@ -1,4 +1,15 @@
 const { response } = require("express");
+// const { Pool } = require('pg');
+
+// const pool = new Pool({
+//   user: 'labber',
+//   password: 'labber',
+//   host: 'localhost',
+//   database: 'final'
+// });
+
+// pool.connect();
+
 
 const getUserByEmail = function (email, db) {
   const queryStringEmail = `SELECT *

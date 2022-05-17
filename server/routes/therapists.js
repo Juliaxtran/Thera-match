@@ -94,7 +94,17 @@ module.exports = (db, dbQueries) => {
     })
   });
 
-
+  router.get('/specialties', (req, res) => {
+    const user_id = 6;
+    values = [user_id]
+    dbQueries.getAllSpecialties(values)
+      .then((data) => {
+        res.json(data.rows);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  })
 
 
 
