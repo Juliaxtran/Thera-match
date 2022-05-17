@@ -22,7 +22,7 @@ app.use(cookieSession({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('dev'));
-app.use(cors({ origin: 'http://localhost:3000', methods: 'GET, POST', credentials: true }))
+app.use(cors({ origin: 'http://localhost:3002', methods: 'GET, POST', credentials: true }))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
