@@ -9,7 +9,7 @@ import { IconButton } from '@mui/material';
 import FilterTableItem from './FilterTableItem';
 
 
-const FilterTable = () => {
+const FilterTable = ({ setSpecialties }) => {
 
 
   return (
@@ -23,7 +23,9 @@ const FilterTable = () => {
             </IconButton>
             <span> Filter By Specialties...</span>
           </div>
-          <FilterTableItem />
+          <FilterTableItem
+            setSpecialties={setSpecialties}
+          />
         </CardContent>
         <CardActions>
         </CardActions>
