@@ -113,7 +113,7 @@ const navigate = useNavigate()
               id='pefer-gender-identity'
               type='radio'
               name='gender'
-              value="Pefer not to say"
+              value="Perfer not to say"
               onChange={handleChange}
               checked={formData.gender === 'Pefer not to say'}
             />
