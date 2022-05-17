@@ -6,10 +6,11 @@ const router = require('express').Router();
 module.exports = (db) => {
 
 
-  router.post('/', (req, res) => {
+  router.post('/add', (req, res) => {
     /// add a new match to the user
 
     const user_id = req.session.id
+    // const user_id = 6;
     const  therapist_id  = req.body.therapist_id
     console.log(user_id, "user!!")
     console.log(therapist_id, "therapist!!!")
@@ -27,21 +28,26 @@ module.exports = (db) => {
         // return res.status(404).send("Unable to send messages")
         console.log("unable to send a match");
       }
+    });
+  })
 
-      router.get('/users', (req, res) => {
+      router.get('/show', (req, res) => {
+        // const user_id = req.session.id
+        const user_id = 6;
         const command = `select
-        STRING_AGG(concat(therapists.first_name,' ', therapists.last_name), ', ') as favorites
+        user_id,
+        concat(users.first_name,' ', users.last_name)as users_name,
+        STRING_AGG(concat(therapists.first_name,' ', therapists.last_name), ', ') as therapists_name, therapists.image
         from matches
         join therapists on therapists.id = therapist_id
         join users on users.id = user_id
-        WHERE user_id = $1
-       `;
-        //const user_id = 1;
-        const user_id = req.session.id
+        where user_id = $1
+        GROUP by user_id, users_name,matches.id, therapists.image
+        ORDER by matches.id;`;
         values = [user_id]
         db.query(command, values).then(data => {
           if (data["rows"].length > 0) {
-            res.json(data.rows);
+            return res.json(data.rows);
 
           }
         })
@@ -55,38 +61,25 @@ module.exports = (db) => {
 
 
 
-  router.get('/therapists', (req, res) => {
+  // router.get('/therapists', (req, res) => {
 
-    const command =
-      `select
-      therapists.id as therapist_id,
-    concat(therapists.first_name, ' ', therapists.last_name) as therapists_name,
-    STRING_AGG(concat(users.first_name, ' ', users.last_name), ', ') as users_name
-    from matches
-    join therapists on therapists.id = therapist_id
-    join users on users.id = user_id
-    GROUP BY therapists_name,therapists.id
-    ORDER BY therapists.id`;
-    db.query(command).then(data => {
-      if (data["rows"].length > 0) {
-        res.json(data.rows);
+  //   const command =
+  //     `select
+  //     therapists.id as therapist_id,
+  //   concat(therapists.first_name, ' ', therapists.last_name) as therapists_name,
+  //   STRING_AGG(concat(users.first_name, ' ', users.last_name), ', ') as users_name
+  //   from matches
+  //   join therapists on therapists.id = therapist_id
+  //   join users on users.id = user_id
+  //   GROUP BY therapists_name,therapists.id
+  //   ORDER BY therapists.id`;
+  //   db.query(command).then(data => {
+  //     if (data["rows"].length > 0) {
+  //       res.json(data.rows);
 
-      }
-    })
-  });
-
-
-
-
-
-
-
-    })
-  });
-
-
-
-
+  //     }
+  //   })
+  // });
 
   return router;
 }

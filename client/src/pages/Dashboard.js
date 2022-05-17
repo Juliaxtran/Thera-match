@@ -86,7 +86,7 @@ function Advanced() {
 
 const updateFavourites =  (therapist_id) => {
 
-    axios.post('http://localhost:9000/matches', {therapist_id}, {withCredentials: true})
+    axios.post('http://localhost:9000/matches/add', {therapist_id}, {withCredentials: true})
     .then(() => console.log("it worked"))
     .catch((e) => console.log(e));
 }
