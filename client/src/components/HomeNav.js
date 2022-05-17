@@ -16,6 +16,9 @@ const HomeNav = ({ success, setShowModal, showModal, setIsSignUp }) => {
 
           <h1 className="title"> Thera-Match</h1>
         </div>
+
+        {/* Another button here that links to the therapist home page  */}
+
         {success && <button className='secondary-button'
         >Logout </button>}
 

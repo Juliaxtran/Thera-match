@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users');
 const dbQueries = require('./routes/helpers.js');
 const messagesRouter = require('./routes/messages');
 const therapistsRouter = require('./routes/therapists');
-
+const matchesRouter = require('./routes/matches');
 
 const app = express();
 
@@ -34,7 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter(db, dbQueries));
 app.use('/messages', messagesRouter(db));
-app.use('/therapists', therapistsRouter(db, dbQueries));
 
+app.use('/therapists', therapistsRouter(db, dbQueries));
+app.use('/matches', matchesRouter(db, dbQueries));
 
 module.exports = app;
