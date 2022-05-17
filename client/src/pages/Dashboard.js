@@ -66,14 +66,14 @@ function Advanced() {
       await childRefs[newIndex].current.restoreCard()
     }
 
-// Card swipe
+// Card swipe with buttons // not working for matches how do i add other variables to it.
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < therapists.length) {
       await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
     }
   }
 
-  // actual swipe
+  // actual swipe // working for matches
     // set last direction and decrease current index
     const swiped = (direction, id, index) => {
       setLastDirection(direction)
@@ -151,7 +151,7 @@ const updateFavourites =  (therapist_id) => {
         {/* (dir) => swiped(dir, therapist.id, index) */}
 
         <div className='buttons'>
-          <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={(dir) => swipe('left')}>No thanks!</button>
+          <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>No thanks!</button>
           <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
           <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>I wanna book you!</button>
         </div>
