@@ -1,3 +1,15 @@
+.messages-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+
+
+
+/* Chat Container Styling */
+
 .match-container {
   /* margin: 2em; */
   border:solid black 2px;
@@ -50,4 +62,41 @@
 .match-container button {
   border: none;
   background-color: white;
+}
+
+/* Chat Container */
+
+.chat-container {
+  /* margin: 2em; */
+  border:solid black 2px;
+  background-color: rgb(255, 255, 255);
+  width: 650px;
+  border-radius: 30px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+
+.chat-input{
+width: 350px;
+height: 40px;
+border-radius: 30px;
+margin: 2em;
+
+}
+
+.chat-display {
+  border:solid black 2px;
+  background-color: rgb(255, 255, 255);
+  width: 65vh;
+  height: 65vh ;
+  border-radius: 30px;
+  align-self: center;
+
 }

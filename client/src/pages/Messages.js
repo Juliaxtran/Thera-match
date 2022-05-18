@@ -1,13 +1,19 @@
 import MatchContainer from "../components/MatchContainer"
+import ChatContainer from "../components/ChatContainer"
+import { useState } from "react"
+import '../Messages.css'
 
 
-const Messages = (props) => {
-
+const Messages = () => {
+  const [therapist_id, setTherapistId] = useState();
   return (
-  <div>
-    <h1> Messages </h1>
-    <MatchContainer />
+    <>
+   <h1> Messages </h1>
+  <div className="messages-page">
+    <MatchContainer setTherapistId={setTherapistId}/>
+    <ChatContainer  therapist_id={therapist_id}/>
   </div>
+  </>
   )
   }
 

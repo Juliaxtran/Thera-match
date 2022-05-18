@@ -3,13 +3,14 @@ import axios from "axios";
 import { useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import '../MatchContainer.css'
+
 import { HiAnnotation } from "react-icons/hi";
 
 
 
 
-const MatchContainer = () => {
+const MatchContainer = ({setTherapistId}) => {
+
   let [matches, setMatches] = useState([]);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const MatchContainer = () => {
       <Avatar key={match.therapist_id} src= {match.image} className ='match-avatar' />
       </Stack>
       <h4 key={match.therapist_id}> {match.therapist_name} </h4>
-      <button onClick={() => {console.log("Therapist id", match.therapist_id)}} >< HiAnnotation className= "match-icon"/> </button>
+      <button onClick={() => setTherapistId(match.therapist_id)} >< HiAnnotation className= "match-icon"/> </button>
 
       </div>
     ))}
