@@ -3,6 +3,8 @@ const router = require('express').Router();
 
 module.exports = (db) => {
 
+  // Get messages for user when clicking on therapist id
+
   router.get('/', (req, res) => {
     const user_id = req.session.id;
     const therapist_id = req.query.therapist_id;
@@ -13,6 +15,8 @@ module.exports = (db) => {
       res.json(data.rows);
     })
   });
+
+  // Post message  when clicking on therpapist id 
 
   router.post('/', (req, res) => {
    const user_id = req.session.id ;
