@@ -16,7 +16,7 @@ const ChatInput = ({ therapist_id, setMessages }) => {
 
   }
 
-  //
+
 
   return (
     <div className="chat-input-container">
