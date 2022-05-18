@@ -8,7 +8,7 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     const user_id = req.session.id;
     const recipient_id = req.query.recipient_id;
-    const command = "SELECT message, messages.user_id, recipient_id, messages.id as id, users.first_name as user_name, usersr.first_name as therapist_name from messages join users ON messages.user_id = users.id join users usersr on users.id = messages.recipient_id where messages.user_id = $1 OR recipient_id = $2 Limit 5;";
+    const command = "SELECT message, messages.user_id, recipient_id, messages.id as id, users.first_name as user_name, usersr.first_name as therapist_name from messages left join users ON messages.user_id = users.id left join users usersr on users.id = messages.recipient_id where messages.user_id = $1 OR recipient_id = $2 Limit 5;";
     values = [user_id, recipient_id]
     db.query(command, values).then(data => {
       // console.log("data", data)
@@ -20,10 +20,10 @@ module.exports = (db) => {
 
   router.post('/', (req, res) => {
    const user_id = req.session.id ;
-    const therapist_id = req.body.therapist_id
+    const recipient_id = req.body.recipient_id
     const message = req.body.message
-    const command = "Insert into messages (user_id, therapist_id, message, created_at) VALUES ($1, $2, $3, now()) RETURNING * ; "
-    values = [user_id, therapist_id, message]
+    const command = "Insert into messages (user_id, recipient_id, message, created_at) VALUES ($1, $2, $3, now()) RETURNING * ; "
+    values = [user_id, recipient_id, message]
     db.query(command, values).then(data => {
       res.status(200).json(data.rows);
       console.log("Data", data.rows);

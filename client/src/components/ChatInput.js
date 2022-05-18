@@ -3,15 +3,17 @@ import axios from 'axios';
 // import UserContext from './AppContext';
 // import { useContext } from 'react';
 
-const ChatInput = ({ therapist_id, setMessages }) => {
+const ChatInput = ({ therapist, setMessages }) => {
 
   const [message, setMessage] = useState("");
 
+const recipient_id = therapist.user_id;
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post(`http://localhost:9000/messages`, { therapist_id, message }, { withCredentials: true })
+    axios.post(`http://localhost:9000/messages`, { recipient_id, message }, { withCredentials: true })
       .then((data) => {
-        setMessages(prev =>[...prev, {message: data.data[0].message , user_id: data.data[0].user_id, therapist_id: data.data[0].therapist_id, id: data.data[0].id, name: data.data[0].name } ])
+        setMessages(prev =>[...prev, {message: data.data[0].message , user_id: data.data[0].user_id, recipient_id: data.data[0].recipient_id, id: data.data[0].id, name: data.data[0].name } ])
         console.log("dataaaaaaaaaaa", data)
       })
       .catch((e) => console.log(e))
