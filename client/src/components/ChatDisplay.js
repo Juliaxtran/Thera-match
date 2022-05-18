@@ -23,7 +23,11 @@ const { user } = useContext(UserContext)
     const messageClass = classNames ("message__item", {
       "message__item-right" : user.id !== message.user_id,
     })
-    return (<h2 key={message.id} className={messageClass}>{`${message.name} says : ${message.message}`}</h2>)
+
+    if (messageClass === "message__item-right") {
+      return (<h2 key={message.id} className={messageClass}>{`${message.therapist_name} says : ${message.message}`}</h2>)
+    }
+    return (<h2 key={message.id} className={messageClass}>{`${message.user_name} says : ${message.message}`}</h2>)
   })
 
 
