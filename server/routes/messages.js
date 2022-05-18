@@ -11,12 +11,12 @@ module.exports = (db) => {
     const command = "SELECT message, user_id, therapist_id, messages.id as id, users.first_name as name from messages join users ON user_id = users.id where user_id = $1 AND therapist_id = $2 Limit 5;";
     values = [user_id, therapist_id]
     db.query(command, values).then(data => {
-      console.log("data", data)
+      // console.log("data", data)
       res.json(data.rows);
     })
   });
 
-  // Post message  when clicking on therpapist id 
+  // Post message  when clicking on therpapist id
 
   router.post('/', (req, res) => {
    const user_id = req.session.id ;
