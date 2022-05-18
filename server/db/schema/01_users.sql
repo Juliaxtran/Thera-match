@@ -10,5 +10,6 @@ CREATE TABLE users (
   gender VARCHAR(255),
   about text,
   phone_number VARCHAR(255),
-  image VARCHAR(255)
+  image VARCHAR(255),
+  type VARCHAR(255)
 );

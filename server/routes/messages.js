@@ -8,7 +8,7 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     const user_id = req.session.id;
     const therapist_id = req.query.therapist_id;
-    const command = "SELECT message, user_id, therapist_id, messages.id as id, users.first_name as user_name, therapists.first_name as therapist_name from messages join users ON user_id = users.id join therapists ON therapist_id = therapists.id where user_id = $1 AND therapist_id = $2 Limit 5;";
+    const command = "SELECT message, messages.user_id, therapist_id, messages.id as id, users.first_name as user_name, therapists.first_name as therapist_name from messages join users ON messages.user_id = users.id join therapists ON therapist_id = therapists.id where messages.user_id = $1 AND therapist_id = $2 Limit 5;";
     values = [user_id, therapist_id]
     db.query(command, values).then(data => {
       // console.log("data", data)

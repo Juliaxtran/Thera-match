@@ -4,11 +4,11 @@ CASCADE;
 CREATE TABLE therapists
 (
   id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   first_name VARCHAR(255),
   last_name VARCHAR(255),
-  email VARCHAR(255) NOT NULL,
   phone_number VARCHAR(255),
-  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255),
   gender VARCHAR(255),
   image VARCHAR(255),
   date_of_birth DATE ,
