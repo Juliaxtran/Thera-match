@@ -6,21 +6,22 @@ const { response } = require('express');
 module.exports = (db, dbQueries) => {
 
 
-  router.get('/', (req, res) => {
-    const command = "SELECT therapists.*, STRING_AGG(specialties.type,',') as type from therapists join therapist_specialties ON therapist_id = therapists.id join specialties ON specialties.id = therapist_specialties.specialty_id GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.password,therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about";
-    db.query(command).then(data => {
+  // router.get('/', (req, res) => {
+  //   const command = "SELECT therapists.*, STRING_AGG(specialties.type,',') as type from therapists join therapist_specialties ON therapist_id = therapists.id join specialties ON specialties.id = therapist_specialties.specialty_id GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.password,therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about";
+  //   db.query(command).then(data => {
 
-      if (data["rows"].length > 0) {
-        res.json(data.rows);
-        //TO FIX
-        // return res.status(200).send("it worked")
-      }
-      //TO FIX
-      // res.status(400).send("Trouble loading data")
+  //     if (data["rows"].length > 0) {
+  //       res.json(data.rows);
+  //       //TO FIX
+  //       // return res.status(200).send("it worked")
+  //     }
+  //     //TO FIX
+  //     // res.status(400).send("Trouble loading data")
 
 
-    })
-  });
+  //   })
+  // });
+
 
 
 
@@ -34,38 +35,34 @@ module.exports = (db, dbQueries) => {
 
 
     dbQueries.getTherapistByEmail(email, db)
-      .then(user => {
-        if (user) {
-          console.log('RD user', user.password);
-          bcrypt.compare(req.body.password, user.password, function (err, response) {
-            if (err) {
-              res.status(401).send('No user found');
+      .then(therapist => {
+        if (req.body.password === therapist.password) {
 
-            }
-            req.session.userID = user.id;
-            res.status(200).send("Success!");
+          console.log('RD user', therapist.password);
 
-          })
+          req.session.id = therapist.id;
+          res.status(200).send("Success!");
+
         }
       })
-      .catch(error => {
-        console.log(error);
-      });
   });
+
 
   router.post('/signup', (req, res) => {
 
-    let { first_name, last_name, email, password } = req.body
+    let { email, password } = req.body
     password = bcrypt.hashSync(password, 12);
-    const command = ' INSERT INTO therapists (first_name, last_name, email, password) VALUES($1, $2, $3, $4) RETURNING *;'
-    const values = [first_name, last_name, email, password]
+    const command = ' INSERT INTO therapists (email, password) VALUES($1, $2) RETURNING *;'
+    const values = [email, password]
     db.query(command, values).then(data => {
-
-
       if (data["rows"].length > 0) {
-        req.session.userId = data["rows"][0].id
-        console.log("id", data["rows"][0].id)
-        return res.status(200).send("it worked")
+
+        req.session.id = data["rows"][0].id
+        return res.status(200).send({
+          "success": true,
+          "message": "Sign up successful",
+          "therapistId": req.session.id
+        })
       }
 
     })
@@ -73,28 +70,41 @@ module.exports = (db, dbQueries) => {
 
   })
 
-
-
-
   router.post('/profile', (req, res) => {
-    // const user_id = req.sessions["userId"];
-    const user_id = 11;
-    const { phone_number, gender, date_of_birth, location, cost_per_session, years_of_practice, title, session_type, about } = req.body
-    const command = `UPDATE therapists SET phone_number = $1,gender = $2,date_of_birth = $3, location = $4, cost_per_session = $5, years_of_practice = $6, title = $7, session_type = $8, about = $9  WHERE id = $10 returning *`
-    values = [phone_number, gender, date_of_birth, location, cost_per_session, years_of_practice, title, session_type, about, user_id];
+    let therapist_id = req.session.id
+    const { first_name, last_name, date_of_birth, gender, about, image, location, title, cost_per_session, years_of_practice, session_type } = req.body.formData;
+    const command = `UPDATE therapists SET first_name = $1, last_name = $2, date_of_birth = $3, gender = $4, about = $5, image = $6, location = $7, title = $8, cost_per_session = $9, years_of_practice = $10, session_type = $11 WHERE id = $12 returning *;`
+    values = [first_name, last_name, date_of_birth, gender, about, image, location, title, cost_per_session, years_of_practice, session_type, therapist_id];
 
     db.query(command, values).then(data => {
-
       if (data["rows"].length > 0) {
-        return res.status(200).send("Profile page created")
+        return res.status(200).send({
+          "success": true,
+          "message": "Profile page created successfully!",
+          "therapistID": req.session.id
+        })
       }
       return res.status(404).send("Error creating profile page")
-
 
     })
   });
 
-
+  router.get('/specialties', (req, res) => {
+    const user_id = 6;
+    let options = { type: req.query.specialties };
+    // console.log("HELLLOOOOOOOOOO", req.query);
+    dbQueries.getAllSpecialties(db, options)
+      .then((rows) => {
+        res.json(rows);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  })
+  router.post('/logout', (req, res) => {
+    req.session.id = null;
+    return res.status(200).send({ "message": "Logout successful" });
+  });
 
 
 
