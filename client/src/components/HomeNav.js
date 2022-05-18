@@ -1,4 +1,5 @@
-
+import UserContext from "./AppContext"
+import { useContext } from "react"
 
 const HomeNav = ({ success, setShowModal, showModal, setIsSignUp }) => {
 
@@ -6,6 +7,8 @@ const HomeNav = ({ success, setShowModal, showModal, setIsSignUp }) => {
     setShowModal(true)
     setIsSignUp(false)
   }
+
+  const { user } = useContext(UserContext);
 
 
   return (
@@ -19,11 +22,11 @@ const HomeNav = ({ success, setShowModal, showModal, setIsSignUp }) => {
 
         {/* Another button here that links to the therapist home page  */}
 
-        {success && <button className='secondary-button'
+        {user.id && <button className='secondary-button'
         >Logout </button>}
 
 
-        {!success && <button className='secondary-button'
+        {!user.id && <button className='secondary-button'
           onClick={handleClick}
           disabled={showModal}
         > Login </button>}

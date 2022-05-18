@@ -9,7 +9,7 @@ const Messages = () => {
   const [therapist_id, setTherapistId] = useState();
   return (
     <>
-    <HomeNav success="false" />
+    <HomeNav  />
    <h1> Messages </h1>
   <div className="messages-page">
     <MatchContainer setTherapistId={setTherapistId}/>

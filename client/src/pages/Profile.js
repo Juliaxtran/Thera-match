@@ -3,28 +3,32 @@ import '../Profile.css';
 import axios from "axios";
 import HomeNav from "../components/HomeNav";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../components/AppContext";
+import { useContext } from "react"
+import { useEffect } from "react";
+
+
 
 
 const Profile = () => {
 
+  const {setUser, user} = useContext(UserContext)
+
   const navigate = useNavigate()
   const [error, setError] = useState("");
-  const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    date_of_birth: '',
-    gender: '',
-    about: '',
-    image: '',
-
-  })
+  const [formData, setFormData] = useState(user)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await axios.post(`http://localhost:9000/users/profile`, { formData }, { withCredentials: true })
       const success = response.status === 200
-      if (success) navigate('/dashboard');
+      if (success) {
+        navigate('/dashboard');
+        setUser(response.data.user);
+       }
+
+
 
     } catch (error) {
       setError("Error: Profile page was not created")
@@ -44,9 +48,14 @@ const Profile = () => {
       [name]: value
     }))
   }
+
+useEffect(() => {
+setFormData(user)
+}, [user]);
+
   return (
     <div className="profile">
-      <HomeNav success="false" />
+      <HomeNav />
 
       <h1>Create your profile </h1>
 
