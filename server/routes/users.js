@@ -24,7 +24,7 @@ module.exports = (db, dbQueries) => {
             } if (response) {
 
               req.session.id = user.id;
-              res.status(200).send({success: true, message:'Login succesful', userId: req.session.id});
+              res.status(200).send({success: true, message:'Login succesful', user: user});
             } else {
               return res.status(400).send({ success: false, message: 'passwords do not match' });
             }
@@ -50,7 +50,7 @@ module.exports = (db, dbQueries) => {
         return res.status(200).send({
           "success": true,
           "message": "Sign up successful",
-          "userId": req.session.id
+           "user": data["rows"][0]
         })
       }
 
@@ -72,7 +72,7 @@ module.exports = (db, dbQueries) => {
       if (data["rows"].length > 0) {
         return res.status(200).send({"success": true,
         "message": "Profile page created successfully!",
-        "userId": req.session.id} )
+        "user": data.rows[0]} )
       }
       return res.status(404).send({"message": "Error creating login page"})
 

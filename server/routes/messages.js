@@ -26,8 +26,10 @@ module.exports = (db) => {
     values = [user_id, therapist_id, message]
     db.query(command, values).then(data => {
       res.status(200).json(data.rows);
+      console.log("Data", data.rows);
     })
   });
+
 
 
   // router.get('/therapist', (req, res) => {

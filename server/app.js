@@ -20,6 +20,8 @@ app.use(cookieSession({
   keys: ['key1', 'key2']
 }))
 
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(cors({ origin: 'http://localhost:3002', methods: 'GET, POST', credentials: true }))
@@ -37,5 +39,19 @@ app.use('/messages', messagesRouter(db));
 
 app.use('/therapists', therapistsRouter(db, dbQueries));
 app.use('/matches', matchesRouter(db, dbQueries));
+
+app.get('/api/profile' , (req, res) => {
+  if(req.session.id) {
+   const user_id = req.session.id
+    const command = "SELECT * from users where id = $1; "
+    values = [user_id]
+    db.query(command, values).then(data => {
+     return res.json(data.rows[0]);
+    })
+  } else {
+    console.log("No sessions")
+    return res.status(400).send("No user info")
+  }
+  })
 
 module.exports = app;

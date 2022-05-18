@@ -1,12 +1,16 @@
 import { useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+import UserContext from "./AppContext"
+import { useContext } from "react"
 
 const AuthModal = ({ setShowModal, isSignUp }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
+
+  const  {setUser} = useContext(UserContext)
 
   let navigate = useNavigate()
 
@@ -23,6 +27,9 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
       }
       // If response is success navigate to onboarding - navidat a part of router dom
       const response = await axios.post(`http://localhost:9000/users/${isSignUp ? 'signup' : 'login'}`, { email, password}, {withCredentials: true})
+      if(response.data.user) {
+        setUser(response.data.user)
+      }
       const success = response.status === 200
       if (isSignUp && success) navigate('/profile')
       if (!isSignUp && success) navigate('/dashboard')
