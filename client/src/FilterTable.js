@@ -7,21 +7,20 @@ import CardContent from '@mui/material/CardContent';
 
 import { IconButton } from '@mui/material';
 import FilterTableItem from './FilterTableItem';
-
+import './FilterTable.css'
 
 const FilterTable = ({ setSpecialties }) => {
 
 
   return (
-    <div>
-      <h1>I am Filter Table!!</h1>
+    <div className='filter-table'>
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <div className='filter-icon-button'>
             <IconButton>
               <FilterAltIcon />
             </IconButton>
-            <span> Filter By Specialties...</span>
+            <span> Filter By Specialties</span>
           </div>
           <FilterTableItem
             setSpecialties={setSpecialties}

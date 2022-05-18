@@ -80,13 +80,15 @@ const FilterTableItem = ({ setSpecialties }) => {
   }
 
   return (
-    <div>
+    <div className="filter-item">
       <FormGroup className='specialty-list'>
         {specialties.map(specialty =>
           <FormControlLabel
             key={specialty.type}
             control={
-              <Checkbox checked={checked.includes(specialty.type)} onChange={(e) => onChange(e.target.checked, specialty.type)} />
+              <Checkbox checked={checked.includes(specialty.type)} onChange={(e) => onChange(e.target.checked, specialty.type)}
+              />
+
             }
             label={specialty.type}
           />
