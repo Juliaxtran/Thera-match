@@ -1,5 +1,5 @@
 import HomeNav from "../components/HomeNav";
-import AuthModal from "../components/AuthModal";
+import AuthModal from "../components/AuthModal"
 import { useState } from 'react'
 import '../Home.css';
 
