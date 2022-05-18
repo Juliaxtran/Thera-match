@@ -82,6 +82,10 @@ const getAllSpecialties = function (db, options) {
   return db.query(queryString, queryParams).then((res) => res.rows);
 }
 
+
+
+
+
 module.exports = {
   getUserByEmail,
   getTherapistByEmail,

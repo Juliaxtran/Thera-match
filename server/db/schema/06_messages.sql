@@ -7,5 +7,6 @@ CREATE TABLE messages
   user_id integer REFERENCES users(id) ON DELETE CASCADE NOT NULL,
   recipient_id integer REFERENCES users(id) ON DELETE CASCADE NOT NULL,
   message text,
-  created_at TIMESTAMP
+  created_at TIMESTAMP,
+  conversation_id VARCHAR(250)
 );

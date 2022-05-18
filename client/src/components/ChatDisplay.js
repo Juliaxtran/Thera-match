@@ -10,7 +10,7 @@ const ChatDisplay = ({ therapist , messages, setMessages}) => {
 
 const { user } = useContext(UserContext)
 
-const recipient_id = therapist.id
+const recipient_id = therapist.user_id
 
   useEffect(() => {
     axios.get('http://localhost:9000/messages', { params: { recipient_id }, withCredentials: true }).then(res => {
@@ -25,8 +25,8 @@ const recipient_id = therapist.id
       "message__item-right" : user.id !== message.user_id,
     })
 
-    if (messageClass === "message__item-right") {
-      return (<h2 key={message.id} className={messageClass}>{`${message.therapist_name} says : ${message.message}`}</h2>)
+    if (message.user_id === user.id) {
+      return (<h2 key={message.id} className={messageClass}>{`You : ${message.message}`}</h2>)
     }
     return (<h2 key={message.id} className={messageClass}>{`${message.user_name} says : ${message.message}`}</h2>)
   })
