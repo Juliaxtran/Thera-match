@@ -34,14 +34,15 @@ module.exports = (db) => {
       router.get('/show', (req, res) => {
         const user_id = req.session.id
         const command = `select
-        matches.user_id, therapist_id,
-        concat(users.first_name,' ', users.last_name)as users_name,
-        STRING_AGG(concat(therapists.first_name,' ', therapists.last_name), ', ') as therapist_name, therapists.image
+        matches.user_id, matches.therapist_id, therapists.user_id,
+        concat(users.first_name,' ', users.last_name) as users_name,
+        STRING_AGG(concat(userst.first_name,' ', userst.last_name), ', ') as therapist_name, therapists.image
         from matches
-        join therapists on therapists.id = therapist_id
+        join therapists on therapists.id = matches.therapist_id
         join users on users.id = matches.user_id
+        join users userst on userst.id = therapists.user_id
         where matches.user_id = $1
-        GROUP by matches.user_id, users_name,matches.id, therapists.image
+        GROUP by matches.user_id, users_name,matches.id, therapists.image, therapists.user_id
         ORDER by matches.id;`;
         values = [user_id]
         db.query(command, values).then(data => {

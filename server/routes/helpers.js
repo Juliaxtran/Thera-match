@@ -58,10 +58,11 @@ const getAllSpecialties = function (db, options) {
 
   let queryString =
     `
-    SELECT therapists.*,
+    SELECT therapists.*, users.first_name, users.last_name,
     STRING_AGG(specialties.type,',') as type
     FROM therapists
     JOIN therapist_specialties ON therapist_id = therapists.id
+    JOIN users ON users.id = therapists.user_id
     JOIN specialties ON specialties.id = therapist_specialties.specialty_id
   `
 
@@ -74,7 +75,7 @@ const getAllSpecialties = function (db, options) {
 
   queryString +=
     `
-    GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about;
+    GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about, users.first_name, users.last_name;
     `
   console.log(queryString);
   console.log(queryParams);
