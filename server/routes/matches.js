@@ -10,7 +10,6 @@ module.exports = (db) => {
     /// add a new match to the user
 
     const user_id = req.session.id
-    // const user_id = 6;
     const  therapist_id  = req.body.therapist_id
     console.log(user_id, "user!!")
     console.log(therapist_id, "therapist!!!")
