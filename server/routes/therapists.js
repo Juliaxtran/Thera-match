@@ -89,7 +89,6 @@ module.exports = (db, dbQueries) => {
     })
   });
 
-<<<<<<< HEAD
   router.get('/specialties', (req, res) => {
     const user_id = 6;
     let options = { type: req.query.specialties };
@@ -102,12 +101,10 @@ module.exports = (db, dbQueries) => {
         console.log(error);
       });
   })
-=======
   router.post('/logout', (req, res) => {
     req.session.id = null;
     return res.status(200).send({ "message": "Logout successful" });
   });
->>>>>>> master
 
 
 
