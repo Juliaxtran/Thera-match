@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
 import axios from 'axios';
-
+import FilterTable from '../FilterTable';
 
 
 function Advanced() {
@@ -14,17 +14,18 @@ function Advanced() {
   const [lastDirection, setLastDirection] = useState();
   const [therapists, setTherapists] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(therapists.length - 1);
-
+  const [specialties, setSpecialties] = useState([]);
   // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex);
 
   useEffect(() => {
-    axios.get('http://localhost:9000/therapists').then(res => {
-      const therapists = res.data;
-      setCurrentIndex(therapists.length - 1)
-      setTherapists(therapists)
-    })
-  }, [])
+    axios.get('http://localhost:9000/therapists/specialties', { params: { specialties } })
+      .then(res => {
+        const therapists = res.data;
+        setCurrentIndex(therapists.length - 1)
+        setTherapists(therapists)
+      })
+  }, [specialties])
 
   // Pat's Note: I added therapists as second dependecies not sure if it works
   const childRefs = useMemo(
@@ -58,15 +59,15 @@ function Advanced() {
     // during latest swipes. Only the last outOfFrame event should be considered valid
   }
 
-    // increase current index and show card
-    const goBack = async () => {
-      if (!canGoBack) return
-      const newIndex = currentIndex + 1
-      updateCurrentIndex(newIndex)
-      await childRefs[newIndex].current.restoreCard()
-    }
+  // increase current index and show card
+  const goBack = async () => {
+    if (!canGoBack) return
+    const newIndex = currentIndex + 1
+    updateCurrentIndex(newIndex)
+    await childRefs[newIndex].current.restoreCard()
+  }
 
-// Card swipe with buttons // not working for matches how do i add other variables to it.
+  // Card swipe with buttons // not working for matches how do i add other variables to it.
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < therapists.length) {
       await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
@@ -74,22 +75,22 @@ function Advanced() {
   }
 
   // actual swipe // working for matches
-    // set last direction and decrease current index
-    const swiped = (direction, id, index) => {
-      setLastDirection(direction)
-      updateCurrentIndex(index - 1)
-      if (direction === 'right'){
-        console.log(id)
-        updateFavourites(id)
-      }
+  // set last direction and decrease current index
+  const swiped = (direction, id, index) => {
+    setLastDirection(direction)
+    updateCurrentIndex(index - 1)
+    if (direction === 'right') {
+      console.log(id)
+      updateFavourites(id)
     }
+  }
 
-const updateFavourites =  (therapist_id) => {
+  const updateFavourites = (therapist_id) => {
 
-    axios.post('http://localhost:9000/matches/add', {therapist_id}, {withCredentials: true})
-    .then(() => console.log("it worked"))
-    .catch((e) => console.log(e));
-}
+    axios.post('http://localhost:9000/matches/add', { therapist_id }, { withCredentials: true })
+      .then(() => console.log("it worked"))
+      .catch((e) => console.log(e));
+  }
 
 
 
@@ -97,7 +98,10 @@ const updateFavourites =  (therapist_id) => {
     <div className='main-dashboard'>
 
       <div className='dashboard'>
+        <FilterTable
+          setSpecialties={setSpecialties}
 
+        />
         <h1>Match with a Therapist</h1>
         <div className='cardContainer'>
           {therapists.map((therapist, index) => (

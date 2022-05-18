@@ -6,21 +6,21 @@ const { response } = require('express');
 module.exports = (db, dbQueries) => {
 
 
-  router.get('/', (req, res) => {
-    const command = "SELECT therapists.*, STRING_AGG(specialties.type,',') as type from therapists join therapist_specialties ON therapist_id = therapists.id join specialties ON specialties.id = therapist_specialties.specialty_id GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.password,therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about";
-    db.query(command).then(data => {
+  // router.get('/', (req, res) => {
+  //   const command = "SELECT therapists.*, STRING_AGG(specialties.type,',') as type from therapists join therapist_specialties ON therapist_id = therapists.id join specialties ON specialties.id = therapist_specialties.specialty_id GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.password,therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about";
+  //   db.query(command).then(data => {
 
-      if (data["rows"].length > 0) {
-        res.json(data.rows);
-        //TO FIX
-        // return res.status(200).send("it worked")
-      }
-      //TO FIX
-      // res.status(400).send("Trouble loading data")
+  //     if (data["rows"].length > 0) {
+  //       res.json(data.rows);
+  //       //TO FIX
+  //       // return res.status(200).send("it worked")
+  //     }
+  //     //TO FIX
+  //     // res.status(400).send("Trouble loading data")
 
 
-    })
-  });
+  //   })
+  // });
 
 
 
@@ -89,10 +89,25 @@ module.exports = (db, dbQueries) => {
     })
   });
 
+<<<<<<< HEAD
+  router.get('/specialties', (req, res) => {
+    const user_id = 6;
+    let options = { type: req.query.specialties };
+    // console.log("HELLLOOOOOOOOOO", req.query);
+    dbQueries.getAllSpecialties(db, options)
+      .then((rows) => {
+        res.json(rows);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  })
+=======
   router.post('/logout', (req, res) => {
     req.session.id = null;
     return res.status(200).send({ "message": "Logout successful" });
   });
+>>>>>>> master
 
 
 
