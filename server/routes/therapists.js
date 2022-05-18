@@ -90,7 +90,7 @@ module.exports = (db, dbQueries) => {
   });
 
   router.get('/specialties', (req, res) => {
-    const user_id = 6;
+   
     let options = { type: req.query.specialties };
     // console.log("HELLLOOOOOOOOOO", req.query);
     dbQueries.getAllSpecialties(db, options)
