@@ -44,8 +44,6 @@ module.exports = (db, dbQueries) => {
     const values = [ email, password]
     db.query(command, values).then(data => {
 
-
-
       if (data["rows"].length > 0) {
 
         req.session.id = data["rows"][0].id
@@ -73,7 +71,7 @@ module.exports = (db, dbQueries) => {
     db.query(command, values).then(data => {
       if (data["rows"].length > 0) {
         return res.status(200).send({"success": true,
-        "message": "Profile Page succesfully created",
+        "message": "Profile page created successfully!",
         "userId": req.session.id} )
       }
       return res.status(404).send({"message": "Error creating login page"})
