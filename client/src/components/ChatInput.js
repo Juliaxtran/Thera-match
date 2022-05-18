@@ -9,7 +9,7 @@ const ChatInput = ({ therapist_id, setMessages }) => {
     e.preventDefault()
     axios.post(`http://localhost:9000/messages`, { therapist_id, message }, { withCredentials: true })
       .then((data) => {
-        setMessages(prev =>[...prev, {message: data.data[0].message , user_id: data.data[0].user_id, therapist_id: data.data[0].therapist_id, id: data.data[0].id} ])
+        setMessages(prev =>[...prev, {message: data.data[0].message , user_id: data.data[0].user_id, therapist_id: data.data[0].therapist_id, id: data.data[0].id, name: data.data[0].name } ])
         console.log("dataaaaaaaaaaa", data)
       })
       .catch((e) => console.log(e))
