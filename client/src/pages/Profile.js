@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
 
-const navigate = useNavigate()
+  const navigate = useNavigate()
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     first_name: '',
@@ -20,15 +20,15 @@ const navigate = useNavigate()
   })
 
   const handleSubmit = async (e) => {
-   e.preventDefault()
-   try {
-    const response = await axios.post(`http://localhost:9000/users/profile`, {formData}, {withCredentials: true})
-    const success = response.status === 200
-    if (success) navigate('/dashboard');
+    e.preventDefault()
+    try {
+      const response = await axios.post(`http://localhost:9000/users/profile`, { formData }, { withCredentials: true })
+      const success = response.status === 200
+      if (success) navigate('/dashboard');
 
-   } catch (error) {
-    setError("Error: Profile page was not created")
-   }
+    } catch (error) {
+      setError("Error: Profile page was not created")
+    }
   }
 
 
@@ -78,7 +78,7 @@ const navigate = useNavigate()
 
           <label > Birthday </label>
 
-            <input placeholder="Select date"
+          <input placeholder="Select date"
             type="text"
             name="date_of_birth"
             required={true}
@@ -110,18 +110,18 @@ const navigate = useNavigate()
             />
             <label htmlFor='woman-gender-identity' >Woman </label>
             <input
-              id='pefer-gender-identity'
+              id='prefer-gender-identity'
               type='radio'
               name='gender'
-              value="Perfer not to say"
+              value="Prefer not to say"
               onChange={handleChange}
-              checked={formData.gender === 'Pefer not to say'}
+              checked={formData.gender === 'Prefer not to say'}
             />
-            <label htmlFor='pefer-gender-identity' >Pefer not to say</label>
+            <label htmlFor='prefer-gender-identity' >Prefer not to say</label>
           </div>
 
 
-          <label htmlFor="about">Tell us about yourself and why you are looking for a therapist today?</label>
+          <label htmlFor="about">Tell us a bit about yourself and what you are seeking today!</label>
           <input
             id="about"
             type="text"

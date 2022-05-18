@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Messages from './pages/Messages';
 import TherapistsHome from './pages/TherapistsHome';
+import TherapistProfile from './pages/TherapistProfile';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path={"/"} element = {<Home />}/>
       <Route path={"/dashboard"} element = {<Dashboard />} />
       <Route path={"/profile"} element = {<Profile />} />
+      <Route path={"/therapist-profile"} element = {<TherapistProfile />} />
       <Route path={"/messages"} element = {<Messages />} />
       <Route path={"/therapist"} element = {<TherapistsHome />} />
 

@@ -1,5 +1,5 @@
 import HomeNav from "../components/HomeNav";
-import AuthModal from "../components/AuthModal";
+import TherapistAuthModal from "../components/TherapistAuthModal";
 import { useState } from 'react'
 import '../Therapist.css';
 
@@ -29,7 +29,7 @@ const TherapistsHome = (props) => {
           {success ? 'Sign Out' : 'Create Account'}
         </button>
         {showModal && (
-          <AuthModal
+          <TherapistAuthModal
             setShowModal={setShowModal}
             isSignUp={isSignUp} />
         )}

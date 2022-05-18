@@ -24,8 +24,8 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
       // If response is success navigate to onboarding - navidat a part of router dom
       const response = await axios.post(`http://localhost:9000/therapists/${isSignUp ? 'signup' : 'login'}`, { email, password}, {withCredentials: true})
       const success = response.status === 200
-      if (isSignUp && success) navigate('/profile')
-      if (!isSignUp && success) navigate('/dashboard')
+      if (isSignUp && success) navigate('/therapist-profile')
+      if (!isSignUp && success) navigate('/')
     } catch (error) {
       setError("Email / Password invalid")
     }
