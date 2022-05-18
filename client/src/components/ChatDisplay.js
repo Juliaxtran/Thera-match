@@ -13,8 +13,8 @@ const ChatDisplay = ({ therapist_id, messages, setMessages}) => {
   }, [therapist_id])
 
 
-  const messageList = messages.map((test) => {
-    return (<h2 key={test.id}>{`${test.name} says : ${test.message}`}</h2>)
+  const messageList = messages.map((message) => {
+    return (<h2 key={test.id}>{`${message.name} says : ${message.message}`}</h2>)
   })
 
 
