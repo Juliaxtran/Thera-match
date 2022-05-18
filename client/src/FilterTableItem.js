@@ -6,17 +6,48 @@ import Checkbox from '@mui/material/Checkbox';
 
 const specialties = [
   {
-    name: "Addiction",
+    type: "Addiction",
   },
   {
-    name: "Autism"
+    type: "Anxiety"
   },
   {
-    name: "Binge Eating Disorder"
+    type: "Binge Eating Disorder"
   },
   {
-    name: "Grief"
+    type: "Bulimia"
+  },
+  {
+    type: "Bullying"
+  },
+  {
+    type: "Couples Therapy"
+  },
+  {
+    type: "Depression"
+  },
+  {
+    type: "Divorce"
+  },
+  {
+    type: "Domestic Abuse"
+  },
+  {
+    type: "Drug Abuse"
+  },
+  {
+    type: "Family"
+  },
+  {
+    type: "Grief"
+  },
+  {
+    type: "LGBTQ2S+"
+  },
+  {
+    type: "Sex Therapy"
   }
+
 ];
 
 const FilterTableItem = ({ setSpecialties }) => {
@@ -25,7 +56,7 @@ const FilterTableItem = ({ setSpecialties }) => {
 
   const onChange = (isChecked, specialtyName) => {
     // console.log(isChecked);
-    // console.log(specialty);
+    // console.log(specialtyName);
 
     setChecked((checked) => {
 
@@ -53,11 +84,11 @@ const FilterTableItem = ({ setSpecialties }) => {
       <FormGroup className='specialty-list'>
         {specialties.map(specialty =>
           <FormControlLabel
-            key={specialty.name}
+            key={specialty.type}
             control={
-              <Checkbox checked={checked.includes(specialty.name)} onChange={(e) => onChange(e.target.checked, specialty.name)} />
+              <Checkbox checked={checked.includes(specialty.type)} onChange={(e) => onChange(e.target.checked, specialty.type)} />
             }
-            label={specialty.name}
+            label={specialty.type}
           />
         )}
       </FormGroup>
