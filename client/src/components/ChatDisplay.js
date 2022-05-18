@@ -1,8 +1,14 @@
 import axios from 'axios'
 import {  useEffect } from 'react'
+import  classNames  from 'classnames';
+import UserContext from './AppContext';
+import { useContext } from 'react';
+
 
 
 const ChatDisplay = ({ therapist_id, messages, setMessages}) => {
+
+const { user } = useContext(UserContext)
 
 
   useEffect(() => {
@@ -14,7 +20,10 @@ const ChatDisplay = ({ therapist_id, messages, setMessages}) => {
 
 
   const messageList = messages.map((message) => {
-    return (<h2 key={message.id}>{`${message.name} says : ${message.message}`}</h2>)
+    const messageClass = classNames ("message__item", {
+      "message__item-right" : user.id !== message.user_id,
+    })
+    return (<h2 key={message.id} className={messageClass}>{`${message.name} says : ${message.message}`}</h2>)
   })
 
 

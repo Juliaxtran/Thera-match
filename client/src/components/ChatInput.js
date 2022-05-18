@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import UserContext from './AppContext';
+import { useContext } from 'react';
 
 const ChatInput = ({ therapist_id, setMessages }) => {
 
