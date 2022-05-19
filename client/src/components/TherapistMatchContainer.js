@@ -16,9 +16,9 @@ const TherapistMatchContainer = (props) => {
   return (
     <div>
 
-      {matches.map((match) => (
+      {/* {matches.map((match) => (
         <li>match.user_name</li>
-      )}
+      )} */}
     </div>
 
   )
