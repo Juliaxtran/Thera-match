@@ -1,5 +1,3 @@
-
-
 const router = require('express').Router();
 
 
@@ -56,7 +54,26 @@ module.exports = (db) => {
 
 
 
+  router.get('/therapists', (req, res) => {
+    const user_id = req.session.id
+    console.log("##1 user_id", user_id);
+    const command = `SELECT id from therapists where user_id = $1;`
+    const values = [user_id]
+    const command2 = `select user_id , concat(users.first_name, ' ', users.last_name) as user_name, users.image, users.about from matches join users ON users.id = matches.user_id where therapist_id = $1;`
 
+      db.query(command, values).then(data => {
+        if (data["rows"].length > 0) {
+          const therapist_id = [data.rows[0].id]
+          console.log("##2", therapist_id)
+          db.query(command2, therapist_id).then(data2 => {
+            console.log('##3', data2.rows);
+            if (data2.rows.length > 0) {
+              res.json(data2.rows);
+            }
+          })
+        }
+      })
+  })
 
 
 
@@ -64,3 +81,4 @@ module.exports = (db) => {
 
   return router;
 }
+
