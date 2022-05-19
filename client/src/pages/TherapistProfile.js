@@ -49,7 +49,8 @@ const TherapistProfile = () => {
     <div className="profile">
       <HomeNav success="false" />
 
-      <h1>Create your profile </h1>
+      <h1>Your Profile </h1>
+
 
 
       <form onSubmit={handleSubmit} >
