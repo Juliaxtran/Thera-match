@@ -3,7 +3,7 @@ import TherapistMatchContainer from '../components/TherapistMatchContainer'
 import { useState } from 'react';
 import '../TherapistDashboard.css';
 import ChatContainer from '../components/ChatContainer';
-import ChatInput from '../components/ChatInput';
+
 
 
 const TherapistDashboard = () => {
