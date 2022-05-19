@@ -1,65 +1,36 @@
-import React, { useState } from "react";
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import React from 'react';
+import './FilterTable.css'
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+
+import { IconButton } from '@mui/material';
+import FilterTableItemBySession from './FilterTableItemBySession';
 
 
-const sessions = [
-  {
-    name: "Online",
-  },
-  {
-    name: "In-Person"
-  }
+const FilterTableItemBySession = ({ setSession }) => {
 
-];
-
-const FilterTableBySession = ({ setSession }) => {
-
-  const [checked, setChecked] = useState([]);
-
-  const onChange = (isChecked, specialtyName) => {
-    // console.log(isChecked);
-    // console.log(specialtyName);
-
-    setChecked((checked) => {
-
-      let newChecked = [...checked];
-
-      if (isChecked) {
-        if (!checked.includes(specialtyName)) {
-          newChecked.push(specialtyName);
-
-        }
-
-      } else {
-        const currentIndex = newChecked.indexOf(specialtyName);
-        newChecked.splice(currentIndex, 1);
-
-      }
-      setGender(newChecked);
-      return newChecked;
-    })
-
-  }
 
   return (
-    <div className="filter-item">
-      <FormGroup className='specialty-list'>
-        {sessions.map(session =>
-          <FormControlLabel
-            key={gender.name}
-            control={
-              <Checkbox checked={checked.includes(session.name)} onChange={(e) => onChange(e.target.checked, session.name)}
-              />
-
-            }
-            label={session.name}
+    <div className='filter-table'>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <div className='filter-icon-button'>
+            <IconButton>
+              <FilterAltIcon />
+            </IconButton>
+            <span> Filter By Gender</span>
+          </div>
+          <FilterTableItemBySession
+            setSession={setSession}
           />
-        )}
-      </FormGroup>
+        </CardContent>
+        <CardActions>
+        </CardActions>
+      </Card>
     </div>
   )
 }
 
-export default FilterTableItemByGender;
+export default FilterTableItemBySession; 
