@@ -7,7 +7,6 @@ const ChatContainer = ({recipient}) => {
   return (
 
   <div className="chat-container">
-     {console.log("therapistId", recipient)}
    <ChatDisplay recipient = {recipient} messages={messages} setMessages={setMessages} />
   <ChatInput recipient = {recipient} setMessages={setMessages}/>
   </div>

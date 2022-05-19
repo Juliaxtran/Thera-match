@@ -1,0 +1,21 @@
+/* Therapist Match Container  */
+
+.therapist-matches {
+border: 1px solid black;
+width: 450px;
+margin: 2em;
+border-radius: 30px;
+display: flex;
+flex-direction:  column;
+}
+
+.therapist-matches button {
+  border: none;
+  background-color: white;
+  justify-content: center;
+}
+
+.therapist-dashboard {
+  display: flex;
+}
+

@@ -17,13 +17,14 @@ const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
   const { user } = useContext(UserContext);
 
   const logOut =  (e) => {
-      e.preventDefault()
-      const response = axios.post(`/users/logout`, { withCredentials: true }).then(() => {
-        const success = response.status === 200
-        if(success) navigate('/');
-      })
+    e.preventDefault()
+    axios.post(`/users/logout`, { withCredentials: true }).then((response) => {
 
-  }
+      const success = response.status === 200
+      if(success) navigate('/');
+    })
+
+}
 
 
   return (
