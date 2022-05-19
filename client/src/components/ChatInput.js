@@ -3,11 +3,11 @@ import axios from 'axios';
 // import UserContext from './AppContext';
 // import { useContext } from 'react';
 
-const ChatInput = ({ therapist, setMessages }) => {
+const ChatInput = ({ recipient, setMessages }) => {
 
   const [message, setMessage] = useState("");
 
-const recipient_id = therapist.user_id;
+const recipient_id = recipient.user_id;
 
   const handleSubmit = (e) => {
     e.preventDefault()

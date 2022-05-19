@@ -6,18 +6,18 @@ import { useContext } from 'react';
 
 
 
-const ChatDisplay = ({ therapist , messages, setMessages}) => {
+const ChatDisplay = ({ recipient , messages, setMessages}) => {
 
 const { user } = useContext(UserContext)
 
-const recipient_id = therapist.user_id
+const recipient_id = recipient.user_id
 
   useEffect(() => {
     axios.get('/messages', { params: { recipient_id }, withCredentials: true }).then(res => {
     setMessages(res.data)
     })
       .catch((e) => console.log(e));
-  }, [therapist])
+  }, [recipient])
 
 
   const messageList = messages.map((message) => {

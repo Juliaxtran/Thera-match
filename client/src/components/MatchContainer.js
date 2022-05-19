@@ -9,7 +9,7 @@ import { HiAnnotation } from "react-icons/hi";
 
 
 
-const MatchContainer = ({setTherapist}) => {
+const MatchContainer = ({setRecipient}) => {
 
   let [matches, setMatches] = useState([]);
 
@@ -34,7 +34,7 @@ const MatchContainer = ({setTherapist}) => {
       <Avatar key={match.recipient_id} src= {match.image} className ='match-avatar' />
       </Stack>
       <h4 key={match.recipient_id}> {match.therapist_name} </h4>
-      <button onClick={() => setTherapist(match)} >< HiAnnotation className= "match-icon"/> </button>
+      <button onClick={() => setRecipient(match)} >< HiAnnotation className= "match-icon"/> </button>
 
       </div>
     ))}
