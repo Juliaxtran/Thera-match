@@ -16,6 +16,7 @@ function Advanced() {
   const [currentIndex, setCurrentIndex] = useState(therapists.length - 1);
   const [specialties, setSpecialties] = useState([]);
   const [gender, setGender] = useState([]);
+  const [session, setSession] = useState([]);
   // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex);
 
