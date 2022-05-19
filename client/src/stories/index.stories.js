@@ -3,7 +3,8 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import FilterTable from "../FilterTable";
 import FilterTableItem from "../FilterTableItem";
-
+import FilterTableByGender from "../FilterTableByGender";
+import FilterTableItemByGender from "../FilterTableByGender";
 
 storiesOf('Test')
   .add('Random Story', () => <h1>Random stories</h1>);
@@ -22,5 +23,19 @@ storiesOf('FilterTableItem')
   .add('a filter icon with a checkbox', () =>
 
     <FilterTableItem />
+
+  );
+
+storiesOf('FilterTableByGender')
+  .add('a filter icon with a checkbox', () =>
+
+    <FilterTableByGender />
+
+  );
+
+storiesOf('FilterTableItemByGender')
+  .add('a filter icon with a checkbox', () =>
+
+    <FilterTableItemByGender />
 
   );
