@@ -1,8 +1,8 @@
-import { useState } from "react"
-import axios from 'axios'
+import { useState } from "react";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import UserContext from "./AppContext"
-import { useContext } from "react"
+import UserContext from "./AppContext";
+import { useContext } from "react";
 
 const AuthModal = ({ setShowModal, isSignUp }) => {
   const [email, setEmail] = useState(null);
@@ -33,7 +33,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
       }
       const success = response.status === 200
       if (isSignUp && success && response.data.user.type === null) navigate('/profile')
-      if (!isSignUp && success && response.data.user.type === 'therapist') navigate('/')
+      if (!isSignUp && success && response.data.user.type === 'therapist') navigate('/therapist-profile')
       if (!isSignUp && success && response.data.user.type === 'user') navigate('/dashboard')
     } catch (error) {
       setError("Email / Password invalid")
