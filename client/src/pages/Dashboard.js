@@ -19,7 +19,7 @@ function Advanced() {
   const currentIndexRef = useRef(currentIndex);
 
   useEffect(() => {
-    axios.get('http://localhost:9000/therapists/specialties', { params: { specialties } })
+    axios.get('/therapists/specialties', { params: { specialties } })
       .then(res => {
         const therapists = res.data;
         setCurrentIndex(therapists.length - 1)
