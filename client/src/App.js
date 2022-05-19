@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import Messages from './pages/Messages';
 import TherapistsHome from './pages/TherapistsHome';
 import TherapistProfile from './pages/TherapistProfile';
+import Forum from './pages/Forum';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserContext from './components/AppContext';
@@ -39,6 +40,7 @@ axios.get('/api/profile', { withCredentials: true })
       <Route path={"/therapist-profile"} element = {<TherapistProfile />} />
       <Route path={"/messages"} element = {<Messages />} />
       <Route path={"/therapist"} element = {<TherapistsHome />} />
+      <Route path={"/forum"} element = {<Forum />} />
   </Routes>
   </BrowserRouter>
   </UserContext.Provider>

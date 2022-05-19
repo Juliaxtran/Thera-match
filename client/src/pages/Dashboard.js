@@ -45,9 +45,6 @@ function Advanced() {
 
   const canSwipe = currentIndex >= 0;
 
-
-
-
   const outOfFrame = (name, idx) => {
 
     /// Pat's Note: name is undefined
@@ -141,16 +138,7 @@ function Advanced() {
           ))
           }
 
-
-
-
-
-
-
-
-
         </div >
-
 
         {/* (dir) => swiped(dir, therapist.id, index) */}
 

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import '../Home.css';
 
 
-const Home = (props) => {
+const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [isSignUp, setIsSignUp] = useState(true)
 

@@ -1,0 +1,9 @@
+.post-editor {
+  margin: 0 15%
+}
+
+
+.post-editor.button {
+float: right;
+margin-top: 1em;
+}
