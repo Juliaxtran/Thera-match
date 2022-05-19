@@ -13,12 +13,13 @@ const TherapistMatchContainer = (props) => {
     })
   }, [])
 
+
   return (
     <div>
+      {matches.map((match) =>
+        (<li>{match.user_name}</li>)
+      )}
 
-      {/* {matches.map((match) => (
-        <li>match.user_name</li>
-      )} */}
     </div>
 
   )
