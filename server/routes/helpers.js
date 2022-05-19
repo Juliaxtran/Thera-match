@@ -80,6 +80,15 @@ const getAllSpecialties = function (db, options) {
     }
   }
 
+  if (options.session) {
+    const newType = options.session.map((item) => `'${item}'`).join(', ');
+    if (newType.length === 1) {
+      queryString += `WHERE therapists.session_type IN (${newType})`
+    } else if (newType.length > 2) {
+      queryString += `AND therapists.session_type IN (${newType})`
+    }
+  }
+
   queryString +=
     `
     GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about, users.first_name, users.last_name;

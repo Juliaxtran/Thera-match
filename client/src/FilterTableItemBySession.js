@@ -10,8 +10,10 @@ const sessions = [
   },
   {
     name: "In-Person"
+  },
+  {
+    name: "Online & In-person"
   }
-
 ];
 
 const FilterTableItemBySession = ({ setSession }) => {
