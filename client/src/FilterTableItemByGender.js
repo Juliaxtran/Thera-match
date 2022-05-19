@@ -14,7 +14,7 @@ const genders = [
 
 ];
 
-const FilterTableItemByGender = ({ setSpecialties }) => {
+const FilterTableItemByGender = ({ setGender }) => {
 
   const [checked, setChecked] = useState([]);
 
@@ -37,7 +37,7 @@ const FilterTableItemByGender = ({ setSpecialties }) => {
         newChecked.splice(currentIndex, 1);
 
       }
-      setSpecialties(newChecked);
+      setGender(newChecked);
       return newChecked;
     })
 

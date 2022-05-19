@@ -15,6 +15,7 @@ function Advanced() {
   const [therapists, setTherapists] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(therapists.length - 1);
   const [specialties, setSpecialties] = useState([]);
+  const [gender, setGender] = useState([]);
   // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex);
 
@@ -104,8 +105,7 @@ function Advanced() {
 
           />
           <FilterTableByGender
-
-
+            setGender={setGender}
           />
         </div>
         <h1>Match with a Therapist</h1>

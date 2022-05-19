@@ -9,7 +9,7 @@ import { IconButton } from '@mui/material';
 import FilterTableItemByGender from './FilterTableItemByGender';
 
 
-const FilterTableByGender = ({ setSpecialties }) => {
+const FilterTableByGender = ({ setGender }) => {
 
 
   return (
@@ -23,7 +23,7 @@ const FilterTableByGender = ({ setSpecialties }) => {
             <span> Filter By Specialties</span>
           </div>
           <FilterTableItemByGender
-            setSpecialties={setSpecialties}
+            setGender={setGender}
           />
         </CardContent>
         <CardActions>
