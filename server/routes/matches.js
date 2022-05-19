@@ -61,7 +61,7 @@ module.exports = (db) => {
     console.log("##1 user_id", user_id);
     const command = `SELECT id from therapists where user_id = $1;`
     const values = [user_id]
-    const command2 = `select user_id , users.first_name, users.image, users.about from matches join users ON users.id = matches.user_id where therapist_id = $1;`
+    const command2 = `select user_id , concat(users.first_name, ' ', users.last_name) as user_name, users.image, users.about from matches join users ON users.id = matches.user_id where therapist_id = $1;`
 
       db.query(command, values).then(data => {
         if (data["rows"].length > 0) {
