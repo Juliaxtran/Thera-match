@@ -90,8 +90,8 @@ module.exports = (db, dbQueries) => {
   });
 
   router.get('/specialties', (req, res) => {
-   
-    let options = { type: req.query.specialties };
+
+    let options = { type: req.query.specialties, gender: req.query.gender };
     // console.log("HELLLOOOOOOOOOO", req.query);
     dbQueries.getAllSpecialties(db, options)
       .then((rows) => {

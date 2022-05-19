@@ -20,13 +20,13 @@ function Advanced() {
   const currentIndexRef = useRef(currentIndex);
 
   useEffect(() => {
-    axios.get('/therapists/specialties', { params: { specialties } })
+    axios.get('/therapists/specialties', { params: { specialties, gender } })
       .then(res => {
         const therapists = res.data;
         setCurrentIndex(therapists.length - 1)
         setTherapists(therapists)
       })
-  }, [specialties])
+  }, [specialties, gender])
 
   // Pat's Note: I added therapists as second dependecies not sure if it works
   const childRefs = useMemo(
@@ -139,6 +139,7 @@ function Advanced() {
                       <h3>Title: {therapist.title}</h3>
                       <h3>Cost per session: {therapist.cost_per_session}</h3>
                       <h3>Specialties: {therapist.type}</h3>
+                      <h3>Gender: {therapist.gender}</h3>
                     </Typography>
                   </CardContent>
                 </Card>
