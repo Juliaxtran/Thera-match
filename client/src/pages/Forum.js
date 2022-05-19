@@ -1,16 +1,16 @@
 import React from 'react'
+import TopBar from '../components/topbar/TopBar';
+import Header from '../header/Header';
+import Sidebar from '../sidebar/Sidebar';
 import '../Forum.css';
 
 
 const Forum = () => {
   return (
     <div>
-      <div className="panel panel-default post-editor">
-        <div className="panel-body">
-          <textarea className="form-control post-editor-input" />
-          <button className="btn btn-success post-editor-button">Post</button>
-        </div>
-      </div>
+      <TopBar />
+      <Header />
+      <Sidebar />
     </div>
   )
 }
