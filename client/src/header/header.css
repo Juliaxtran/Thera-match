@@ -11,16 +11,18 @@
 
 .headerTitlesSm {
   position: absolute;
-  top: 14%;
-  font-size: 20px;
+  top: 22%;
+  font-size: 75px;
   font-family: 'Readex Pro', sans-serif;
+  color: black;
 }
 
 .headerTitlesLg {
   position: absolute;
   top: 15%;
-  font-size: 75px;
+  font-size: 50px;
   font-family: 'Readex Pro', sans-serif;
+  
 }
 
 .headerImg {

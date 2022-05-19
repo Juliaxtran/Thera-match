@@ -2,7 +2,7 @@ import './sidebar.css';
 
 export default function Sidebar() {
   return (
-    <div>
+    <div className="sidebarContainer">
       <div className="sidebar">
         <div className="sidebarItem">
           <span className="sidebarTitle">Mental Health Awareness</span>

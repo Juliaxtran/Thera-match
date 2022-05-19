@@ -18,7 +18,7 @@ export default function TopBar() {
       <div className="topRight">
         <img 
         className="topImg"
-        src="/images/other/background1.webp" 
+        src="/images/other/Coffee.jpg" 
         alt=""
         />
         <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
