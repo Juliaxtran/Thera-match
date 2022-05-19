@@ -9,7 +9,7 @@ import { IconButton } from '@mui/material';
 import FilterTableItemBySession from './FilterTableItemBySession';
 
 
-const FilterTableItemBySession = ({ setSession }) => {
+const FilterTableBySession = ({ setSession }) => {
 
 
   return (
@@ -20,7 +20,7 @@ const FilterTableItemBySession = ({ setSession }) => {
             <IconButton>
               <FilterAltIcon />
             </IconButton>
-            <span> Filter By Gender</span>
+            <span> Filter By Session</span>
           </div>
           <FilterTableItemBySession
             setSession={setSession}
@@ -33,4 +33,4 @@ const FilterTableItemBySession = ({ setSession }) => {
   )
 }
 
-export default FilterTableItemBySession; 
+export default FilterTableBySession; 

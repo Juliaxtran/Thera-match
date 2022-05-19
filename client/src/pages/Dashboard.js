@@ -8,6 +8,7 @@ import Card from '@mui/material/Card';
 import axios from 'axios';
 import FilterTable from '../FilterTable';
 import FilterTableByGender from "../FilterTableByGender";
+import FilterTableBySession from "../FilterTableBySession";
 
 function Advanced() {
 
@@ -107,6 +108,9 @@ function Advanced() {
           />
           <FilterTableByGender
             setGender={setGender}
+          />
+          <FilterTableBySession
+            setSession={setSession}
           />
         </div>
         <h1>Match with a Therapist</h1>
