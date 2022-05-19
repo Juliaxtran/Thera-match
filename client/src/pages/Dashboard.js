@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
 import axios from 'axios';
 import FilterTable from '../FilterTable';
-
+import FilterTableByGender from "../FilterTableByGender";
 
 function Advanced() {
 
@@ -98,10 +98,16 @@ function Advanced() {
     <div className='main-dashboard'>
 
       <div className='dashboard'>
-        <FilterTable
-          setSpecialties={setSpecialties}
+        <div className='filter-tables'>
+          <FilterTable
+            setSpecialties={setSpecialties}
 
-        />
+          />
+          <FilterTableByGender
+
+
+          />
+        </div>
         <h1>Match with a Therapist</h1>
         <div className='cardContainer'>
           {therapists.map((therapist, index) => (
