@@ -68,16 +68,16 @@ const getAllSpecialties = function (db, options) {
 
   if (options.type) {
     const newType = options.type.map((item) => `'${item}'`).join(', ');
-    // queryParams.push(`${newType}`);
-    // queryParams.push(options.type);
     queryString += `WHERE specialties.type IN (${newType})`
   }
 
   if (options.gender) {
     const newType = options.gender.map((item) => `'${item}'`).join(', ');
-    // queryParams.push(`${newType}`);
-    // queryParams.push(options.type);
-    queryString += `WHERE therapists.gender IN (${newType})`
+    if (newType.length === 1) {
+      queryString += `WHERE therapists.gender IN (${newType})`
+    } else if (newType.length > 2) {
+      queryString += `AND therapists.gender IN (${newType})`
+    }
   }
 
   queryString +=
