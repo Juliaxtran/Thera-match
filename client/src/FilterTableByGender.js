@@ -20,7 +20,7 @@ const FilterTableByGender = ({ setGender }) => {
             <IconButton>
               <FilterAltIcon />
             </IconButton>
-            <span> Filter By Specialties</span>
+            <span> Filter By Gender</span>
           </div>
           <FilterTableItemByGender
             setGender={setGender}
