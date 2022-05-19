@@ -59,7 +59,6 @@ const FilterTableItem = ({ setSpecialties }) => {
   useEffect(() => {
     axios.get('/filters/specialties')
       .then(res => {
-        console.log('specialties', res.data)
         setChecked(res.data);
         setIssues(res.data);
       })
