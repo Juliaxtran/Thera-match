@@ -14,7 +14,7 @@ const MatchContainer = ({setTherapist}) => {
   let [matches, setMatches] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:9000/matches/show', { withCredentials: true }).then(res => {
+    axios.get('/matches/show', { withCredentials: true }).then(res => {
       let matches = res.data;
       console.log(matches);
       setMatches(matches);

@@ -13,7 +13,7 @@ const { user } = useContext(UserContext)
 const recipient_id = therapist.user_id
 
   useEffect(() => {
-    axios.get('http://localhost:9000/messages', { params: { recipient_id }, withCredentials: true }).then(res => {
+    axios.get('/messages', { params: { recipient_id }, withCredentials: true }).then(res => {
     setMessages(res.data)
     })
       .catch((e) => console.log(e));
