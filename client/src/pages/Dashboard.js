@@ -10,7 +10,9 @@ import FilterTable from '../FilterTable';
 import FilterTableByGender from "../FilterTableByGender";
 import FilterTableBySession from "../FilterTableBySession";
 import FilterPrice from '../FilterPrice';
-function Advanced() {
+
+
+function Dashboard() {
 
   const [lastDirection, setLastDirection] = useState();
   const [therapists, setTherapists] = useState([]);
@@ -183,4 +185,4 @@ function Advanced() {
   )
 }
 
-export default Advanced;
+export default Dashboard;
