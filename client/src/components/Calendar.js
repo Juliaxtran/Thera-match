@@ -11,13 +11,17 @@ import axios from 'axios';
 export default function ReactCalendar(recipient) {
 
   const [selectDate, selectedDate] = useState("");
-  const recipient_id = recipient.user_id;
+  const recipientPhoneNum = recipient.phone_number;
+  console.log('Phone num -->', recipientPhoneNum)
 
-  axios.post(`/messages/book`, { recipient_id, selectDate }, {withCredentials: true})
-  .then((data) => {
-      console.log('it worked')
-      selectedDate(prev => [...prev], { selectDate: data.data[0].selectDate })
-    })
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    axios.post(`/messages/book`, { recipientPhoneNum, selectDate }, { withCredentials: true })
+      .then((data) => {
+        console.log('Successful, neat!')
+        selectedDate(prev => [...prev], { selectDate: data.data[0].selectDate })
+      })
+  }
 
   const [date, setDate] = useState(new Date());
 
@@ -26,10 +30,10 @@ export default function ReactCalendar(recipient) {
   }
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <Calendar onChange={onChange} value={date} />
       {console.log(date)}
       {date.toString()}
-    </div>
+    </form>
   )
 }
