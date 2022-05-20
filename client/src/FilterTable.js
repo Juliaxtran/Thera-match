@@ -14,7 +14,7 @@ const FilterTable = ({ setSpecialties }) => {
 
   return (
     <div className='filter-table'>
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 260 }}>
         <CardContent>
           <div className='filter-icon-button'>
             <IconButton>
