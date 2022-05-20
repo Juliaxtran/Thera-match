@@ -1,6 +1,10 @@
+
+
 .video-chat {
 background-color: rgb(236, 248, 252);
 background-image: url("https://www.transparenttextures.com/patterns/cutcube.png");
+height: 100%;
+
 }
 
 .video-container{

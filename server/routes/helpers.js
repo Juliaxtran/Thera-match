@@ -68,9 +68,43 @@ const getAllSpecialties = function (db, options) {
 
   if (options.type) {
     const newType = options.type.map((item) => `'${item}'`).join(', ');
-    // queryParams.push(`${newType}`);
-    // queryParams.push(options.type);
     queryString += `WHERE specialties.type IN (${newType})`
+  }
+
+  if (options.gender) {
+    const newType = options.gender.map((item) => `'${item}'`).join(', ');
+    if (newType.length === 1) {
+      queryString += `WHERE therapists.gender IN (${newType})`
+    } else if (newType.length > 2) {
+      queryString += `AND therapists.gender IN (${newType})`
+    }
+  }
+
+  if (options.session) {
+    const newType = options.session.map((item) => `'${item}'`).join(', ');
+    if (newType.length === 1) {
+      queryString += `WHERE therapists.session_type IN (${newType})`
+    } else if (newType.length > 2) {
+      queryString += `AND therapists.session_type IN (${newType})`
+    }
+  }
+
+  if (options.minimum) {
+    const newType = options.minimum;
+    if (newType.length === 1) {
+      queryString += `WHERE therapists.cost_per_session < (${newType})`
+    } else if (newType.length > 2) {
+      queryString += `AND therapists.cost_per_session < (${newType})`
+    }
+  }
+
+  if (options.maximum) {
+    const newType = options.maximum;
+    if (newType.length === 1) {
+      queryString += `WHERE therapists.cost_per_session > (${newType})`
+    } else if (newType.length > 2) {
+      queryString += `AND therapists.cost_per_session > (${newType})`
+    }
   }
 
   queryString +=

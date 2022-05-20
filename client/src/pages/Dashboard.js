@@ -7,25 +7,33 @@ import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
 import axios from 'axios';
 import FilterTable from '../FilterTable';
+import FilterTableByGender from "../FilterTableByGender";
+import FilterTableBySession from "../FilterTableBySession";
+import FilterPrice from '../FilterPrice';
 
 
-function Advanced() {
+function Dashboard() {
 
   const [lastDirection, setLastDirection] = useState();
   const [therapists, setTherapists] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(therapists.length - 1);
   const [specialties, setSpecialties] = useState([]);
+  const [gender, setGender] = useState([]);
+  const [session, setSession] = useState([]);
+  const [maximum, setMaximum] = useState('');
+  const [minimum, setMinimum] = useState('');
+
   // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex);
 
   useEffect(() => {
-    axios.get('/therapists/specialties', { params: { specialties } })
+    axios.get('/therapists/specialties', { params: { specialties, gender, session, minimum, maximum } })
       .then(res => {
         const therapists = res.data;
         setCurrentIndex(therapists.length - 1)
         setTherapists(therapists)
       })
-  }, [specialties])
+  }, [specialties, gender, session, minimum, maximum])
 
   // Pat's Note: I added therapists as second dependecies not sure if it works
   const childRefs = useMemo(
@@ -98,10 +106,22 @@ function Advanced() {
     <div className='main-dashboard'>
 
       <div className='dashboard'>
-        <FilterTable
-          setSpecialties={setSpecialties}
+        <div className='filter-tables'>
+          <FilterTable
+            setSpecialties={setSpecialties}
 
-        />
+          />
+          <FilterTableByGender
+            setGender={setGender}
+          />
+          <FilterTableBySession
+            setSession={setSession}
+          />
+          <FilterPrice
+            setMaximum={setMaximum}
+            setMinimum={setMinimum}
+          />
+        </div>
         <h1>Match with a Therapist</h1>
         <div className='cardContainer'>
           {therapists.map((therapist, index) => (
@@ -131,8 +151,9 @@ function Advanced() {
                       <h3>Location: {therapist.location}</h3>
                       <h3>Session: {therapist.session_type}</h3>
                       <h3>Title: {therapist.title}</h3>
-                      <h3>Cost per session: {therapist.cost_per_session}</h3>
+                      <h3>Cost per session: {therapist.cost_per_session} $</h3>
                       <h3>Specialties: {therapist.type}</h3>
+                      <h3>Gender: {therapist.gender}</h3>
                     </Typography>
                   </CardContent>
                 </Card>
@@ -164,4 +185,4 @@ function Advanced() {
   )
 }
 
-export default Advanced;
+export default Dashboard;
