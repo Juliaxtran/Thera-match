@@ -6,10 +6,10 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
 import axios from 'axios';
-import FilterTable from '../FilterTable';
-import FilterTableByGender from "../FilterTableByGender";
-import FilterTableBySession from "../FilterTableBySession";
-import FilterPrice from '../FilterPrice';
+import FilterTable from '../components/FilterTable';
+import FilterTableByGender from "../components/FilterTableByGender";
+import FilterTableBySession from "../components/FilterTableBySession";
+import FilterPrice from "../components/FilterPrice";
 
 
 function Dashboard() {

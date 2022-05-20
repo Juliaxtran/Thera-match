@@ -1,29 +1,29 @@
 import React from 'react';
-import './FilterTable.css'
+import '../FilterTable.css'
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
 import { IconButton } from '@mui/material';
-import FilterTableItem from './FilterTableItem';
-import './FilterTable.css'
+import FilterTableItemBySession from '../components/FilterTableItemBySession';
 
-const FilterTable = ({ setSpecialties }) => {
+
+const FilterTableBySession = ({ setSession }) => {
 
 
   return (
     <div className='filter-table'>
-      <Card sx={{ minWidth: 260 }}>
+      <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <div className='filter-icon-button'>
             <IconButton>
               <FilterAltIcon />
             </IconButton>
-            <span> Filter By Specialties</span>
+            <span> Filter By Session</span>
           </div>
-          <FilterTableItem
-            setSpecialties={setSpecialties}
+          <FilterTableItemBySession
+            setSession={setSession}
           />
         </CardContent>
         <CardActions>
@@ -33,4 +33,4 @@ const FilterTable = ({ setSpecialties }) => {
   )
 }
 
-export default FilterTable; 
+export default FilterTableBySession; 

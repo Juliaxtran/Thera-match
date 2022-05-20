@@ -1,15 +1,15 @@
 import React from 'react';
-import './FilterTable.css'
+import '../FilterTable.css'
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
 import { IconButton } from '@mui/material';
-import FilterTableItemByGender from './FilterTableItemByGender';
+import FilterPriceMinItem from '../components/FilterPriceMinItem';
+import FilterPriceMaxItem from '../components/FilterPriceMaxItem';
 
-
-const FilterTableByGender = ({ setGender }) => {
+const FilterPrice = ({ setMinimum, setMaximum }) => {
 
 
   return (
@@ -20,11 +20,14 @@ const FilterTableByGender = ({ setGender }) => {
             <IconButton>
               <FilterAltIcon />
             </IconButton>
-            <span> Filter By Gender</span>
+            <span> Filter By Cost</span>
           </div>
-          <FilterTableItemByGender
-            setGender={setGender}
+
+          <FilterPriceMinItem
+            setMinimum={setMinimum}
           />
+          <FilterPriceMaxItem
+            setMaximum={setMaximum} />
         </CardContent>
         <CardActions>
         </CardActions>
@@ -33,4 +36,4 @@ const FilterTableByGender = ({ setGender }) => {
   )
 }
 
-export default FilterTableByGender; 
+export default FilterPrice; 
