@@ -51,7 +51,7 @@ const createConversationId = (user_id, recipient_id) => {
 
   sendBooking(customer_name, therapist_name, phone, date);
 
-  res.status(200).json("Appointment has been requested")
+  res.status(200).send("Appointment has been requested")
 
 
    });

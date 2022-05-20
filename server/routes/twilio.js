@@ -9,7 +9,7 @@ const sendBooking = function( customer_name , therapist_name , phone, date ) {
   console.log("sending message...");
   client.messages
     .create({
-      body: `Hello ${therapist_name}! ${customer_name} is interesting in booking a appointment with you on ${date}. Please reach out to them if this works for you`,
+      body: `Hello ${therapist_name}! ${customer_name} is interesting in booking a appointment with you on ${date}. Please reach out to them if this works for you.`,
       from: process.env.TWILIO_NUMBER,
       to: `${phone}`
     })
