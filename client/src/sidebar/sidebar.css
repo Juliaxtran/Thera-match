@@ -78,4 +78,7 @@
 
 .sidebarIcon:hover {
   color: rgb(98, 0, 255);
+  transform: scale(1.2);
+  opacity: 0.8;
+  transition: opacity 0.5s, transform 0.5s;
 }

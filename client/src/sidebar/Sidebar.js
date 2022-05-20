@@ -26,11 +26,11 @@ export default function Sidebar() {
           </ul>
         </div>
         <div className="sidebarItem">
-        <span className="sidebarTitle">FOLLOW US</span>
-        <div class="sidebarSocial">
-          <i className="sidebarIcon fa-brands  fa-facebook"></i>
-          <i className="sidebarIcon fa-brands fa-twitter"></i>
-          <i className="sidebarIcon fa-brands fa-instagram-square"></i>
+          <span className="sidebarTitle">FOLLOW US</span>
+          <div class="sidebarSocial">
+            <i className="sidebarIcon fa-brands  fa-facebook"></i>
+            <i className="sidebarIcon fa-brands fa-twitter"></i>
+            <i className="sidebarIcon fa-brands fa-instagram-square"></i>
           </div>
         </div>
       </div>

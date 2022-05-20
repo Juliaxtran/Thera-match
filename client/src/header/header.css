@@ -30,5 +30,5 @@
   height: 450px;
   margin-top: 80px;
   object-fit: cover;
-  /* filter: brightness(90%); */
+  opacity: 0.6;
 }
