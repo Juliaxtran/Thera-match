@@ -30,7 +30,6 @@
   transition: opacity 0.5s, transform 0.5s;
 }
 
-
 .blogTopImg {
   width: 50px;
   height: 50px;
@@ -50,12 +49,15 @@
   margin-right: 20px;
   font-size: 18px;
   font-weight: 300;
+  color: #666;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .blogTopListItem:hover {
+  text-decoration: none;
   color: rgb(98, 0, 255);
-}
+  }
 
 .blogTopCentre {
   flex: 1;

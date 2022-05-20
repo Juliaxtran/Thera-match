@@ -10,10 +10,10 @@ export default function TopBar() {
       </div>
       <div className="blogTopCentre"></div>
       <ul className="blogTopList">
-        <li className="blogTopListItem">Home</li>
-        <li className="blogTopListItem">Blogs</li>
-        <li className="blogTopListItem">Therapist Info</li>
-        <li className="blogTopListItem">Chat Forum</li>
+        <a href={'/'}><li className="blogTopListItem">Home</li></a>
+        <a href={'/forum'}><li className="blogTopListItem">Blog</li></a>
+        <a href={'/messages'}><li className="blogTopListItem">Messages</li></a>
+        <a href={'/profile'}><li className="blogTopListItem">My Profile</li></a>
       </ul>
       <div className="blogTopRight">
         <img
