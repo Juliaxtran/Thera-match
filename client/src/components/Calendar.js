@@ -8,27 +8,29 @@ import { useContext } from 'react';
 
 
 
-export default function ReactCalendar(recipient) {
+export default function ReactCalendar({recipient}) {
+
+  const [date, setDate] = useState(new Date());
   const { user } = useContext(UserContext)
   const name = `${user.first_name} ${user.last_name}`
-  console.log('F&L name', name)
 
-  const [selectDate, selectedDate] = useState("");
+
+
   const recipientInfo = recipient;
   console.log('recipient', recipient)
+  console.log('F&L name', name)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post(`/messages/book`, { recipient, selectDate, name }, { withCredentials: true })
+    axios.post(`/messages/book`, { recipientInfo, date, name }, { withCredentials: true })
       .then((data) => {
         console.log('Successful, neat!')
       })
   }
 
-  const [date, setDate] = useState(new Date());
 
-  const onChange = date => {
-    selectedDate(date);
+  const onChange = (date) => {
+    setDate(date);
   }
 
   return (
