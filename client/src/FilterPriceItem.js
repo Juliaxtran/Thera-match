@@ -58,7 +58,6 @@ const FilterPriceItem = ({ setMinimum, setMaximum }) => {
         />
       </FormGroup>
       <FormGroup className='specialty-list'>
-
         <FormControlLabel
           key={maximum}
           control={
@@ -68,7 +67,6 @@ const FilterPriceItem = ({ setMinimum, setMaximum }) => {
           }
           label={maximum}
         />
-
       </FormGroup>
     </div>
   )
