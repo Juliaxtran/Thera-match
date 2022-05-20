@@ -100,29 +100,27 @@ function Dashboard() {
       .catch((e) => console.log(e));
   }
 
-
-
   return (
     <div className='main-dashboard'>
+      <div className='filter-tables'>
+        <FilterTable
+          setSpecialties={setSpecialties}
 
-      <div className='dashboard'>
-        <div className='filter-tables'>
-          <FilterTable
-            setSpecialties={setSpecialties}
-
-          />
-          <FilterTableByGender
-            setGender={setGender}
-          />
-          <FilterTableBySession
-            setSession={setSession}
-          />
-          <FilterPrice
-            setMaximum={setMaximum}
-            setMinimum={setMinimum}
-          />
-        </div>
+        />
+        <FilterTableByGender
+          setGender={setGender}
+        />
+        <FilterTableBySession
+          setSession={setSession}
+        />
+        <FilterPrice
+          setMaximum={setMaximum}
+          setMinimum={setMinimum}
+        />
+      </div>
+      <div>
         <h1>Match with a Therapist</h1>
+
         <div className='cardContainer'>
           {therapists.map((therapist, index) => (
             <div className='TinderCard' key={therapist.id}>
@@ -157,31 +155,20 @@ function Dashboard() {
                     </Typography>
                   </CardContent>
                 </Card>
+
               </TinderCard>
+
             </div>
           ))
           }
-
-
-
-
-
-
-
-
-
         </div >
-
-
-        {/* (dir) => swiped(dir, therapist.id, index) */}
-
-        <div className='buttons'>
+        <div className='dashboard-buttons'>
           <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>No thanks!</button>
           <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
           <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>I wanna book you!</button>
         </div>
-      </div >
-    </div>
+      </div>
+    </div >
   )
 }
 

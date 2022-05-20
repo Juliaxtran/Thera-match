@@ -1,20 +1,9 @@
-.dashboard {
-  text-align: center;
+.main-dashboard {
   display: flex;
   justify-content: center;
-  width: 100vw;
-  min-height: 100vh;
-  overflow: hidden;
   background: linear-gradient(#fff, #999);
   background: linear-gradient(45deg, rgb(234, 237, 237), lightblue);
 
-}
-
-.main-dashboard>div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /*
@@ -47,8 +36,6 @@
   display: flex;
   /* right: 30em; */
   top: 0;
-  left: -80%;
-
 }
 
 .swipe h3 {
@@ -56,20 +43,16 @@
 }
 
 .cardContainer {
-  width: 90vw;
-  max-width: 260px;
-  height: 300px;
+  height: 400px;
   position: relative;
-  margin: auto;
-
-
+  padding: 20px;
 }
 
 .card {
   position: relative;
   background-color: #fff;
   width: 260px;
-  max-height: 400px;
+  margin: 0 auto;
   box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.30);
   border-radius: 2px;
   background-size: cover;
@@ -101,13 +84,18 @@
   animation-duration: 800ms;
 }
 
-.buttons {
+/* .buttons {
   margin: -180px;
   display: flex;
+} */
+.dashboard-buttons {
+  display: flex;
+  margin-top: 50px;
+  padding: 20px;
 }
 
-.buttons button {
-  flex-shrink: 0;
+.dashboard-buttons button {
+
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -115,10 +103,11 @@
   font-size: 18px;
   background-color: #9198e5;
   transition: 200ms;
-  margin: 20em 2em;
+  margin: 5px;
   font-weight: bolder;
   width: 160px;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.10);
+
 }
 
 .buttons button:hover {
@@ -126,9 +115,6 @@
 }
 
 
-.filter-tables {
-  display: flex;
-}
 
 @keyframes popup {
   0% {
