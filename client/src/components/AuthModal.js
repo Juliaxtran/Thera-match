@@ -33,7 +33,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
       }
       const success = response.status === 200
       if (isSignUp && success && response.data.user.type === null) navigate('/profile')
-      if (!isSignUp && success && response.data.user.type === 'therapist') navigate('/therapist-profile')
+      if (!isSignUp && success && response.data.user.type === 'therapist') navigate('/therapist-dashboard')
       if (!isSignUp && success && response.data.user.type === 'user') navigate('/dashboard')
     } catch (error) {
       setError("Email / Password invalid")

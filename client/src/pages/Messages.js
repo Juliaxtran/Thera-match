@@ -6,14 +6,14 @@ import '../Messages.css'
 
 
 const Messages = () => {
-  const [therapist, setTherapist] = useState({});
+  const [recipient, setRecipient] = useState({});
   return (
     <>
     <HomeNav  />
    <h1> Messages </h1>
   <div className="messages-page">
-    <MatchContainer setTherapist={setTherapist}/>
-    <ChatContainer  therapist={therapist}/>
+    <MatchContainer setRecipient={setRecipient}/>
+    <ChatContainer  recipient={recipient}/>
   </div>
   </>
   )

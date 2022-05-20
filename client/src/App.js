@@ -10,6 +10,7 @@ import TherapistProfile from './pages/TherapistProfile';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserContext from './components/AppContext';
+import TherapistDashboard from './pages/TherapistDashboard';
 
 
 function App() {
@@ -39,6 +40,7 @@ axios.get('/api/profile', { withCredentials: true })
       <Route path={"/therapist-profile"} element = {<TherapistProfile />} />
       <Route path={"/messages"} element = {<Messages />} />
       <Route path={"/therapist"} element = {<TherapistsHome />} />
+      <Route path={"/therapist-dashboard"} element={<TherapistDashboard />} />
   </Routes>
   </BrowserRouter>
   </UserContext.Provider>
