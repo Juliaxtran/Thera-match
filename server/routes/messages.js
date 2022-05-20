@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-const { sendBooking } = require("./twilio.js");
+const  sendBooking  = require("./twilio.js");
 
 module.exports = (db) => {
 
@@ -44,8 +44,16 @@ const createConversationId = (user_id, recipient_id) => {
   });
 
   router.post('/book', (req, res) => {
-    const name =
-    console.log('book cal', req.body)
+    const customer_name = req.body.recipientInfo.users_name;
+    const therapist_name = req.body.recipientInfo.therapist_name;
+    const phone = req.body.recipientInfo.phone_number;
+    const date =  req.body.date
+
+  sendBooking(customer_name, therapist_name, phone, date);
+
+  res.status(200).json("Appointment has been requested")
+
+
    });
 
 
