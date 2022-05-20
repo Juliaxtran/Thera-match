@@ -30,6 +30,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
       console.log("Data", response.data)
       if(response.data.user) {
         setUser(response.data.user)
+        console.log('Here-->', response.data.user.type)
       }
       const success = response.status === 200
       if (isSignUp && success && response.data.user.type === null) navigate('/profile')
@@ -43,7 +44,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   return (
     <div className="auth-modal">
       <div className="close-icon" onClick={handleClick}>x</div>
-      <h2>{isSignUp ? 'Create Account' : 'Login In'}</h2>
+      <h2>{isSignUp ? 'Create Account' : 'Log In'}</h2>
       <p>By clicking LogIn, you agree to our terms. Learn how we process your data in our Privacy Policy </p>
 
       <form onSubmit={handleSubmit}>
