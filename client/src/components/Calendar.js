@@ -33,7 +33,7 @@ export default function ReactCalendar({recipient}) {
           },100 )
 
         } else  {
-          setNotification("Error has occured when trying to book an appoitnment. Try again later ")
+          setNotification("Error has occured when trying to book an appointment. Try again later ")
         }
       })
   }

@@ -81,4 +81,4 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   )
 }
 
-export default AuthModal
+export default AuthModal;
