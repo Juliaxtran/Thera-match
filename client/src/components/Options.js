@@ -36,60 +36,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Options = ({ children }) => {
+const VideoSideBar = ({ children }) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');
   const classes = useStyles();
 
   return (
-
     <Container className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
-        <form className={classes.root} noValidate autoComplete='off'>
+        <form className={classes.root} noValidate autoComplete="off">
           <Grid container className={classes.gridContainer}>
             <Grid item xs={12} md={6} className={classes.padding}>
-              <Typography gutterBottom variant='h6'>Account Info</Typography>
+              <Typography gutterBottom variant="h6">Account Info</Typography>
               <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
               <CopyToClipboard text={me} className={classes.margin}>
                 <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
-                  Copy  Meeting Id
+                  Copy Your ID
                 </Button>
-
               </CopyToClipboard>
             </Grid>
             <Grid item xs={12} md={6} className={classes.padding}>
-              <Typography gutterBottom variant='h6'>Make a call</Typography>
-              <TextField label="Id to Call" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
+              <Typography gutterBottom variant="h6">Make a call</Typography>
+              <TextField label="ID to call" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
               {callAccepted && !callEnded ? (
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  startIcon={<PhoneDisabled fontSize="large" />}
-                  fullWidth
-                  onClick={leaveCall}
-                  className={classes.margin}
-                >
-                  HangUp
+                <Button variant="contained" color="secondary" startIcon={<PhoneDisabled fontSize="large" />} fullWidth onClick={leaveCall} className={classes.margin}>
+                  Hang Up
                 </Button>
-              ) : (<Button
-                variant="contained"
-                color="primary"
-                startIcon={<Phone fontSize="large" />}
-                fullWidth
-                onClick={() => callUser(idToCall)}
-                className={classes.margin}
-              >Call</Button>)}
+              ) : (
+                <Button variant="contained" color="primary" startIcon={<Phone fontSize="large" />} fullWidth onClick={() => callUser(idToCall)} className={classes.margin}>
+                  Call
+                </Button>
+              )}
             </Grid>
           </Grid>
-
-
         </form>
         {children}
       </Paper>
-
     </Container>
 
   )
 }
 
-export default Options
+export default VideoSideBar
