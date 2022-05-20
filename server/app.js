@@ -5,9 +5,6 @@ const logger = require('morgan');
 const db = require('./configs/db.config');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
-
-
-
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -16,7 +13,6 @@ const messagesRouter = require('./routes/messages');
 const therapistsRouter = require('./routes/therapists');
 const matchesRouter = require('./routes/matches');
 const filtersRouter = require('./routes/filters');
-
 
 const app = express();
 
@@ -29,7 +25,7 @@ app.use(cookieSession({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('dev'));
-app.use(cors({ origin: '*', methods: 'GET, POST', credentials: true }))
+app.use(cors({ origin: 'http://localhost:3002', methods: 'GET, POST', credentials: true }))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -59,7 +55,5 @@ app.get('/api/profile', (req, res) => {
     return res.status(400).send("No user info")
   }
 })
-
-
 
 module.exports = app;
