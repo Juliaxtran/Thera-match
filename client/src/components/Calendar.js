@@ -13,7 +13,11 @@ export default function ReactCalendar(recipient) {
   const [selectDate, selectedDate] = useState("");
   const recipient_id = recipient.user_id;
 
-  axios.post(`/messages`, { recipient_id, selectDate }, {withCredentials: true})
+  axios.post(`/messages/book`, { recipient_id, selectDate }, {withCredentials: true})
+  .then((data) => {
+      console.log('it worked')
+      selectedDate(prev => [...prev], { selectDate: data.data[0].selectDate })
+    })
 
   const [date, setDate] = useState(new Date());
 
