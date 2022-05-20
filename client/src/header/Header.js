@@ -2,13 +2,13 @@ import './header.css';
 
 export default function Header() {
   return (
-    <div className="header">
-      <div className="headerTitles">
-        <span className="headerTitlesLg">Thera-Match</span>
-        <span className="headerTitlesSm">Blog</span>
+    <div className="blogHeader">
+      <div className="blogHeaderTitles">
+        <span className="blogHeaderTitlesLg">Thera-Match</span>
+        <span className="blogHeaderTitlesSm">Blog</span>
     </div>
     <img
-    className="headerImg"
+    className="blogHeaderImg"
     src="/images/other/background3.webp"
     alt=""
     />

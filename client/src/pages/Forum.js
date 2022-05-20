@@ -11,7 +11,7 @@ const Forum = () => {
     <>
       <TopBar />
     <Header />
-    <div className="home">
+    <div className="blogHome">
       <Posts />
       <Sidebar />
     </div>

@@ -8,9 +8,10 @@ float: right;
 margin-top: 1em;
 }
 
-.home {
+.blogHome {
   display: flex;
   gap: 50px;
   padding-right: 50px;
   padding-left: 50px;
+  margin-top: 50px;
 }

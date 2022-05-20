@@ -59,6 +59,10 @@
   cursor: pointer;
 }
 
+.sidebarListItem:hover {
+  color: rgb(98, 0, 255);
+}
+
 .sidebarSocial {
   margin-top: 15px;
   width: 250px;
@@ -70,4 +74,8 @@
   font-size: 20px;
   margin-left: 10px;
   cursor: pointer;
+}
+
+.sidebarIcon:hover {
+  color: rgb(98, 0, 255);
 }

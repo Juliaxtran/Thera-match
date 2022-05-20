@@ -2,26 +2,26 @@ import './Topbar.css';
 
 export default function TopBar() {
   return (
-    <div className="top">
-      <div className="topLeft">
-      <i className="topIcon fa-brands  fa-facebook"></i>
-      <i className="topIcon fa-brands fa-twitter"></i>
-      <i className="topIcon fa-brands fa-instagram-square"></i>
+    <div className="blogTop">
+      <div className="blogTopLeft">
+      <i className="blogTopIcon fa-brands  fa-facebook"></i>
+      <i className="blogTopIcon fa-brands fa-twitter"></i>
+      <i className="blogTopIcon fa-brands fa-instagram-square"></i>
       </div>
-      <div className="topCentre"></div>
-      <ul className="topList">
-        <li className="topListItem">Home</li>
-        <li className="topListItem">Blogs</li>
-        <li className="topListItem">Therapist Info</li>
-        <li className="topListItem">Chat Forum</li>
+      <div className="blogTopCentre"></div>
+      <ul className="blogTopList">
+        <li className="blogTopListItem">Home</li>
+        <li className="blogTopListItem">Blogs</li>
+        <li className="blogTopListItem">Therapist Info</li>
+        <li className="blogTopListItem">Chat Forum</li>
       </ul>
-      <div className="topRight">
+      <div className="blogTopRight">
         <img 
-        className="topImg"
+        className="blogTopImg"
         src="/images/other/Coffee.jpg" 
         alt=""
         />
-        <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
+        <i className="blogTopSearchIcon fa-solid fa-magnifying-glass"></i>
       </div>
     </div>
   )
