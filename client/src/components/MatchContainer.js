@@ -34,7 +34,7 @@ const MatchContainer = ({setRecipient}) => {
       </Stack>
       <h4 key={match.recipient_id}> {match.therapist_name} </h4>
       <button onClick={() => setRecipient(match)} >< HiAnnotation className= "match-icon"/> </button>
-
+        {console.log('-->', match)}
       </div>
     ))}
 
