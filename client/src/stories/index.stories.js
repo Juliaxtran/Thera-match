@@ -7,7 +7,8 @@ import FilterTableByGender from "../FilterTableByGender";
 import FilterTableItemByGender from "../FilterTableByGender";
 import FilterTableItemBySession from "../FilterTableItemByGender";
 import FilterTableBySession from "../FilterTableBySession";
-
+import FilterPrice from "../FilterPrice";
+import FilterPriceItem from "../FilterPriceItem";
 
 storiesOf('Test')
   .add('Random Story', () => <h1>Random stories</h1>);
@@ -55,5 +56,20 @@ storiesOf('FilterTableItemBySession')
   .add('a filter icon with a checkbox', () =>
 
     <FilterTableItemBySession />
+
+  );
+
+
+storiesOf('FilterPrice')
+  .add('a filter icon with a checkbox', () =>
+
+    <FilterPrice />
+
+  );
+
+storiesOf('FilterPriceItem')
+  .add('a filter icon with a checkbox', () =>
+
+    <FilterPriceItem />
 
   );

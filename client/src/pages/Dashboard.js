@@ -9,7 +9,7 @@ import axios from 'axios';
 import FilterTable from '../FilterTable';
 import FilterTableByGender from "../FilterTableByGender";
 import FilterTableBySession from "../FilterTableBySession";
-
+import FilterPrice from '../FilterPrice';
 function Advanced() {
 
   const [lastDirection, setLastDirection] = useState();
@@ -18,6 +18,9 @@ function Advanced() {
   const [specialties, setSpecialties] = useState([]);
   const [gender, setGender] = useState([]);
   const [session, setSession] = useState([]);
+  const [maximum, setMaximum] = useState('');
+  const [minimum, setMinimum] = useState('');
+
   // used for outOfFrame closure
   const currentIndexRef = useRef(currentIndex);
 
@@ -111,6 +114,10 @@ function Advanced() {
           />
           <FilterTableBySession
             setSession={setSession}
+          />
+          <FilterPrice
+            setMaximum={setMaximum}
+            setMinimum={setMinimum}
           />
         </div>
         <h1>Match with a Therapist</h1>
