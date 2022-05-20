@@ -42,6 +42,10 @@ const createConversationId = (user_id, recipient_id) => {
     })
   });
 
+  router.post('/book', (req, res) => {
+    console.log('book cal', req.body)
+   });
+
 
 
   // router.get('/therapist', (req, res) => {
@@ -71,7 +75,6 @@ const createConversationId = (user_id, recipient_id) => {
   //     } else {
   //       return res.status(404).send("Unable to send messages")
   //     }
-
 
 
   //   })

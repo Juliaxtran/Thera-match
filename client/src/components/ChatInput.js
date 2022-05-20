@@ -7,13 +7,13 @@ const ChatInput = ({ recipient, setMessages }) => {
 
   const [message, setMessage] = useState("");
 
-const recipient_id = recipient.user_id;
+  const recipient_id = recipient.user_id;
 
   const handleSubmit = (e) => {
     e.preventDefault()
     axios.post(`/messages`, { recipient_id, message }, { withCredentials: true })
       .then((data) => {
-        setMessages(prev =>[...prev, {message: data.data[0].message , user_id: data.data[0].user_id, recipient_id: data.data[0].recipient_id, id: data.data[0].id, name: data.data[0].name } ])
+        setMessages(prev => [...prev, { message: data.data[0].message, user_id: data.data[0].user_id, recipient_id: data.data[0].recipient_id, id: data.data[0].id, name: data.data[0].name }])
         console.log("dataaaaaaaaaaa", data)
       })
       .catch((e) => console.log(e))
