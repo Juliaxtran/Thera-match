@@ -50,7 +50,6 @@ import axios from "axios";
 
 // ];
 
-// { specialties, setSpecialties }
 
 const FilterTableItem = ({ setSpecialties }) => {
   const [checked, setChecked] = useState([]);
@@ -92,20 +91,22 @@ const FilterTableItem = ({ setSpecialties }) => {
 
   return (
     <div className="filter-item">
-      <FormGroup className='specialty-list'>
+      <FormGroup className='specialty-list' >
         {issues.map(specialty =>
           <FormControlLabel
             key={specialty.id}
             control={
               <Checkbox key={specialty.type} checked={checked.includes(specialty.type)} onChange={(e) => onChange(e.target.checked, specialty.type)}
+
               />
 
             }
             label={specialty.type}
+            sx={{ fontWeight: 50 }}
           />
         )}
       </FormGroup>
-    </div>
+    </div >
   )
 }
 
