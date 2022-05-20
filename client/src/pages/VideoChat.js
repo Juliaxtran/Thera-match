@@ -7,7 +7,7 @@ import HomeNav from "../components/HomeNav";
 
 
 
-const VideoChat = (props) => {
+const VideoChat = () => {
 
   return (
   <div>
