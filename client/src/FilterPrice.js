@@ -6,8 +6,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
 import { IconButton } from '@mui/material';
-import FilterPriceItem from './FilterPriceItem';
-
+import FilterPriceMinItem from './FilterPriceMinItem';
+import FilterPriceMaxItem from './FilterPriceMaxItem';
 
 const FilterPrice = ({ setMinimum, setMaximum }) => {
 
@@ -23,10 +23,11 @@ const FilterPrice = ({ setMinimum, setMaximum }) => {
             <span> Filter By Cost</span>
           </div>
 
-          <FilterPriceItem
+          <FilterPriceMinItem
             setMinimum={setMinimum}
-            setMaximum={setMaximum}
           />
+          <FilterPriceMaxItem
+            setMaximum={setMaximum} />
         </CardContent>
         <CardActions>
         </CardActions>

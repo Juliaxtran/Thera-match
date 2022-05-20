@@ -4,12 +4,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 
-const minimum = '< 50';
-
-const maximum = '> 50';
 
 
-const FilterPriceItem = ({ setMinimum, setMaximum }) => {
+const maximum = 50;
+const resMax = `> ${maximum}$`;
+
+const FilterPriceMaxItem = ({ setMaximum }) => {
 
   const [checked, setChecked] = useState([]);
 
@@ -33,11 +33,9 @@ const FilterPriceItem = ({ setMinimum, setMaximum }) => {
 
       }
 
-      if (minimum) {
-        setMinimum(newChecked)
-      } else if (maximum) {
-        setMaximum(newChecked);
-      }
+
+      setMaximum(newChecked)
+
 
       return newChecked;
     })
@@ -49,27 +47,17 @@ const FilterPriceItem = ({ setMinimum, setMaximum }) => {
       <FormGroup className='specialty-list'>
 
         <FormControlLabel
-          key={minimum}
-          control={
-            <Checkbox checked={checked.includes(minimum)} onChange={(e) => onChange(e.target.checked, minimum)}
-            />
-          }
-          label={minimum}
-        />
-      </FormGroup>
-      <FormGroup className='specialty-list'>
-        <FormControlLabel
           key={maximum}
           control={
             <Checkbox checked={checked.includes(maximum)} onChange={(e) => onChange(e.target.checked, maximum)}
             />
-
           }
-          label={maximum}
+          label={resMax}
         />
       </FormGroup>
+
     </div>
   )
 }
 
-export default FilterPriceItem;
+export default FilterPriceMaxItem;
