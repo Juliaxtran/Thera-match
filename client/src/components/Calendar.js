@@ -2,31 +2,33 @@ import React, { useState } from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import axios from 'axios';
+import UserContext from './AppContext';
+import { useContext } from 'react';
 
-// axios call to trigger appointment on selected day - check message input, similar
-// "I am interested in x date" msg template 
 
 
 
 export default function ReactCalendar(recipient) {
+  const { user } = useContext(UserContext)
+  const name = `${user.first_name} ${user.last_name}`
+  console.log('F&L name', name)
 
   const [selectDate, selectedDate] = useState("");
-  const recipientPhoneNum = recipient.phone_number;
-  console.log('Phone num -->', recipientPhoneNum)
+  const recipientInfo = recipient;
+  console.log('recipient', recipient)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    axios.post(`/messages/book`, { recipientPhoneNum, selectDate }, { withCredentials: true })
+    axios.post(`/messages/book`, { recipient, selectDate, name }, { withCredentials: true })
       .then((data) => {
         console.log('Successful, neat!')
-        selectedDate(prev => [...prev], { selectDate: data.data[0].selectDate })
       })
   }
 
   const [date, setDate] = useState(new Date());
 
   const onChange = date => {
-    setDate(date);
+    selectedDate(date);
   }
 
   return (
@@ -34,6 +36,7 @@ export default function ReactCalendar(recipient) {
       <Calendar onChange={onChange} value={date} />
       {console.log(date)}
       {date.toString()}
+    <button type='submit' className='primary-button'>Request appointment</button>
     </form>
   )
 }
