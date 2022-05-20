@@ -1,14 +1,14 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import FilterTable from "../FilterTable";
-import FilterTableItem from "../FilterTableItem";
-import FilterTableByGender from "../FilterTableByGender";
-import FilterTableItemByGender from "../FilterTableByGender";
-import FilterTableItemBySession from "../FilterTableItemByGender";
-import FilterTableBySession from "../FilterTableBySession";
-import FilterPrice from "../FilterPrice";
-import FilterPriceItem from "../FilterPriceItem";
+import FilterTable from "../components/FilterTable";
+import FilterTableItem from "../components/FilterTableItem";
+import FilterTableByGender from "../components/FilterTableByGender";
+import FilterTableItemByGender from "../components/FilterTableItemByGender";
+import FilterTableItemBySession from "../components/FilterTableItemBySession";
+import FilterTableBySession from "../components/FilterTableBySession";
+import FilterPrice from "../components/FilterPrice";
+import Reviews from "../components/Reviews"
 
 storiesOf('Test')
   .add('Random Story', () => <h1>Random stories</h1>);
@@ -67,9 +67,9 @@ storiesOf('FilterPrice')
 
   );
 
-storiesOf('FilterPriceItem')
+storiesOf('Reviews')
   .add('a filter icon with a checkbox', () =>
 
-    <FilterPriceItem />
+    <Reviews />
 
   );
