@@ -20,4 +20,4 @@ const sendBooking = function( customer ,number, date) {
 };
 
 
-module.exports = { sendBooking };
+module.exports =  sendBooking ;
