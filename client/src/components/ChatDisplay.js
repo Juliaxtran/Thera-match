@@ -8,7 +8,7 @@ import { useContext } from 'react';
 
 const ChatDisplay = ({ recipient , messages, setMessages}) => {
 
-const { user } = useContext(UserContext)
+const { user } = useContext(UserContext);
 
 const recipient_id = recipient.user_id
 
