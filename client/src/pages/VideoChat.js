@@ -1,4 +1,4 @@
-import { Typography, AppBar } from "@mui/material";
+import  {AppBar}  from "@mui/material";
 import VideoPlayer from "../components/VideoPlayer";
 import Notification from "../components/Notifications";
 import Options from "../components/Options";
