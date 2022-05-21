@@ -10,6 +10,8 @@ import FilterTable from '../components/FilterTable';
 import FilterTableByGender from "../components/FilterTableByGender";
 import FilterTableBySession from "../components/FilterTableBySession";
 import FilterPrice from "../components/FilterPrice";
+import HomeNav from '../components/HomeNav';
+import { Home } from '@material-ui/icons';
 
 
 function Dashboard() {
@@ -101,7 +103,9 @@ function Dashboard() {
   }
 
   return (
+    <>  <HomeNav />
     <div className='main-dashboard'>
+
       <div className='filter-tables'>
         <FilterTable
           setSpecialties={setSpecialties}
@@ -119,7 +123,7 @@ function Dashboard() {
         />
       </div>
       <div>
-        <h1>Match with a Therapist</h1>
+        <h1>Match with a Health Professional</h1>
 
         <div className='cardContainer'>
           {therapists.map((therapist, index) => (
@@ -143,15 +147,19 @@ function Dashboard() {
 
                     </div>
 
-                    <Typography component={'span'} variant="body2" color="text.secondary" sx={{ width: 300, paddingLeft: 5, paddingRight: 5 }} fontSize='10px'>
+                    <Typography component={'span'} variant="body2" color="text.secondary" sx={{ width: 500, paddingLeft: 5, paddingRight: 5 }} fontSize='16px'>
+                      <h1>{therapist.first_name} {therapist.last_name}</h1>
+                      <h2>{therapist.title}</h2>
+                      <hr/ >
 
-                      <h3>About: {therapist.about}</h3>
+
                       <h3>Location: {therapist.location}</h3>
                       <h3>Session: {therapist.session_type}</h3>
-                      <h3>Title: {therapist.title}</h3>
-                      <h3>Cost per session: {therapist.cost_per_session} $</h3>
+
+                      <h3>Cost per session: ${therapist.cost_per_session} </h3>
                       <h3>Specialties: {therapist.type}</h3>
-                      <h3>Gender: {therapist.gender}</h3>
+                      <hr />
+                      <h3>About: {therapist.about}</h3>
                     </Typography>
                   </CardContent>
                 </Card>
@@ -169,6 +177,7 @@ function Dashboard() {
         </div>
       </div>
     </div >
+    </>
   )
 }
 
