@@ -3,6 +3,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SideBarUser from "./SideBarUser";
+import SideBarTherapists from "./SideBarTherapists"
 
 const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
 
@@ -31,7 +32,7 @@ const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
 
     <div className="home-nav">
       <div className="logo-container">
-        <SideBarUser />
+        <SideBarUser /> <SideBarTherapists />
         <img className="logo" src={`/images/other/logo.png`} alt="logo" />
 
         <h1 className="title"> Thera-Match</h1>

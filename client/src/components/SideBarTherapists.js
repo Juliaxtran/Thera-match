@@ -10,14 +10,8 @@ const SideBarUser = () => {
   const showSidebar = () => setSidebar(!sidebar);
   const SidebarData = [
     {
-      title: 'Dashboard',
-      path: '/dashboard',
-      icon: <FaIcons.FaCartPlus />,
-      cName: 'nav-text'
-    },
-    {
-      title: 'Messages',
-      path: '/messages',
+      title: 'Therapist Dashboard',
+      path: '/therapist-dashboard',
       icon: <FaIcons.FaEnvelopeOpenText />,
       cName: 'nav-text'
     },
@@ -29,7 +23,7 @@ const SideBarUser = () => {
     },
     {
       title: 'Profile',
-      path: '/profile',
+      path: '/therapist-profile',
       icon: <FaIcons.FaCartPlus />,
       cName: 'nav-text'
     }
