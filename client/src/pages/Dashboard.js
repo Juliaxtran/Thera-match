@@ -12,6 +12,10 @@ import FilterTableBySession from "../components/FilterTableBySession";
 import FilterPrice from "../components/FilterPrice";
 import HomeNav from '../components/HomeNav';
 import { Home } from '@material-ui/icons';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 function Dashboard() {
@@ -107,20 +111,60 @@ function Dashboard() {
     <div className='main-dashboard'>
 
       <div className='filter-tables'>
+        <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <h4>Filter by Specialties</h4>
+        </AccordionSummary>
+
         <FilterTable
           setSpecialties={setSpecialties}
-
         />
+        </Accordion>
+
+
+        <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <h4>Filter by Gender</h4>
+        </AccordionSummary>
         <FilterTableByGender
           setGender={setGender}
         />
+        </Accordion>
+
+        <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <h4>Filter by Session Type</h4>
+        </AccordionSummary>
         <FilterTableBySession
           setSession={setSession}
         />
+        </Accordion>
+
+        <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <h4>Filter by Session Cost</h4>
+        </AccordionSummary>
         <FilterPrice
           setMaximum={setMaximum}
           setMinimum={setMinimum}
         />
+        </Accordion>
       </div>
       <div>
         <h1>Match with a Health Professional</h1>
