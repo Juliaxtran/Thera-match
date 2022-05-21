@@ -3,9 +3,8 @@ import Box from '@mui/material/Box';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { FixedSizeList } from 'react-window';
-import { List } from "@mui/material";
-
+// import { FixedSizeList } from 'react-window';
+import { List, Card } from "@mui/material";
 
 const reviewList = [
   {
@@ -26,29 +25,10 @@ const reviewList = [
   },
   {
     name: "Madison Ted",
-    review: "Love my she amazing at his jobs ",
+    review: "Love my therapist! she amazing at his jobs ",
   }
 
 ];
-
-
-
-function renderRow(props) {
-  const { index, style } = props;
-
-
-  return (
-    <ListItem style={style} key={index} component="div" disablePadding>
-
-      <ListItemButton>
-        <ListItemText primary={reviewList.map(review =>
-          <p>{review.review}</p>
-        )} />
-      </ListItemButton>
-    </ListItem>
-  );
-}
-
 
 const Reviews = () => {
 
@@ -56,22 +36,16 @@ const Reviews = () => {
   return (
     <div className="review-list">
       <h1>Reviews</h1>
-      <Box
-        sx={{ maxHeight: '100%', width: '100%', height: 1000, maxWidth: 600, bgcolor: 'background.paper' }}
-      >
-        <FixedSizeList
-          height={1000}
-          width={300}
-          itemSize={20}
-          itemCount={1}
-          overscanCount={2}
-        >
-          {renderRow}
-        </FixedSizeList>
-
-
-      </Box>
-    </div>
+      <Card sx={{ maxWidth: 345 }}>
+        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+          <ListItem alignItems="center">
+            <ListItemText primary={reviewList.map(review =>
+              <p>{review.review} <hr /></p>
+            )} />
+          </ListItem>
+        </List >
+      </Card>
+    </div >
   )
 }
 
