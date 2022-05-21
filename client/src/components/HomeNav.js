@@ -2,7 +2,7 @@ import UserContext from "./AppContext"
 import { useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import SideBarUser from "./SideBarUser";
 
 const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
 
@@ -16,21 +16,22 @@ const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
 
   const { user } = useContext(UserContext);
 
-  const logOut =  (e) => {
+  const logOut = (e) => {
     e.preventDefault()
     axios.post(`/users/logout`, { withCredentials: true }).then((response) => {
 
       const success = response.status === 200
-      if(success) navigate('/');
+      if (success) navigate('/');
     })
 
-}
+  }
 
 
   return (
 
     <div className="home-nav">
       <div className="logo-container">
+        <SideBarUser />
         <img className="logo" src={`/images/other/logo.png`} alt="logo" />
 
         <h1 className="title"> Thera-Match</h1>
@@ -49,7 +50,7 @@ const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
             onClick={handleClick}
             disabled={showModal}
           > Login </button>
-     </div>
+        </div>
       )}
     </div>
 

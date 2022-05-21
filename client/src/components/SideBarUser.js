@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import './Sidebar.css';
+import './SidebarUser.css';
 import { IconContext } from 'react-icons';
 
-const SideBar = () => {
+const SideBarUser = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const SidebarData = [
     {
       title: 'Dashboard',
       path: '/dashboard',
-      icon: <FaIcons.FaCartPlus  />,
+      icon: <FaIcons.FaCartPlus />,
       cName: 'nav-text'
     },
     {
@@ -68,4 +68,4 @@ const SideBar = () => {
   );
 }
 
-export default SideBar;
+export default SideBarUser;
