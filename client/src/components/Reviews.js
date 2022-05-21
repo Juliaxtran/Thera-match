@@ -4,51 +4,29 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { FixedSizeList } from 'react-window';
+import { List } from "@mui/material";
 
 
 const reviewList = [
   {
-    name: "Angelica",
-    review: "Addiction",
+    name: "Angelica Belle",
+    review: "I highly recommend this therapist! Thank you for everything. ",
   },
   {
-    type: "Anxiety"
+    name: "Trish Gonzalez",
+    review: "An Amazing Therapist! Had progress thanks to him . ",
   },
   {
-    type: "Binge Eating Disorder"
+    name: "Emily Blint",
+    review: "Very kind, has helped me through my problems ",
   },
   {
-    type: "Bulimia"
+    name: "Hailey Bailey",
+    review: "Amazing therapist, helped my kids with their ADD ",
   },
   {
-    type: "Bullying"
-  },
-  {
-    type: "Couples Therapy"
-  },
-  {
-    type: "Depression"
-  },
-  {
-    type: "Divorce"
-  },
-  {
-    type: "Domestic Abuse"
-  },
-  {
-    type: "Drug Abuse"
-  },
-  {
-    type: "Family"
-  },
-  {
-    type: "Grief"
-  },
-  {
-    type: "LGBTQ2S+"
-  },
-  {
-    type: "Sex Therapy"
+    name: "Madison Ted",
+    review: "Love my she amazing at his jobs ",
   }
 
 ];
@@ -61,8 +39,11 @@ function renderRow(props) {
 
   return (
     <ListItem style={style} key={index} component="div" disablePadding>
+
       <ListItemButton>
-        <ListItemText primary={`Item ${index + 1}`} />
+        <ListItemText primary={reviewList.map(review =>
+          <p>{review.review}</p>
+        )} />
       </ListItemButton>
     </ListItem>
   );
@@ -73,20 +54,22 @@ const Reviews = () => {
 
 
   return (
-    <div>
+    <div className="review-list">
       <h1>Reviews</h1>
       <Box
-        sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper' }}
+        sx={{ maxHeight: '100%', width: '100%', height: 1000, maxWidth: 600, bgcolor: 'background.paper' }}
       >
         <FixedSizeList
-          height={400}
-          width={360}
-          itemSize={46}
-          itemCount={10}
-          overscanCount={5}
+          height={1000}
+          width={300}
+          itemSize={20}
+          itemCount={1}
+          overscanCount={2}
         >
           {renderRow}
         </FixedSizeList>
+
+
       </Box>
     </div>
   )
