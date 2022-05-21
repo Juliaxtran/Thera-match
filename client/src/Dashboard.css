@@ -1,8 +1,10 @@
 .main-dashboard {
   display: flex;
   justify-content: center;
-  background: linear-gradient(#fff, #999);
-  background: linear-gradient(45deg, rgb(234, 237, 237), lightblue);
+  /* background: linear-gradient(#fff, rgb(207, 237, 252)); */
+  height: 100vh;
+  background-color: #fff;
+
 
 }
 
@@ -43,22 +45,22 @@
 }
 
 .cardContainer {
-  height: 400px;
+  height: 45em;
   position: relative;
-  padding: 20px;
+  padding: 1em;
 }
 
 .card {
   position: relative;
   background-color: #fff;
-  width: 260px;
+  width: 35em;
   margin: 0 auto;
   box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.30);
   border-radius: 2px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 700px;
 }
 
 .cardContent {
@@ -91,13 +93,14 @@
 .dashboard-buttons {
   display: flex;
   margin-top: -37px;
-  padding: 69px;
+  margin-left: 17em;
+  padding: 3em;
 }
 
 .dashboard-buttons button {
 
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 30px;
   border: none;
   color: #fff;
   font-size: 18px;
@@ -144,4 +147,10 @@
   100% {
     transform: scale(1, 1)
   }
+}
+
+
+.filter-tables{
+  margin-top: 4.5em;
+  width: 25em;
 }

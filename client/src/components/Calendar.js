@@ -4,6 +4,9 @@ import 'react-calendar/dist/Calendar.css';
 import axios from 'axios';
 import UserContext from './AppContext';
 import { useContext } from 'react';
+import Alert from '@mui/material/Alert';
+
+
 
 
 
@@ -28,10 +31,7 @@ export default function ReactCalendar({recipient}) {
       .then((res) => {
         const success = res.status === 200
         if (success) {
-          setTimeout(() => {
-            setNotification(`Appointment has been requested with ${therapist_name}`)
-          },100 )
-
+            setNotification( <Alert severity="success"> Appointment has been requested with {therapist_name}</Alert>)
         } else  {
           setNotification("Error has occured when trying to book an appointment. Try again later ")
         }
@@ -44,19 +44,20 @@ export default function ReactCalendar({recipient}) {
   }
 
   return (
-    <>
-    <form onSubmit={handleSubmit}>
+    <div className='book-appointment'>
+      <h1>Book an Appointment</h1>
+
+    <form onSubmit={handleSubmit} className='book-appointment-form'>
       <Calendar onChange={onChange} value={date} />
-      {console.log(date)}
-      {date.toString()}
+      <h3>Chosen Date</h3>{date.toString()}
       {recipient ?
        (<button type='submit' className='primary-button'>
-       Request appointment with {therapist_name}</button>)  : (<button type='submit' className='primary-button'>
+       Request appointment - {therapist_name}</button>)  : (<button type='submit' className='primary-button' id='book-appointment-button'>
       Click a therapist to book an appointment</button>) }
 
     </form>
-    {notification}
-    </>
+        {notification}
+    </div>
   )
 }
 

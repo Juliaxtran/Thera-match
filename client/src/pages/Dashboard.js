@@ -10,6 +10,11 @@ import FilterTable from '../components/FilterTable';
 import FilterTableByGender from "../components/FilterTableByGender";
 import FilterTableBySession from "../components/FilterTableBySession";
 import FilterPrice from "../components/FilterPrice";
+import HomeNav from '../components/HomeNav';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 
 function Dashboard() {
@@ -101,74 +106,122 @@ function Dashboard() {
   }
 
   return (
-    <div className='main-dashboard'>
-      <div className='filter-tables'>
-        <FilterTable
-          setSpecialties={setSpecialties}
+    <>
 
-        />
-        <FilterTableByGender
-          setGender={setGender}
-        />
-        <FilterTableBySession
-          setSession={setSession}
-        />
-        <FilterPrice
-          setMaximum={setMaximum}
-          setMinimum={setMinimum}
-        />
-      </div>
-      <div>
-        <h1>Match with a Therapist</h1>
+      <HomeNav />
+      <div className='main-dashboard'>
+        <div className='filter-tables'>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <h4>Filter by Specialties</h4>
+            </AccordionSummary>
 
-        <div className='cardContainer'>
-          {therapists.map((therapist, index) => (
-            <div className='TinderCard' key={therapist.id}>
-              <TinderCard
-                ref={childRefs[index]}
-                className='swipe'
-                key={therapist.id}
-                onSwipe={(dir) => swiped(dir, therapist.id, index)}
-                onCardLeftScreen={() => outOfFrame(therapist.first_name, index)}
-              >
+            <FilterTable
+              setSpecialties={setSpecialties}
+            />
+          </Accordion>
 
-                <Card>
 
-                  <CardContent sx={{ display: 'flex', padding: 0, '&:last-child': { pb: 0 } }}>
-                    <div
-                      style={{ backgroundImage: 'url(' + therapist.image + ')' }}
-                      className='card'
-                    >
-                      <h3>{therapist.first_name} {therapist.last_name}</h3>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <h4>Filter by Gender</h4>
+            </AccordionSummary>
+            <FilterTableByGender
+              setGender={setGender}
+            />
+          </Accordion>
 
-                    </div>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <h4>Filter by Session Type</h4>
+            </AccordionSummary>
+            <FilterTableBySession
+              setSession={setSession}
+            />
+          </Accordion>
 
-                    <Typography component={'span'} variant="body2" color="text.secondary" sx={{ width: 300, paddingLeft: 5, paddingRight: 5 }} fontSize='10px'>
-
-                      <h3>About: {therapist.about}</h3>
-                      <h3>Location: {therapist.location}</h3>
-                      <h3>Session: {therapist.session_type}</h3>
-                      <h3>Title: {therapist.title}</h3>
-                      <h3>Cost per session: {therapist.cost_per_session} $</h3>
-                      <h3>Specialties: {therapist.type}</h3>
-                      <h3>Gender: {therapist.gender}</h3>
-                    </Typography>
-                  </CardContent>
-                </Card>
-
-              </TinderCard>
-
-            </div>
-          ))
-          }
-        </div >
-        <div className='dashboard-buttons'>
-          <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>No thanks!</button>
-          <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
-          <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>I wanna book you!</button>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <h4>Filter by Session Cost</h4>
+            </AccordionSummary>
+            <FilterPrice
+              setMaximum={setMaximum}
+              setMinimum={setMinimum}
+            />
+          </Accordion>
         </div>
-      </div>
-    </div >
+        <div>
+          <h1>Match with a Health Professional</h1>
+
+          <div className='cardContainer'>
+            {therapists.map((therapist, index) => (
+              <div className='TinderCard' key={therapist.id}>
+                <TinderCard
+                  ref={childRefs[index]}
+                  className='swipe'
+                  key={therapist.id}
+                  onSwipe={(dir) => swiped(dir, therapist.id, index)}
+                  onCardLeftScreen={() => outOfFrame(therapist.first_name, index)}
+                >
+
+                  <Card>
+
+                    <CardContent sx={{ display: 'flex', padding: 0, '&:last-child': { pb: 0 } }}>
+                      <div
+                        style={{ backgroundImage: 'url(' + therapist.image + ')' }}
+                        className='card'
+                      >
+                        <h3>{therapist.first_name} {therapist.last_name}</h3>
+
+                      </div>
+
+                      <Typography component={'span'} variant="body2" color="text.secondary" sx={{ width: 500, paddingLeft: 5, paddingRight: 5 }} fontSize='16px'>
+                        <h1>{therapist.first_name} {therapist.last_name}</h1>
+                        <h2>{therapist.title}</h2>
+                        <hr />
+
+
+                        <h3>Location: {therapist.location}</h3>
+                        <h3>Session: {therapist.session_type}</h3>
+
+                        <h3>Cost per session: ${therapist.cost_per_session} </h3>
+                        <h3>Specialties: {therapist.type}</h3>
+                        <hr />
+                        <h3>About: {therapist.about}</h3>
+                      </Typography>
+                    </CardContent>
+                  </Card>
+
+                </TinderCard>
+
+              </div>
+            ))
+            }
+          </div >
+          <div className='dashboard-buttons'>
+            <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>No thanks!</button>
+            <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
+            <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>I wanna book you!</button>
+          </div>
+        </div>
+      </div >
+    </>
   )
 }
 

@@ -13,11 +13,10 @@
 .match-container {
   /* margin: 2em; */
   border:solid black 2px;
-  background-color: rgb(255, 255, 255);
-  width: 350px;
+
+  width: 25em;
   border-radius: 30px;
   align-content: column;
-  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   margin: 2em;
 }
@@ -68,11 +67,11 @@
 
 .chat-container {
   /* margin: 2em; */
-  border:solid black 2px;
-  background-color: rgb(255, 255, 255);
-  width: 650px;
+  border:solid black 3px;
+  background-color: rgb(248, 240, 240);
+  width: 45em;
   border-radius: 30px;
-  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  background: linear-gradient(45deg, rgb(218, 246, 255), rgb(215, 215, 242));
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   margin: 2em;
   display: flex;
@@ -84,19 +83,53 @@
 
 
 .chat-input{
-width: 350px;
-height: 40px;
+width: 35em;
+height: 4em;
 border-radius: 30px;
-margin: 2em;
+margin: 2em 1em;
 
 }
 
 .chat-display {
   border:solid black 2px;
   background-color: rgb(255, 255, 255);
-  width: 45vh;
-  height: 65vh ;
+  width: 40em;
+  height: 50em ;
+  margin-top: .75em;
   border-radius: 30px;
   align-self: center;
 
+}
+
+.chat-display-image {
+  border: black solid 2px;
+  height: 2em;
+  width: 2em;
+}
+
+.chat-display-header {
+padding: .25em;
+margin-right: .35em;
+}
+
+/* Calender */
+.book-appointment{
+  display: flex;
+  flex-direction: column;
+  width: 20em;
+  margin-top: 2em;
+}
+
+.book-appointment-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.book-appointment-form h3 {
+  color: black;
+}
+
+#book-appointment-button{
+  width: 2em;
+  height: 1em;
 }
