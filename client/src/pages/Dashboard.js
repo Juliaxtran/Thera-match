@@ -11,11 +11,10 @@ import FilterTableByGender from "../components/FilterTableByGender";
 import FilterTableBySession from "../components/FilterTableBySession";
 import FilterPrice from "../components/FilterPrice";
 import HomeNav from '../components/HomeNav';
-import { Home } from '@material-ui/icons';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import SideBar from '../components/SideBar';
 
 
 function Dashboard() {
@@ -109,6 +108,7 @@ function Dashboard() {
   return (
     <>  <HomeNav />
     <div className='main-dashboard'>
+      <SideBar />
 
       <div className='filter-tables'>
         <Accordion>
