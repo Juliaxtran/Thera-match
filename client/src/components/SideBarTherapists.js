@@ -5,32 +5,26 @@ import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import { IconContext } from 'react-icons';
 
-const SideBar = () => {
+const SideBarUser = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const SidebarData = [
     {
       title: 'Dashboard',
-      path: '/dashboard',
-      icon: <FaIcons.FaCartPlus  />,
-      cName: 'nav-text'
-    },
-    {
-      title: 'Messages',
-      path: '/messages',
-      icon: <FaIcons.FaEnvelopeOpenText />,
+      path: '/therapist-dashboard',
+      icon: <FaIcons.FaClipboard />,
       cName: 'nav-text'
     },
     {
       title: 'Video Chat',
       path: '/chat',
-      icon: <FaIcons.FaCartPlus />,
+      icon: <FaIcons.FaVideo />,
       cName: 'nav-text'
     },
     {
       title: 'Profile',
-      path: '/profile',
-      icon: <FaIcons.FaCartPlus />,
+      path: '/therapist-profile',
+      icon: <FaIcons.FaUser />,
       cName: 'nav-text'
     }
 
@@ -68,4 +62,4 @@ const SideBar = () => {
   );
 }
 
-export default SideBar;
+export default SideBarUser;
