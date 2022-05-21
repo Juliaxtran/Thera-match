@@ -139,7 +139,7 @@ module.exports = (db, dbQueries) => {
 
 
   router.get('/reviews', (req, res) => {
-    const command = "SELECT * from reviews;";
+    const command = "SELECT concat(users.first_name,' ', users.last_name) as name, review  from reviews join users on user_id = users.id;"
 
     db.query(command).then(data => {
       console.log(data, "Data");

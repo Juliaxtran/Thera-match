@@ -22,9 +22,10 @@ const Reviews = () => {
       <Card sx={{ maxWidth: 345 }}>
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
           <ListItem alignItems="center">
-            <ListItemText primary={reviewList.map(review =>
-              <p>{review.review} <hr /></p>
-            )} />
+            <ListItemText
+              primary={reviewList.map(review =>
+                <p><strong>{review.name}</strong>: {review.review} <hr /></p>
+              )} />
           </ListItem>
         </List >
       </Card>
