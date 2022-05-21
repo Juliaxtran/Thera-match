@@ -1,8 +1,9 @@
 .main-dashboard {
   display: flex;
   justify-content: center;
-  background: linear-gradient(#fff, rgb(207, 237, 252));
+  /* background: linear-gradient(#fff, rgb(207, 237, 252)); */
   height: 100vh;
+  background-color: #fff;
 
 
 }
