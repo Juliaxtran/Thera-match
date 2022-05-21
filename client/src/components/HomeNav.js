@@ -36,7 +36,7 @@ const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
     <div className="home-nav">
       <div className="logo-container">
 
-        {user.type === "therapist" ? <SideBarTherapists /> : <SideBarUser />}
+        {!user.id ? '' : user.type === "therapist" ? <SideBarTherapists /> : <SideBarUser />}
         <img className="logo" src={`/images/other/logo.png`} alt="logo" />
 
         <h1 className="title"> Thera-Match</h1>
