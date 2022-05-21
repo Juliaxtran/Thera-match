@@ -10,7 +10,7 @@ const SideBarUser = () => {
   const showSidebar = () => setSidebar(!sidebar);
   const SidebarData = [
     {
-      title: 'Therapist Dashboard',
+      title: 'Dashboard',
       path: '/therapist-dashboard',
       icon: <FaIcons.FaEnvelopeOpenText />,
       cName: 'nav-text'

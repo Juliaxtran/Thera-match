@@ -5,7 +5,10 @@ import { useNavigate } from "react-router-dom";
 import SideBarUser from "./SideBarUser";
 import SideBarTherapists from "./SideBarTherapists"
 
+
 const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
+
+  const atHome = false;
 
   let navigate = useNavigate()
 
@@ -32,7 +35,8 @@ const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
 
     <div className="home-nav">
       <div className="logo-container">
-        <SideBarUser /> <SideBarTherapists />
+
+        {user.type === "therapist" ? <SideBarTherapists /> : <SideBarUser />}
         <img className="logo" src={`/images/other/logo.png`} alt="logo" />
 
         <h1 className="title"> Thera-Match</h1>
