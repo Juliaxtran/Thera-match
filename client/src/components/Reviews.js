@@ -6,6 +6,54 @@ import ListItemText from '@mui/material/ListItemText';
 import { FixedSizeList } from 'react-window';
 
 
+const reviewList = [
+  {
+    name: "Angelica",
+    review: "Addiction",
+  },
+  {
+    type: "Anxiety"
+  },
+  {
+    type: "Binge Eating Disorder"
+  },
+  {
+    type: "Bulimia"
+  },
+  {
+    type: "Bullying"
+  },
+  {
+    type: "Couples Therapy"
+  },
+  {
+    type: "Depression"
+  },
+  {
+    type: "Divorce"
+  },
+  {
+    type: "Domestic Abuse"
+  },
+  {
+    type: "Drug Abuse"
+  },
+  {
+    type: "Family"
+  },
+  {
+    type: "Grief"
+  },
+  {
+    type: "LGBTQ2S+"
+  },
+  {
+    type: "Sex Therapy"
+  }
+
+];
+
+
 
 function renderRow(props) {
   const { index, style } = props;
@@ -25,19 +73,22 @@ const Reviews = () => {
 
 
   return (
-    <Box
-      sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper' }}
-    >
-      <FixedSizeList
-        height={400}
-        width={360}
-        itemSize={46}
-        itemCount={200}
-        overscanCount={5}
+    <div>
+      <h1>Reviews</h1>
+      <Box
+        sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper' }}
       >
-        {renderRow}
-      </FixedSizeList>
-    </Box>
+        <FixedSizeList
+          height={400}
+          width={360}
+          itemSize={46}
+          itemCount={10}
+          overscanCount={5}
+        >
+          {renderRow}
+        </FixedSizeList>
+      </Box>
+    </div>
   )
 }
 
