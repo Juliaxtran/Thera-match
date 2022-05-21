@@ -138,6 +138,16 @@ module.exports = (db, dbQueries) => {
   // })
 
 
+  router.get('/reviews', (req, res) => {
+    const command = "SELECT * from reviews;";
+
+    db.query(command).then(data => {
+      console.log(data, "Data");
+      res.json(data.rows);
+    })
+  });
+
+
 
   return router;
 }

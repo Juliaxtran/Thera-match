@@ -1,36 +1,19 @@
-import React from "react";
-import Box from '@mui/material/Box';
+import React, { useState, useEffect } from "react";
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-// import { FixedSizeList } from 'react-window';
 import { List, Card } from "@mui/material";
+import axios from "axios";
 
-const reviewList = [
-  {
-    name: "Angelica Belle",
-    review: "I highly recommend this therapist! Thank you for everything. ",
-  },
-  {
-    name: "Trish Gonzalez",
-    review: "An Amazing Therapist! Had progress thanks to him . ",
-  },
-  {
-    name: "Emily Blint",
-    review: "Very kind, has helped me through my problems ",
-  },
-  {
-    name: "Hailey Bailey",
-    review: "Amazing therapist, helped my kids with their ADD ",
-  },
-  {
-    name: "Madison Ted",
-    review: "Love my therapist! she amazing at his jobs ",
-  }
 
-];
 
 const Reviews = () => {
+  const [reviewList, setReviewList] = useState([]);
+
+  useEffect(() => {
+    axios.get('/therapists/reviews').then(res => {
+      setReviewList(res.data)
+    })
+  }, []);
 
 
   return (
