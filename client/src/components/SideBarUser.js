@@ -12,7 +12,7 @@ const SideBarUser = () => {
     {
       title: 'Dashboard',
       path: '/dashboard',
-      icon: <FaIcons.FaCartPlus />,
+      icon: <FaIcons.FaAddressCard />,
       cName: 'nav-text'
     },
     {
@@ -24,13 +24,13 @@ const SideBarUser = () => {
     {
       title: 'Video Chat',
       path: '/chat',
-      icon: <FaIcons.FaCartPlus />,
+      icon: <FaIcons.FaVideo />,
       cName: 'nav-text'
     },
     {
       title: 'Profile',
       path: '/profile',
-      icon: <FaIcons.FaCartPlus />,
+      icon: <FaIcons.FaUser />,
       cName: 'nav-text'
     }
 

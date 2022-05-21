@@ -12,19 +12,19 @@ const SideBarUser = () => {
     {
       title: 'Dashboard',
       path: '/therapist-dashboard',
-      icon: <FaIcons.FaEnvelopeOpenText />,
+      icon: <FaIcons.FaClipboard />,
       cName: 'nav-text'
     },
     {
       title: 'Video Chat',
       path: '/chat',
-      icon: <FaIcons.FaCartPlus />,
+      icon: <FaIcons.FaVideo />,
       cName: 'nav-text'
     },
     {
       title: 'Profile',
       path: '/therapist-profile',
-      icon: <FaIcons.FaCartPlus />,
+      icon: <FaIcons.FaUser />,
       cName: 'nav-text'
     }
 
