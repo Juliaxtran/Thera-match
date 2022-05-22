@@ -15,8 +15,6 @@ import VideoChat from './pages/VideoChat';
 import { ContextProvider } from './components/SocketContext';
 
 
-
-
 function App() {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState("")
