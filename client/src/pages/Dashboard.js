@@ -14,6 +14,7 @@ import HomeNav from '../components/HomeNav';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import  {AppBar}  from "@mui/material";
 
 
 
@@ -167,7 +168,9 @@ function Dashboard() {
           </Accordion>
         </div>
         <div>
+  
           <h1>Match with a Health Professional</h1>
+
 
           <div className='cardContainer'>
             {therapists.map((therapist, index) => (

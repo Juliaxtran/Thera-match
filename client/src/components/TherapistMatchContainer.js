@@ -26,6 +26,7 @@ const TherapistMatchContainer = ({setRecipient}) => {
   return (
     <div className="therapist-matches">
       <h2>People who favourited you..</h2>
+
       {matches.map((match) =>
         (  <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
           <ListItem alignItems='flex-start'>

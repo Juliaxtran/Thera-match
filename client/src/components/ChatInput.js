@@ -33,8 +33,6 @@ const ChatInput = ({ recipient, setMessages }) => {
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
-
-
           }} />
 
         <button type="submit" className="primary-button"> Submit </button>
