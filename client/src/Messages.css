@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-left: 6em;
 
 }
 
@@ -87,6 +88,8 @@ width: 35em;
 height: 4em;
 border-radius: 30px;
 margin: 2em 1em;
+color: white;
+background-color: white;
 
 }
 
