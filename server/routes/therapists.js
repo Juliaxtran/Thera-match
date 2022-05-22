@@ -5,27 +5,6 @@ const { response } = require('express');
 
 module.exports = (db, dbQueries) => {
 
-
-  // router.get('/', (req, res) => {
-  //   const command = "SELECT therapists.*, STRING_AGG(specialties.type,',') as type from therapists join therapist_specialties ON therapist_id = therapists.id join specialties ON specialties.id = therapist_specialties.specialty_id GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.password,therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about";
-  //   db.query(command).then(data => {
-
-  //     if (data["rows"].length > 0) {
-  //       res.json(data.rows);
-  //       //TO FIX
-  //       // return res.status(200).send("it worked")
-  //     }
-  //     //TO FIX
-  //     // res.status(400).send("Trouble loading data")
-
-
-  //   })
-  // });
-
-
-
-
-
   // all routes will go here
   router.post('/login', (req, res) => {
     const { email, password } = req.body;
@@ -105,37 +84,6 @@ module.exports = (db, dbQueries) => {
     req.session.id = null;
     return res.status(200).send({ "message": "Logout successful" });
   });
-
-
-
-
-
-  // router.get('/info', (req, res) => {
-  //   const user_id = req.session.id
-  //   const command = `SELECT id from therapists where user_id = $1;`
-  //   const values = [user_id]
-  //   const command2 = `select
-  //   COUNT (matches.*) as num_matches from matches where therapist_id = $1;`
-  //   const command3 = `select COUNT(users.*) as num_users from users;`
-
-  //     db.query(command, values).then(data => {
-  //       if (data["rows"].length > 0) {
-  //         const therapist_id = [data.rows[0].id]
-  //         console.log("##2", therapist_id)
-  //         db.query(command2, therapist_id).then(data2 => {
-  //           console.log('##3', data2.rows);
-  //           if (data2.rows.length > 0) {
-  //             db.query(command3).then(data3 => {
-  //               console.log('##4', data3.rows);
-  //               if (data3.rows.length > 0) {
-  //                   res.status(200).send([data2.rows, data3.rows]);
-  //               }
-  //             })
-  //           }
-  //         })
-  //       }
-  //     })
-  // })
 
 
   router.get('/reviews', (req, res) => {
