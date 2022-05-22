@@ -1,8 +1,8 @@
-import { useState } from "react"
-import axios from 'axios'
+import { useState } from "react";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import UserContext from "./AppContext"
-import { useContext } from "react"
+import UserContext from "./AppContext";
+import { useContext } from "react";
 
 const AuthModal = ({ setShowModal, isSignUp }) => {
   const [email, setEmail] = useState(null);
@@ -10,7 +10,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
 
-  const  {setUser} = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
 
   let navigate = useNavigate()
 
@@ -26,13 +26,15 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
         return
       }
       // If response is success navigate to onboarding - navidat a part of router dom
-      const response = await axios.post(`http://localhost:9000/users/${isSignUp ? 'signup' : 'login'}`, { email, password}, {withCredentials: true})
-      if(response.data.user) {
+      const response = await axios.post(`/users/${isSignUp ? 'signup' : 'login'}`, { email, password }, { withCredentials: true })
+      console.log("Data", response.data)
+      if (response.data.user) {
         setUser(response.data.user)
       }
       const success = response.status === 200
-      if (isSignUp && success) navigate('/profile')
-      if (!isSignUp && success) navigate('/dashboard')
+      if (isSignUp && success && response.data.user.type === null) navigate('/profile')
+      if (!isSignUp && success && response.data.user.type === 'therapist') navigate('/therapist-dashboard')
+      if (!isSignUp && success && response.data.user.type === 'user') navigate('/dashboard')
     } catch (error) {
       setError("Email / Password invalid")
     }
@@ -79,4 +81,4 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   )
 }
 
-export default AuthModal
+export default AuthModal;

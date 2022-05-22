@@ -1,4 +1,3 @@
-
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 
@@ -81,7 +80,7 @@ module.exports = (db, dbQueries) => {
   });
 
     router.post('/logout', (req, res) => {
-    req.session.id = null;
+    req.session = null;
     return res.status(200).send({"message" : "Logout successful"});
   });
 

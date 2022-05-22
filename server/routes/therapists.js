@@ -5,27 +5,6 @@ const { response } = require('express');
 
 module.exports = (db, dbQueries) => {
 
-
-  // router.get('/', (req, res) => {
-  //   const command = "SELECT therapists.*, STRING_AGG(specialties.type,',') as type from therapists join therapist_specialties ON therapist_id = therapists.id join specialties ON specialties.id = therapist_specialties.specialty_id GROUP BY therapists.id, therapists.first_name, therapists.last_name, therapists.email, therapists.phone_number, therapists.password,therapists.gender, therapists.image, therapists.date_of_birth, therapists.location, therapists.cost_per_session, therapists.years_of_practice, therapists.title, therapists.session_type, therapists.about";
-  //   db.query(command).then(data => {
-
-  //     if (data["rows"].length > 0) {
-  //       res.json(data.rows);
-  //       //TO FIX
-  //       // return res.status(200).send("it worked")
-  //     }
-  //     //TO FIX
-  //     // res.status(400).send("Trouble loading data")
-
-
-  //   })
-  // });
-
-
-
-
-
   // all routes will go here
   router.post('/login', (req, res) => {
     const { email, password } = req.body;
@@ -90,8 +69,8 @@ module.exports = (db, dbQueries) => {
   });
 
   router.get('/specialties', (req, res) => {
-   
-    let options = { type: req.query.specialties };
+
+    let options = { type: req.query.specialties, gender: req.query.gender, session: req.query.session, minimum: req.query.minimum, maximum: req.query.maximum };
     // console.log("HELLLOOOOOOOOOO", req.query);
     dbQueries.getAllSpecialties(db, options)
       .then((rows) => {
@@ -104,6 +83,16 @@ module.exports = (db, dbQueries) => {
   router.post('/logout', (req, res) => {
     req.session.id = null;
     return res.status(200).send({ "message": "Logout successful" });
+  });
+
+
+  router.get('/reviews', (req, res) => {
+    const command = "SELECT concat(users.first_name,' ', users.last_name) as name, review  from reviews join users on user_id = users.id;"
+
+    db.query(command).then(data => {
+      console.log(data, "Data");
+      res.json(data.rows);
+    })
   });
 
 

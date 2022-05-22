@@ -1,17 +1,29 @@
 
 const router = require('express').Router();
+const sendBooking = require("./twilio.js");
 
 module.exports = (db) => {
 
   // Get messages for user when clicking on therapist id
 
+  const createConversationId = (user_id, recipient_id) => {
+
+    highest = user_id, lowest = recipient_id;
+    if (user_id < recipient_id) {
+      highest = recipient_id, lowest = user_id;
+    }
+    return `${lowest}_${highest}`
+  }
+
+
   router.get('/', (req, res) => {
     const user_id = req.session.id;
-    const therapist_id = req.query.therapist_id;
-    const command = "SELECT message, user_id, therapist_id, messages.id as id, users.first_name as name from messages join users ON user_id = users.id where user_id = $1 AND therapist_id = $2 Limit 5;";
-    values = [user_id, therapist_id]
+    const recipient_id = req.query.recipient_id;
+    const conversation_id = createConversationId(user_id, recipient_id)
+    const command = "SELECT message, messages.user_id, recipient_id, messages.id as id, users.first_name as user_name, users.first_name as recipient_name, created_at from messages  left join users  on users.id = messages.user_id  where conversation_id = $1 ";
+    values = [conversation_id]
     db.query(command, values).then(data => {
-      // console.log("data", data)
+      console.log("data", data)
       res.json(data.rows);
     })
   });
@@ -19,52 +31,30 @@ module.exports = (db) => {
   // Post message  when clicking on therpapist id
 
   router.post('/', (req, res) => {
-   const user_id = req.session.id ;
-    const therapist_id = req.body.therapist_id
+    const user_id = req.session.id;
+    const recipient_id = req.body.recipient_id
+    const conversation_id = createConversationId(user_id, recipient_id)
     const message = req.body.message
-    const command = "Insert into messages (user_id, therapist_id, message, created_at) VALUES ($1, $2, $3, now()) RETURNING * ; "
-    values = [user_id, therapist_id, message]
+    const command = "Insert into messages (user_id, recipient_id, message, created_at, conversation_id) VALUES ($1, $2, $3, now(), $4) RETURNING * ; "
+    values = [user_id, recipient_id, message, conversation_id]
     db.query(command, values).then(data => {
       res.status(200).json(data.rows);
       console.log("Data", data.rows);
     })
   });
 
+  router.post('/book', (req, res) => {
+    const customer_name = req.body.recipientInfo.users_name;
+    const therapist_name = req.body.recipientInfo.therapist_name;
+    const phone = req.body.recipientInfo.phone_number;
+    const date = req.body.date
+
+    sendBooking(customer_name, therapist_name, phone, date);
+
+    res.status(200).send("Appointment has been requested")
 
 
-  // router.get('/therapist', (req, res) => {
-  //   // const therapist_id = req.sessions["userId"];
-  //   const therapist_id = 1
-  //   const {user_id} = req.body
-  //   const command = "SELECT message from messages where user_id = $1 AND therapist_id = $2";
-  //   values = [user_id, therapist_id]
-  //   db.query(command, values).then(data => {
-  //     console.log(data, "Data");
-  //     res.json(data.rows);
-  //   })
-  // });
-
-  // router.post('/therapist', (req, res) => {
-  //   // const therapist_id = req.sessions["userId"];
-  //   const therapist_id = 1
-  //   const {user_id, message} = req.body
-  //   const command = "Insert into messages (user_id, therapist_id, message, created_at) VALUES ($1, $2, $3, now()) RETURNING * ; "
-  //   values = [user_id, therapist_id, message]
-  //   db.query(command, values).then(data => {
-  //     console.log(data, "Data");
-  //     res.json(data.rows);
-
-  //     if (data["rows"].length > 0) {
-  //       return res.status(200).send("Message sent")
-  //     } else {
-  //       return res.status(404).send("Unable to send messages")
-  //     }
-
-
-
-  //   })
-  // });
-
+  });
 
 
 

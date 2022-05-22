@@ -6,13 +6,14 @@ import { useNavigate } from "react-router-dom";
 import UserContext from "../components/AppContext";
 import { useContext } from "react"
 import { useEffect } from "react";
+import  {AppBar}  from "@mui/material";
 
 
 
 
 const Profile = () => {
 
-  const {setUser, user} = useContext(UserContext)
+  const { setUser, user } = useContext(UserContext)
 
   const navigate = useNavigate()
   const [error, setError] = useState("");
@@ -21,12 +22,12 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post(`http://localhost:9000/users/profile`, { formData }, { withCredentials: true })
+      const response = await axios.post(`/users/profile`, { formData }, { withCredentials: true })
       const success = response.status === 200
       if (success) {
         navigate('/dashboard');
         setUser(response.data.user);
-       }
+      }
 
 
 
@@ -49,15 +50,16 @@ const Profile = () => {
     }))
   }
 
-useEffect(() => {
-setFormData(user)
-}, [user]);
+  useEffect(() => {
+    setFormData(user)
+  }, [user]);
 
   return (
     <div className="profile">
       <HomeNav />
-
-      <h1>Create your profile </h1>
+      <AppBar position="static" color="inherit">
+      <h1> Profile Page </h1>
+      </AppBar>
 
 
       <form onSubmit={handleSubmit} >

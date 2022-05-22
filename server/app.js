@@ -12,6 +12,7 @@ const dbQueries = require('./routes/helpers.js');
 const messagesRouter = require('./routes/messages');
 const therapistsRouter = require('./routes/therapists');
 const matchesRouter = require('./routes/matches');
+const filtersRouter = require('./routes/filters');
 
 const app = express();
 
@@ -39,19 +40,20 @@ app.use('/messages', messagesRouter(db));
 
 app.use('/therapists', therapistsRouter(db, dbQueries));
 app.use('/matches', matchesRouter(db, dbQueries));
+app.use('/filters', filtersRouter(db, dbQueries));
 
-app.get('/api/profile' , (req, res) => {
-  if(req.session.id) {
-   const user_id = req.session.id
+app.get('/api/profile', (req, res) => {
+  if (req.session.id) {
+    const user_id = req.session.id
     const command = "SELECT * from users where id = $1; "
     values = [user_id]
     db.query(command, values).then(data => {
-     return res.json(data.rows[0]);
+      return res.json(data.rows[0]);
     })
   } else {
     console.log("No sessions")
     return res.status(400).send("No user info")
   }
-  })
+})
 
 module.exports = app;

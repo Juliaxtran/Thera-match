@@ -3,9 +3,13 @@ import '../Profile.css';
 import axios from "axios";
 import HomeNav from "../components/HomeNav";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../components/AppContext";
+import { useContext } from "react"
 
 
 const TherapistProfile = () => {
+
+  const {setUser, user} = useContext(UserContext)
 
   const navigate = useNavigate()
   const [error, setError] = useState("");
@@ -26,9 +30,13 @@ const TherapistProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post(`http://localhost:9000/therapists/profile`, { formData }, { withCredentials: true })
+      const response = await axios.post(`/therapists/profile`, { formData }, { withCredentials: true })
       const success = response.status === 200
       if (success) navigate('/');
+      setUser(response.data.user);
+
+
+
 
     } catch (error) {
       setError("Error: Profile page was not created")
@@ -49,7 +57,8 @@ const TherapistProfile = () => {
     <div className="profile">
       <HomeNav success="false" />
 
-      <h1>Create your profile </h1>
+      <h1>Your Profile </h1>
+
 
 
       <form onSubmit={handleSubmit} >
