@@ -101,6 +101,8 @@ background-color: white;
   margin-top: .75em;
   border-radius: 30px;
   align-self: center;
+  overflow-x: scroll;
+  overflow-x: hidden;
 
 }
 
@@ -138,6 +140,8 @@ margin-right: .35em;
 }
 
 /* Chat bubbles */
+
+
 .message__item {
   border-radius: 30px;
   background-color: #bbdef8;
@@ -153,3 +157,4 @@ margin-right: .35em;
   background-color: #e5e5ea;
   margin-left: .75em;
 }
+

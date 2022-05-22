@@ -20,7 +20,7 @@ const createConversationId = (user_id, recipient_id) => {
     const user_id = req.session.id;
     const recipient_id = req.query.recipient_id;
     const conversation_id = createConversationId(user_id, recipient_id)
-    const command = "SELECT message, messages.user_id, recipient_id, messages.id as id, users.first_name as user_name, users.first_name as recipient_name from messages  left join users  on users.id = messages.user_id  where conversation_id = $1 Limit 5;";
+    const command = "SELECT message, messages.user_id, recipient_id, messages.id as id, users.first_name as user_name, users.first_name as recipient_name, created_at from messages  left join users  on users.id = messages.user_id  where conversation_id = $1 ";
     values = [conversation_id]
     db.query(command, values).then(data => {
       console.log("data", data)
