@@ -13,7 +13,7 @@
 
 .match-container {
   /* margin: 2em; */
-  border:solid black 2px;
+  border: solid black 2px;
 
   width: 25em;
   border-radius: 30px;
@@ -30,11 +30,11 @@
 }
 
 .match-avatar {
-  border:solid black 1px;
+  border: solid black 1px;
 }
 
 .match-avatar:hover {
-  border:solid lightblue 1px;
+  border: solid lightblue 1px;
 }
 
 .match-icon {
@@ -47,8 +47,8 @@
   color: lightblue ;
 } */
 
-.match-icon:hover{
-  color: lightblue ;
+.match-icon:hover {
+  color: lightblue;
   height: 2em;
   width: 2em;
 }
@@ -56,7 +56,7 @@
 
 
 .match-container h4:hover {
-  color: lightblue ;
+  color: lightblue;
 }
 
 .match-container button {
@@ -68,7 +68,7 @@
 
 .chat-container {
   /* margin: 2em; */
-  border:solid black 3px;
+  border: solid black 3px;
   background-color: rgb(248, 240, 240);
   width: 45em;
   border-radius: 30px;
@@ -83,21 +83,21 @@
 }
 
 
-.chat-input{
-width: 35em;
-height: 4em;
-border-radius: 30px;
-margin: 2em 1em;
-font-size: 14px;
-background-color: white;
+.chat-input {
+  width: 35em;
+  height: 4em;
+  border-radius: 30px;
+  margin: 2em 1em;
+  font-size: 14px;
+  background-color: white;
 
 }
 
 .chat-display {
-  border:solid black 2px;
+  border: solid black 2px;
   background-color: rgb(255, 255, 255);
   width: 40em;
-  height: 50em ;
+  height: 50em;
   margin-top: .75em;
   border-radius: 30px;
   align-self: center;
@@ -113,19 +113,19 @@ background-color: white;
 }
 
 .chat-display-header {
-padding: .25em;
-margin-right: .35em;
+  padding: .25em;
+  margin-right: .35em;
 }
 
 /* Calender */
-.book-appointment{
+.book-appointment {
   display: flex;
   flex-direction: column;
   width: 20em;
   margin-top: 2em;
 }
 
-.book-appointment-form{
+.book-appointment-form {
   display: flex;
   flex-direction: column;
 }
@@ -134,7 +134,7 @@ margin-right: .35em;
   color: black;
 }
 
-#book-appointment-button{
+#book-appointment-button {
   width: 2em;
   height: 1em;
 }
@@ -150,11 +150,10 @@ margin-right: .35em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding: .35em;
   margin-left: 8em;
-
+  margin-top: 0.1em;
 }
 
-.message__item-right{
+.message__item-right {
   background-color: #e5e5ea;
   margin-left: .75em;
 }
-
