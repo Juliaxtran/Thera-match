@@ -206,7 +206,7 @@ function Dashboard() {
 
                       </div>
 
-                      <Typography component={'span'} variant="body2" color="text.secondary" sx={{ width: 500, paddingLeft: 5, paddingRight: 5 }} fontSize='16px'>
+                      <Typography component={'span'} variant="body2" color="text.secondary" sx={{ width: 500, paddingLeft: 5, paddingRight: 5, color: 'black' }} fontSize='16px'>
                         <h1>{therapist.first_name} {therapist.last_name}</h1>
                         <h2>{therapist.title}</h2>
                         <hr />
