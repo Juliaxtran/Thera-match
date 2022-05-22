@@ -14,8 +14,8 @@ import HomeNav from '../components/HomeNav';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import { IconButton } from '@mui/material';
 
 function Dashboard() {
 
@@ -117,47 +117,62 @@ function Dashboard() {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
+              <div className='filter-icon-button'>
+                <IconButton>
+                  <FilterAltIcon />
+                </IconButton>
+              </div>
               <h4>Filter by Specialties</h4>
             </AccordionSummary>
-
             <FilterTable
               setSpecialties={setSpecialties}
             />
           </Accordion>
-
-
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
+              <div className='filter-icon-button'>
+                <IconButton>
+                  <FilterAltIcon />
+                </IconButton>
+              </div>
               <h4>Filter by Gender</h4>
             </AccordionSummary>
             <FilterTableByGender
               setGender={setGender}
             />
           </Accordion>
-
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
+              <div className='filter-icon-button'>
+                <IconButton>
+                  <FilterAltIcon />
+                </IconButton>
+              </div>
               <h4>Filter by Session Type</h4>
             </AccordionSummary>
             <FilterTableBySession
               setSession={setSession}
             />
           </Accordion>
-
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
+              <div className='filter-icon-button'>
+                <IconButton>
+                  <FilterAltIcon />
+                </IconButton>
+              </div>
               <h4>Filter by Session Cost</h4>
             </AccordionSummary>
             <FilterPrice
