@@ -4,51 +4,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import axios from "axios";
 
-// const specialties = [
-//   {
-//     type: "Addiction",
-//   },
-//   {
-//     type: "Anxiety"
-//   },
-//   {
-//     type: "Binge Eating Disorder"
-//   },
-//   {
-//     type: "Bulimia"
-//   },
-//   {
-//     type: "Bullying"
-//   },
-//   {
-//     type: "Couples Therapy"
-//   },
-//   {
-//     type: "Depression"
-//   },
-//   {
-//     type: "Divorce"
-//   },
-//   {
-//     type: "Domestic Abuse"
-//   },
-//   {
-//     type: "Drug Abuse"
-//   },
-//   {
-//     type: "Family"
-//   },
-//   {
-//     type: "Grief"
-//   },
-//   {
-//     type: "LGBTQ2S+"
-//   },
-//   {
-//     type: "Sex Therapy"
-//   }
-
-// ];
 
 
 const FilterTableItem = ({ setSpecialties }) => {
@@ -65,8 +20,7 @@ const FilterTableItem = ({ setSpecialties }) => {
 
 
   const onChange = (isChecked, specialtyName) => {
-    // console.log(isChecked);
-    // console.log(specialtyName);
+
 
     setChecked((checked) => {
 
