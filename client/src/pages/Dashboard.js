@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-// import TinderCard from '../react-tinder-card/index'
 import TinderCard from 'react-tinder-card';
 import '../Dashboard.css';
 import Typography from '@mui/material/Typography';
@@ -40,7 +39,7 @@ function Dashboard() {
       })
   }, [specialties, gender, session, minimum, maximum])
 
-  // Pat's Note: I added therapists as second dependecies not sure if it works
+
   const childRefs = useMemo(
     () =>
       Array(therapists.length)
@@ -62,12 +61,9 @@ function Dashboard() {
 
 
   const outOfFrame = (name, idx) => {
-
-    /// Pat's Note: name is undefined
-    console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
+    // console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
     // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
-    // TODO: when quickly swipe and restore multiple times the same card,
     // it happens multiple outOfFrame events are queued and the card disappear
     // during latest swipes. Only the last outOfFrame event should be considered valid
   }
@@ -107,7 +103,6 @@ function Dashboard() {
 
   return (
     <>
-
       <HomeNav />
       <div className='main-dashboard'>
         <div className='filter-tables'>
@@ -200,18 +195,13 @@ function Dashboard() {
                     <CardContent sx={{ display: 'flex', padding: 0, '&:last-child': { pb: 0 } }}>
                       <div
                         style={{ backgroundImage: 'url(' + therapist.image + ')' }}
-                        className='card'
-                      >
+                        className='card' >
                         <h3>{therapist.first_name} {therapist.last_name}</h3>
-
                       </div>
-
                       <Typography component={'span'} variant="body2" color="text.secondary" sx={{ width: 500, paddingLeft: 5, paddingRight: 5, color: 'black' }} fontSize='16px'>
                         <h1>{therapist.first_name} {therapist.last_name}</h1>
                         <h2>{therapist.title}</h2>
                         <hr />
-
-
                         <h3>Location: {therapist.location}</h3>
                         <h3>Session: {therapist.session_type}</h3>
 
@@ -222,9 +212,7 @@ function Dashboard() {
                       </Typography>
                     </CardContent>
                   </Card>
-
                 </TinderCard>
-
               </div>
             ))
             }
