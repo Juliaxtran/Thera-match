@@ -8,8 +8,6 @@ import SideBarTherapists from "./SideBarTherapists"
 
 const HomeNav = ({ setShowModal, showModal, setIsSignUp }) => {
 
-  const atHome = false;
-
   let navigate = useNavigate()
 
 
