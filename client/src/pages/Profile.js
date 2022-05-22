@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import UserContext from "../components/AppContext";
 import { useContext } from "react"
 import { useEffect } from "react";
+import  {AppBar}  from "@mui/material";
 
 
 
@@ -56,8 +57,9 @@ const Profile = () => {
   return (
     <div className="profile">
       <HomeNav />
-
-      <h1>Create your profile </h1>
+      <AppBar position="static" color="inherit">
+      <h1> Profile Page </h1>
+      </AppBar>
 
 
       <form onSubmit={handleSubmit} >

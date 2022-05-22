@@ -2,11 +2,12 @@
 
 .therapist-matches {
 border: 1px solid black;
-width: 450px;
+width: 350px;
 margin: 2em;
 border-radius: 30px;
 display: flex;
 flex-direction:  column;
+padding: 1em;
 }
 
 .therapist-matches button {
@@ -17,5 +18,6 @@ flex-direction:  column;
 
 .therapist-dashboard {
   display: flex;
+  margin-left: 25em;
 }
 

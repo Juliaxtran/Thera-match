@@ -14,7 +14,7 @@ const ChatInput = ({ recipient, setMessages }) => {
     axios.post(`/messages`, { recipient_id, message }, { withCredentials: true })
       .then((data) => {
         setMessages(prev => [...prev, { message: data.data[0].message, user_id: data.data[0].user_id, recipient_id: data.data[0].recipient_id, id: data.data[0].id, name: data.data[0].name }])
-        console.log("dataaaaaaaaaaa", data)
+        setMessage('');
       })
       .catch((e) => console.log(e))
 
@@ -32,7 +32,7 @@ const ChatInput = ({ recipient, setMessages }) => {
           placeholder="Write your message here"
           value={message}
           onChange={(e) => {
-            setMessage(e.target.value)
+            setMessage(e.target.value);
           }} />
 
         <button type="submit" className="primary-button"> Submit </button>

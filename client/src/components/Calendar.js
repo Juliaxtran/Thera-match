@@ -32,6 +32,8 @@ export default function ReactCalendar({recipient}) {
         const success = res.status === 200
         if (success) {
             setNotification( <Alert severity="success"> Appointment has been requested with {therapist_name}</Alert>)
+            const timer = setTimeout(() => setNotification(null), 2000);
+            return () => clearTimeout(timer);
         } else  {
           setNotification("Error has occured when trying to book an appointment. Try again later ")
         }
