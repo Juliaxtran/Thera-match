@@ -8,30 +8,6 @@
 
 }
 
-/*
-.app>div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .row {
-  flex-direction: row !important;
-}
-
-.row>* {
-  margin: 5px;
-} */
-
-/* h1 {
-  color: #fff;
-  text-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.30);
-} */
-
-/* h2 {
-  color: #fff;
-} */
 
 .swipe {
   position: absolute;
@@ -86,10 +62,6 @@
   animation-duration: 800ms;
 }
 
-/* .buttons {
-  margin: -180px;
-  display: flex;
-} */
 .dashboard-buttons {
   display: flex;
   margin-top: -37px;

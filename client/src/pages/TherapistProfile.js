@@ -1,5 +1,5 @@
 import { useState } from "react"
-import '../Profile.css';
+import '../stylesheet/Profile.css';
 import axios from "axios";
 import HomeNav from "../components/HomeNav";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import { useContext } from "react"
 
 const TherapistProfile = () => {
 
-  const {setUser, user} = useContext(UserContext)
+  const { setUser, user } = useContext(UserContext)
 
   const navigate = useNavigate()
   const [error, setError] = useState("");

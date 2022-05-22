@@ -1,7 +1,7 @@
 import HomeNav from "../components/HomeNav";
 import AuthModal from "../components/AuthModal";
 import { useState } from 'react'
-import '../Therapist.css';
+import '../stylesheet/Therapist.css';
 
 
 const TherapistsHome = (props) => {
@@ -33,7 +33,7 @@ const TherapistsHome = (props) => {
             setShowModal={setShowModal}
             isSignUp={isSignUp} />
         )}
-    </div>
+      </div>
     </div>
   )
 }

@@ -2,8 +2,7 @@ import HomeNav from "../components/HomeNav";
 import AuthModal from "../components/AuthModal"
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import '../Home.css';
-
+import '../stylesheet/Home.css'
 
 const Home = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -16,11 +15,11 @@ const Home = (props) => {
     setIsSignUp(true)
   }
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const therapistLogin = () => {
-  navigate ('/therapist')
-}
+  const therapistLogin = () => {
+    navigate('/therapist')
+  }
 
   return (
     <div className="overlay">
@@ -33,17 +32,17 @@ const therapistLogin = () => {
         <h1 >Finding a therapist can be hard ...</h1>
         <h3>We make it easy. Swipe to match with a health professional today.</h3>
         <div className="home-button-container">
-        <button className='primary-button' onClick={handleClick}>
-          {success ? 'Sign Out' : 'Create Account'}
-        </button>
-        <button className='primary-button' onClick={therapistLogin}> For  Therapist </button>
+          <button className='primary-button' onClick={handleClick}>
+            {success ? 'Sign Out' : 'Create Account'}
+          </button>
+          <button className='primary-button' onClick={therapistLogin}> For  Therapist </button>
         </div>
         {showModal && (
           <AuthModal
             setShowModal={setShowModal}
             isSignUp={isSignUp} />
         )}
-    </div>
+      </div>
     </div>
   )
 }

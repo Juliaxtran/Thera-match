@@ -5,9 +5,8 @@
   height: 100vh;
   position: fixed;
   background: linear-gradient(to bottom,
-  rgba(0, 0, 0, 0.65) 0%,
-  rgba(0, 0, 0, 0) 100%
-  ), url('../public/images/other/background2.webp') no-repeat center center fixed;
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0) 100%), url('/public/images/other/background2.webp') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

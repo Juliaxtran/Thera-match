@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import TinderCard from 'react-tinder-card';
-import '../Dashboard.css';
+import '../stylesheet/Dashboard.css';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';

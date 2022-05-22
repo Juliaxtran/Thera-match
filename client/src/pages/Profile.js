@@ -1,12 +1,12 @@
 import { useState } from "react"
-import '../Profile.css';
+import '../stylesheet/Profile.css';
 import axios from "axios";
 import HomeNav from "../components/HomeNav";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../components/AppContext";
 import { useContext } from "react"
 import { useEffect } from "react";
-import  {AppBar}  from "@mui/material";
+import { AppBar } from "@mui/material";
 
 
 
@@ -58,7 +58,7 @@ const Profile = () => {
     <div className="profile">
       <HomeNav />
       <AppBar position="static" color="inherit">
-      <h1> Profile Page </h1>
+        <h1> Profile Page </h1>
       </AppBar>
 
 
