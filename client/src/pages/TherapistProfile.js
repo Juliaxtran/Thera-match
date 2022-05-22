@@ -26,7 +26,7 @@ const TherapistProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post(`http://localhost:9000/therapists/profile`, { formData }, { withCredentials: true })
+      const response = await axios.post(`/therapists/profile`, { formData }, { withCredentials: true })
       const success = response.status === 200
       if (success) navigate('/');
 

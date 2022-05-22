@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 const Profile = () => {
 
-  const {setUser, user} = useContext(UserContext)
+  const { setUser, user } = useContext(UserContext)
 
   const navigate = useNavigate()
   const [error, setError] = useState("");
@@ -21,12 +21,12 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post(`http://localhost:9000/users/profile`, { formData }, { withCredentials: true })
+      const response = await axios.post(`/users/profile`, { formData }, { withCredentials: true })
       const success = response.status === 200
       if (success) {
         navigate('/dashboard');
         setUser(response.data.user);
-       }
+      }
 
 
 
@@ -49,9 +49,9 @@ const Profile = () => {
     }))
   }
 
-useEffect(() => {
-setFormData(user)
-}, [user]);
+  useEffect(() => {
+    setFormData(user)
+  }, [user]);
 
   return (
     <div className="profile">

@@ -10,7 +10,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
 
-  const  {setUser} = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
 
   let navigate = useNavigate()
 
@@ -26,9 +26,9 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
         return
       }
       // If response is success navigate to onboarding - navidat a part of router dom
-      const response = await axios.post(`http://localhost:9000/users/${isSignUp ? 'signup' : 'login'}`, { email, password}, {withCredentials: true})
+      const response = await axios.post(`/users/${isSignUp ? 'signup' : 'login'}`, { email, password }, { withCredentials: true })
       console.log("Data", response.data)
-      if(response.data.user) {
+      if (response.data.user) {
         setUser(response.data.user)
       }
       const success = response.status === 200
