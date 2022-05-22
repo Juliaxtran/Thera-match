@@ -30,9 +30,18 @@ const recipient_user = recipient.user_name
     })
 
     if (message.user_id === user.id) {
-      return (<h2 key={message.id} className={messageClass}>{`You : ${message.message}`}</h2>)
+
+      return (
+        <div className='message-bubble-sender'>
+      <h2 key={message.id} className={messageClass}>{`You : ${message.message}`}</h2>
+      <h2>{message.created_at}</h2>
+      </div>)
     }
-    return (<h2 key={message.id} className={messageClass}>{`${message.user_name} says : ${message.message}`}</h2>)
+    return (
+    <div className='message-bubble-reciever'>
+    <h2 key={message.id} className={messageClass}>{`${message.user_name} says : ${message.message}`}</h2>
+    {message.created_at}
+    </div>)
   })
 
 
