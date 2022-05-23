@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: 13em;
+  margin-left: 4em;
 
 }
 
 /* Chat Container Styling */
 
 .match-container {
-  /* margin: 2em; */
+
   border: solid black 2px;
 
   width: 25em;
@@ -153,4 +153,14 @@
 .message__item-right {
   background-color: #e5e5ea;
   margin-left: .75em;
+}
+
+.message-to-chat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.message-to-chat h3 {
+  color: white;
 }
