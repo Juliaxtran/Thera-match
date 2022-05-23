@@ -19,11 +19,11 @@ const Messages = () => {
       <HomeNav />
       <AppBar  position="static" color="inherit">
         <div className = "message-to-chat">
-        <h3>Hello how are you today..............</h3>
+        <h3>Hello how are you today.........</h3>
         <h1> Messages </h1>
        <Link to ='/chat'>
         {/* <button className="primary-button">Video Chat</button> */}
-        <FaIcons.FaVideo />
+        <FaIcons.FaVideo  />
         </Link>
         </div>
       </AppBar>

@@ -164,3 +164,19 @@
 .message-to-chat h3 {
   color: white;
 }
+
+.message-to-chat svg {
+  stroke: currentcolor;
+  fill: light purple;
+  stroke-width: 0;
+  height: 4em;
+  width: 4em;
+  padding-right: 1em;
+  margin-top: .55em;
+}
+
+.message-to-chat svg:hover {
+  transform: scale(1.2);
+  transition: opacity 0.5s, transform 0.5s;
+  color: rgb(98, 0, 255);
+}
