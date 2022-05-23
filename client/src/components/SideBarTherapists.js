@@ -26,6 +26,12 @@ const SideBarUser = () => {
       path: '/therapist-profile',
       icon: <FaIcons.FaUser />,
       cName: 'nav-text'
+    },
+    {
+      title: 'Forum',
+      path: '/forum',
+      icon: <FaIcons.FaPenSquare />,
+      cName: 'nav-text'
     }
 
   ];
