@@ -10,10 +10,10 @@ import '../Forum.css';
 const Forum = () => {
   return (
     <>
-    < HomeNav />
+      < HomeNav />
       {/* <TopBar /> */}
       {/* <Header /> */}
-      < SideBarUser />
+
       <div className="blogHome">
         <Posts />
 
