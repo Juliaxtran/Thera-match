@@ -21,9 +21,9 @@ const VideoChat = () => {
           <h3></h3>
           <h1 className="video-chat-header">Video Chat</h1>
           {user.type === "therapist" ? <Link to='/therapist-dashboard'>
-            <FaIcons.FaEnvelopeOpenText />
+            <FaIcons.FaEnvelope />
           </Link> : <Link to='/messages'>
-            <FaIcons.FaEnvelopeOpenText />
+            <FaIcons.FaEnvelope />
           </Link>}
         </div >
       </AppBar>
