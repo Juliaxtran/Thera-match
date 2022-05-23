@@ -19,6 +19,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-date-picker": "^8.4.0",
     "react-dom": "^18.1.0",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-tinder-card": "^1.4.5",
