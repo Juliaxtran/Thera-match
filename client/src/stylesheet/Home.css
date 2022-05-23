@@ -5,7 +5,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  text-align: center;
+  text-align: center !important;
 }
 
 * {
@@ -55,7 +55,6 @@ body {
   border: solid 2px lightblue;
 }
 
-
 /* ----- Home Nav Bar ------ */
 
 .home-nav {
@@ -65,8 +64,6 @@ body {
   justify-content: space-between;
   background: linear-gradient(45deg, lightblue, rgb(104, 104, 214));
   width: 100%;
-
-
 }
 
 .logo-container {
@@ -84,7 +81,6 @@ body {
   width: 6em;
 }
 
-
 /* ----- Home Page ------- */
 
 .overlay {
@@ -99,7 +95,6 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
-
 
 .auth-container {
   margin-top: 30vh;
@@ -133,7 +128,6 @@ h3 {
   border-radius: 10px;
   border: solid 2px black;
   padding: 40px;
-
 }
 
 .auth-modal>h2 {

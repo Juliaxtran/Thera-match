@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import '../stylesheet/Home.css'
 
-const Home = (props) => {
+const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [isSignUp, setIsSignUp] = useState(true)
 

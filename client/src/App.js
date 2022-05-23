@@ -7,14 +7,13 @@ import Profile from './pages/Profile';
 import Messages from './pages/Messages';
 import TherapistsHome from './pages/TherapistsHome';
 import TherapistProfile from './pages/TherapistProfile';
+import Forum from './pages/Forum';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserContext from './components/AppContext';
 import TherapistDashboard from './pages/TherapistDashboard';
 import VideoChat from './pages/VideoChat';
 import { ContextProvider } from './components/SocketContext';
-
-
 
 
 function App() {
@@ -47,6 +46,7 @@ function App() {
             <Route path={"/therapist"} element={<TherapistsHome />} />
             <Route path={"/therapist-dashboard"} element={<TherapistDashboard />} />
             <Route path={"/chat"} element={<VideoChat />} />
+            <Route path={"/forum"} element={<Forum />} />
           </Routes>
         </BrowserRouter>
       </ContextProvider>
