@@ -1,7 +1,6 @@
-import Post from "../post/Post";
-import PostTwo from "../post/PostTwo";
-
-import "./posts.css";
+import Post from "./Post";
+import PostTwo from "../components/PostTwo";
+import "../posts.css";
 
 export default function Posts() {
   return (
