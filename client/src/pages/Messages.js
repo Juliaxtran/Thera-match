@@ -22,7 +22,6 @@ const Messages = () => {
         <h3>Hello how are you today.........</h3>
         <h1> Messages </h1>
        <Link to ='/chat'>
-        {/* <button className="primary-button">Video Chat</button> */}
         <FaIcons.FaVideo  />
         </Link>
         </div>
