@@ -14,7 +14,6 @@ module.exports = (db, dbQueries) => {
     dbQueries.getUserByEmail(email, db)
       .then(user => {
         if (user) {
-          console.log('RD user', user.password);
           bcrypt.compare(req.body.password, user.password, function (err, response) {
             if (err) {
               return res.status(401).send({

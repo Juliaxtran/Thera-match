@@ -12,7 +12,7 @@ import * as FaIcons from 'react-icons/fa';
 
 const TherapistDashboard = () => {
   const [recipient, setRecipient] = useState({});
-  console.log("Clicked user", recipient)
+ 
   return (
     <div>
       <HomeNav />

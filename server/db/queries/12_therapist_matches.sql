@@ -17,6 +17,4 @@ Promise.all([
   connection.queryAsync('SELECT * FROM analysis').then(rows => result.analysis = rows),
   connection.queryAsync('SELECT * FROM analysis_description').then(rows => result.analysis_description = rows)
 ]).then(function(result){
-  console.log(result);
-  console.log("result");
 }).catch(e => console.error(e));

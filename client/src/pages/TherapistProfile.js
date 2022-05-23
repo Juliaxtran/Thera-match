@@ -46,7 +46,7 @@ const TherapistProfile = () => {
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
     const name = e.target.name
-    console.log("value", value, "name", name)
+  
 
     setFormData((prevState) => ({
       ...prevState,

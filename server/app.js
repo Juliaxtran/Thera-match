@@ -51,7 +51,6 @@ app.get('/api/profile', (req, res) => {
       return res.json(data.rows[0]);
     })
   } else {
-    console.log("No sessions")
     return res.status(400).send("No user info")
   }
 })

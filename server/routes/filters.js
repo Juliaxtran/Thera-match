@@ -7,7 +7,6 @@ module.exports = (db) => {
     const command = "SELECT * from specialties;";
 
     db.query(command).then(data => {
-      console.log(data, "Data");
       res.json(data.rows);
     })
   });

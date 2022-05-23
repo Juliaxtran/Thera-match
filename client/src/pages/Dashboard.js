@@ -60,7 +60,7 @@ function Dashboard() {
   const canSwipe = currentIndex >= 0;
 
   const outOfFrame = (name, idx) => {
-    // console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
+  
     // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
     // it happens multiple outOfFrame events are queued and the card disappear

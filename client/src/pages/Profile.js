@@ -41,8 +41,7 @@ const Profile = () => {
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
-    const name = e.target.name
-    console.log("value", value, "name", name)
+    const name = e.target.name;
 
     setFormData((prevState) => ({
       ...prevState,

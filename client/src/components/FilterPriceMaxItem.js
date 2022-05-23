@@ -12,8 +12,7 @@ const FilterPriceMaxItem = ({ setMaximum }) => {
   const [checked, setChecked] = useState([]);
 
   const onChange = (isChecked, specialtyName) => {
-    // console.log(isChecked);
-    // console.log(specialtyName);
+ 
 
     setChecked((checked) => {
 
