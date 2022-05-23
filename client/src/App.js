@@ -46,6 +46,7 @@ function App() {
             <Route path={"/therapist"} element={<TherapistsHome />} />
             <Route path={"/therapist-dashboard"} element={<TherapistDashboard />} />
             <Route path={"/chat"} element={<VideoChat />} />
+            <Route path={"/forum"} element={<Forum />} />
           </Routes>
         </BrowserRouter>
       </ContextProvider>
