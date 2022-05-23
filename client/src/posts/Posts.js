@@ -1,13 +1,15 @@
 import Post from "../post/Post";
+import PostTwo from "../post/PostTwo";
+
 import "./posts.css";
 
 export default function Posts() {
   return (
     <div>
       <Post />
+      <PostTwo />
       <Post />
-      <Post />
-      <Post />
+      <PostTwo />
       <Post />
     </div>
   )
