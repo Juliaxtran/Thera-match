@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
-const { response } = require('express');
+
 
 
 module.exports = (db, dbQueries) => {
@@ -16,9 +16,6 @@ module.exports = (db, dbQueries) => {
     dbQueries.getTherapistByEmail(email, db)
       .then(therapist => {
         if (req.body.password === therapist.password) {
-
-          console.log('RD user', therapist.password);
-
           req.session.id = therapist.id;
           res.status(200).send("Success!");
 
@@ -90,7 +87,6 @@ module.exports = (db, dbQueries) => {
     const command = "SELECT concat(users.first_name,' ', users.last_name) as name, review  from reviews join users on user_id = users.id;"
 
     db.query(command).then(data => {
-      console.log(data, "Data");
       res.json(data.rows);
     })
   });

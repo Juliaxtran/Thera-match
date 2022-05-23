@@ -23,7 +23,6 @@ module.exports = (db) => {
     const command = "SELECT message, messages.user_id, recipient_id, messages.id as id, users.first_name as user_name, users.first_name as recipient_name, created_at from messages  left join users  on users.id = messages.user_id  where conversation_id = $1 ";
     values = [conversation_id]
     db.query(command, values).then(data => {
-      console.log("data", data)
       res.json(data.rows);
     })
   });
@@ -39,7 +38,6 @@ module.exports = (db) => {
     values = [user_id, recipient_id, message, conversation_id]
     db.query(command, values).then(data => {
       res.status(200).json(data.rows);
-      console.log("Data", data.rows);
     })
   });
 
