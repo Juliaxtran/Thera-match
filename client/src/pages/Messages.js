@@ -5,6 +5,8 @@ import Calendar from "../components/Calendar"
 import { useState } from "react"
 import '../stylesheet/Messages.css'
 import { AppBar } from "@mui/material";
+import { Link } from "react-router-dom"
+import * as FaIcons from 'react-icons/fa';
 
 
 
@@ -15,8 +17,14 @@ const Messages = () => {
   return (
     <>
       <HomeNav />
-      <AppBar position="static" color="inherit">
+      <AppBar  position="static" color="inherit">
+        <div className = "message-to-chat">
+        <h3>Hello how are you today.........</h3>
         <h1> Messages </h1>
+       <Link to ='/chat'>
+        <FaIcons.FaVideo  />
+        </Link>
+        </div>
       </AppBar>
       <div className="messages-page">
         <MatchContainer setRecipient={setRecipient} />
