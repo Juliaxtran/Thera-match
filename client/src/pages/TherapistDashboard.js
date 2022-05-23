@@ -17,12 +17,12 @@ const TherapistDashboard = () => {
     <div>
       <HomeNav />
       <AppBar position="static" color="inherit">
-      <div className = "message-to-chat">
-        <h3>Hello how are you today.........</h3>
-        <h1>Therapist Dashboard</h1>
-        <Link to ='/chat'>
-        <FaIcons.FaVideo  />
-        </Link>
+        <div className="message-to-chat">
+          <h3>Hello how are you today.........</h3>
+          <h1>Therapist Dashboard</h1>
+          <Link to='/chat'>
+            <FaIcons.FaVideo />
+          </Link>
         </div>
       </AppBar>
       <div className='therapist-dashboard'>
