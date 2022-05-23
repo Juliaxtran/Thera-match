@@ -43,8 +43,8 @@ To allow Thera-match to run locally on your computer follow the steps below:
 ## Screenshots
 
 !["Screenshot of Thera-Match homepage"](https://github.com/Juliaxtran/Thera-match/blob/master/docs/Thera-Match%20Homepage.png?raw=true)
-!["Screenshot of Thera-Match user messaging page"](https://github.com/Juliaxtran/Thera-match/blob/master/docs/Thera-Match%20Messages.png?raw=true)
 !["Screenshot of Thera-Match user dashboard"](https://github.com/Juliaxtran/Thera-match/blob/master/docs/Thera-Match%20Dashboard.png?raw=true)
+!["Screenshot of Thera-Match user messaging page"](https://github.com/Juliaxtran/Thera-match/blob/master/docs/Thera-Match%20Messages.png?raw=true)
 !["Screenshot of Thera-Match user video-chat"]()
 
 
