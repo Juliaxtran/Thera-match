@@ -1,11 +1,11 @@
-require("dotenv").config();
+
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilio = require('twilio');
+console.log("Twilio Account ID", accountSid);
+console.log("twilio Auth token", authToken);
 const client = new twilio(accountSid, authToken);
-
-
-const sendBooking = function( customer_name , therapist_name , phone, date ) {
+const sendBooking = function (customer_name, therapist_name, phone, date) {
   console.log("sending message...");
   client.messages
     .create({
@@ -18,6 +18,4 @@ const sendBooking = function( customer_name , therapist_name , phone, date ) {
       console.log(err);
     });
 };
-
-
-module.exports =  sendBooking ;
+module.exports = sendBooking;
