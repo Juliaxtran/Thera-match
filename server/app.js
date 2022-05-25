@@ -33,7 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-console.log("HELLOOOOOOOOOO");
 const BUILD_PATH = path.resolve('../client/build');
 //serve static files from front end build folder
 app.use(express.static(BUILD_PATH));
